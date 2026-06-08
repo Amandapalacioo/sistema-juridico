@@ -363,14 +363,14 @@ function renderRecoverPassword(emailValue = '') {
           <input
             id="recover-email"
             class="recover-input"
-            type="email"
+            type="text"
             placeholder="exemplo@jurisdoc.com.br"
             value="${emailValue}"
           />
         </div>
       </div>
 
-      <button id="btn-recuperar" class="recover-button">
+      <button type="button" id="btn-recuperar" class="recover-button">
         Recuperar
       </button>
 
@@ -418,7 +418,7 @@ function renderRecoverPasswordInvalid(emailValue = '') {
           <input
             id="recover-email"
             class="recover-input recover-input-error"
-            type="email"
+            type="text"
             placeholder="exemplo@lexdocs.com.br"
             value="${emailValue}"
           />
@@ -430,7 +430,7 @@ function renderRecoverPasswordInvalid(emailValue = '') {
         </div>
       </div>
 
-      <button id="btn-recuperar" class="recover-button">
+      <button type="button" id="btn-recuperar" class="recover-button">
         Recuperar
       </button>
 
@@ -484,7 +484,7 @@ function renderRecoverPasswordSuccess(emailValue = '') {
             <div class="recover-success-input-wrap">
               <input
                 class="recover-success-input"
-                type="email"
+                type="text"
                 value="${emailValue}"
                 readonly
               />
