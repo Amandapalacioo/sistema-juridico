@@ -1,19 +1,89 @@
-/* Container Principal do Dash */
-.dashboard-page { display: flex; width: 1920px; height: 1024px; position: relative; background: #F8F9FA; }
+/* --- Base Layout --- */
+.dashboard-page {
+    display: flex;
+    width: 1920px;
+    height: 1024px;
+    background: #F8F9FA;
+    position: relative;
+    overflow: hidden;
+}
 
-/* Sidebar Esquerda */
-.sidebar { width: 256px; height: 1024px; background: #F1F5F9; padding: 32px 24px; border-right: 1px solid #E2E8F0; }
-.logo-title { font-size: 18px; font-weight: 800; color: #312E81; letter-spacing: -0.9px; }
-.nav-section { margin-top: 48px; }
-.nav-link { height: 48px; display: flex; align-items: center; padding: 12px 16px; cursor: pointer; color: #475569; border-radius: 4px; }
-.nav-active { background: #FFFFFF; color: #3730A3; font-weight: 700; box-shadow: 0px 1px 2px rgba(0,0,0,0.05); }
+/* --- Sidebar --- */
+.sidebar {
+    width: 256px;
+    height: 1024px;
+    background: #F1F5F9;
+    padding: 32px 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
 
-/* Conteúdo Principal */
-.main-canvas { width: 1664px; height: 1024px; padding: 64px 32px; }
+.jurisdoc-title { font-weight: 800; font-size: 18px; color: #312E81; letter-spacing: -0.9px; }
+.sub-title { font-weight: 500; font-size: 12px; color: #64748B; text-transform: uppercase; letter-spacing: 1.2px; }
 
-/* Bento Grid */
-.bento-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 32px; width: 1600px; }
-.stat-card { background: #FFFFFF; padding: 24px; border-radius: 8px; box-shadow: 0px 1px 2px rgba(0,0,0,0.05); position: relative; }
-.stat-card h3 { font-size: 36px; font-weight: 800; color: #2B3437; }
-.stat-card p { font-size: 14px; font-weight: 600; color: #586064; margin-top: 4px; }
+.nav-link {
+    display: flex; align-items: center; padding: 12px 16px; gap: 12px;
+    height: 48px; border-radius: 4px; cursor: pointer; color: #475569;
+}
+.nav-link.active { background: #FFFFFF; color: #4338CA; font-weight: 600; box-shadow: 0px 1px 2px rgba(0,0,0,0.05); }
 
+/* --- Main Canvas --- */
+.main-canvas {
+    width: 1664px;
+    height: 1024px;
+    display: flex;
+    flex-direction: column;
+    padding: 32px;
+    gap: 32px;
+}
+
+/* --- Page Header --- */
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 1600px;
+    height: 60px;
+}
+
+.title-text { font-weight: 700; font-size: 30px; color: #2B3437; letter-spacing: -0.75px; }
+
+/* --- Bento Grid --- */
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    width: 1600px;
+    height: 217px;
+}
+
+.stat-card {
+    background: #FFFFFF;
+    padding: 24px;
+    border-radius: 8px;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.stat-value { font-weight: 800; font-size: 36px; color: #2B3437; }
+.stat-label { font-weight: 600; font-size: 14px; color: #586064; }
+
+/* --- Tabela --- */
+.table-container {
+    width: 1600px;
+    background: #FFFFFF;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+    padding-top: 16px;
+}
+
+.table-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+    padding: 20px 24px;
+    align-items: center;
+    border-top: 1px solid #F1F4F6;
+}
