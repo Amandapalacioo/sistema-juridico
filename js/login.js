@@ -21,13 +21,14 @@ function renderLogin(error = false) {
     </div>`;
 
     document.getElementById('btn-entrar').onclick = () => {
-        const email = document.getElementById('email').value;
-        // Validação simples para teste do fluxo
-        if(email === "admin") {
-            renderDashboard();
-        } else {
-            renderLogin(true);
-        }
-    };
+    const email = document.getElementById('email').value.toLowerCase();
+    
+    // Validação: aceita qualquer e-mail que termine com @jurisdoc.com.br
+    if (email.endsWith('@jurisdoc.com.br')) {
+        renderDashboard(); 
+    } else {
+        renderLogin(true); // Se não for do domínio, recarrega o login com erro
+    }
+};
 }
 
