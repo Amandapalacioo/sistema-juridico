@@ -1,34 +1,35 @@
 function renderLogin(error = false) {
-    const app = document.getElementById('app');
     app.innerHTML = `
     <div class="login-page">
         <div class="login-card">
             <div class="login-left">
-                <h2>JurisDoc</h2>
-                <p>O arquivo institucional definitivo para gestão jurídica segura e eficiente.</p>
+                <div>
+                    <h2 style="font-size:18px;">JurisDoc</h2>
+                    <p style="color:#E2E8F0;">O arquivo institucional para gestão jurídica segura.</p>
+                </div>
             </div>
             <div class="login-right">
-                ${error ? `<div class="error-msg-box">E-mail inválido ou não cadastrado.</div>` : ''}
-                <h2>Recuperar Senha</h2>
-                <p>Informe seu e-mail institucional.</p>
-                <div>
-                    <label>E-MAIL INSTITUCIONAL</label>
-                    <input type="email" id="email" class="login-input" placeholder="exemplo@lexdocs.com.br">
+                <h2 style="margin-bottom:24px;">Acesse sua conta</h2>
+                ${error ? `<p style="color:red; font-size:12px;">E-mail inválido. Use @jurisdoc.com.br</p>` : ''}
+                <div class="input-group">
+                    <label class="input-label">Endereço de E-mail</label>
+                    <input type="email" id="email" class="login-input" placeholder="seu@jurisdoc.com.br">
                 </div>
-                <button class="btn-login" id="btn-entrar">Enviar Link</button>
+                <div class="input-group">
+                    <label class="input-label">Senha</label>
+                    <input type="password" class="login-input" placeholder="Sua senha">
+                </div>
+                <button class="btn-entrar" id="btn-entrar">Entrar</button>
             </div>
         </div>
     </div>`;
 
     document.getElementById('btn-entrar').onclick = () => {
-    const email = document.getElementById('email').value.toLowerCase();
-    
-    // Validação: aceita qualquer e-mail que termine com @jurisdoc.com.br
-    if (email.endsWith('@jurisdoc.com.br')) {
-        renderDashboard(); 
-    } else {
-        renderLogin(true); // Se não for do domínio, recarrega o login com erro
-    }
-};
+        const email = document.getElementById('email').value.toLowerCase();
+        if (email.endsWith('@jurisdoc.com.br')) {
+            renderDashboard();
+        } else {
+            renderLogin(true);
+        }
+    };
 }
-
