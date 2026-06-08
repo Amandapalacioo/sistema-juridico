@@ -347,39 +347,38 @@ function renderLoginProcessando(emailValue = '') {
     }
   }, 1200);
 }
-function renderRecoverPassword() {
+function renderRecoverPassword(emailValue = '') {
   const app = document.getElementById('app');
 
   app.innerHTML = getLoginLayout(`
-    <div class="login-form-wrap">
-      <div class="login-title" style="font-size:24px; line-height:32px; font-weight:600; color:#1E3A5F; margin-bottom:8px;">
-        Recuperar Senha
-      </div>
-
-      <div style="font-family:'Inter', sans-serif; font-size:16px; line-height:24px; color:#475569; margin-bottom:24px;">
+    <div class="login-form-wrap recover-mode">
+      <div class="recover-title">Recuperar Senha</div>
+      <div class="recover-subtitle">
         Informe seu e-mail institucional para receber o link de redefinição.
       </div>
 
       <div class="login-field">
-        <label class="login-field-label">E-mail institucional</label>
-        <div class="login-input-wrap">
+        <label class="recover-label">E-mail institucional</label>
+        <div class="recover-input-wrap">
           <input
             id="recover-email"
-            class="login-input"
+            class="recover-input"
             type="email"
             placeholder="exemplo@jurisdoc.com.br"
-            style="padding-left:16px;"
+            value="${emailValue}"
           />
         </div>
       </div>
 
-      <button id="btn-recuperar" class="login-button">Recuperar</button>
+      <button id="btn-recuperar" class="recover-button">
+        Recuperar
+      </button>
 
-      <div style="margin-top:16px;">
-        <a href="#" id="back-to-login" class="login-link">← Voltar para login</a>
+      <div class="recover-back-wrap">
+        <a href="#" id="back-to-login" class="recover-back-link">← Voltar para login</a>
       </div>
 
-      <div class="login-bottom-help">
+      <div class="recover-help">
         Não tem uma conta ou precisa de ajuda? Fale com o administrador.
       </div>
     </div>
@@ -393,11 +392,131 @@ function renderRecoverPassword() {
   document.getElementById('btn-recuperar').onclick = () => {
     const email = document.getElementById('recover-email').value.toLowerCase().trim();
 
-    if (!email.endsWith('@jurisdoc.com.br')) {
-      alert('E-mail inválido para recuperação.');
+    if (!email || !email.endsWith('@jurisdoc.com.br')) {
+      renderRecoverPasswordInvalid(email);
       return;
     }
 
-    alert('Fluxo de recuperação iniciado com sucesso.');
+    renderRecoverPasswordSuccess(email);
   };
 }
+
+function renderRecoverPasswordInvalid(emailValue = '') {
+  const app = document.getElementById('app');
+
+  app.innerHTML = getLoginLayout(`
+    <div class="login-form-wrap recover-mode">
+      <div class="recover-title">Recuperar Senha</div>
+      <div class="recover-subtitle">
+        Informe seu e-mail institucional para receber o link de redefinição.
+      </div>
+
+      <div class="login-field">
+        <label class="recover-label">E-mail institucional</label>
+
+        <div class="recover-input-wrap recover-input-wrap-error">
+          <input
+            id="recover-email"
+            class="recover-input recover-input-error"
+            type="email"
+            placeholder="exemplo@lexdocs.com.br"
+            value="${emailValue}"
+          />
+          <div class="recover-input-error-icon"></div>
+        </div>
+
+        <div class="recover-error-box">
+          E-mail inválido ou não cadastrado.
+        </div>
+      </div>
+
+      <button id="btn-recuperar" class="recover-button">
+        Recuperar
+      </button>
+
+      <div class="recover-back-wrap">
+        <a href="#" id="back-to-login-invalid" class="recover-back-link">← Voltar para login</a>
+      </div>
+
+      <div class="recover-help">
+        Não tem uma conta ou precisa de ajuda? Fale com o administrador.
+      </div>
+    </div>
+  `);
+
+  document.getElementById('back-to-login-invalid').onclick = (e) => {
+    e.preventDefault();
+    renderLogin();
+  };
+
+  document.getElementById('btn-recuperar').onclick = () => {
+    const email = document.getElementById('recover-email').value.toLowerCase().trim();
+
+    if (!email || !email.endsWith('@jurisdoc.com.br')) {
+      renderRecoverPasswordInvalid(email);
+      return;
+    }
+
+    renderRecoverPasswordSuccess(email);
+  };
+}
+
+function renderRecoverPasswordSuccess(emailValue = '') {
+  const app = document.getElementById('app');
+
+  app.innerHTML = getLoginLayout(`
+    <div class="recover-success-shell">
+      <div class="recover-success-card">
+        <div class="recover-success-banner">
+          <div class="recover-success-banner-icon"></div>
+          <div class="recover-success-banner-text">
+            Solicitação registrada com sucesso.
+          </div>
+        </div>
+
+        <div class="recover-success-content">
+          <div class="recover-success-message">
+            Se o e-mail informado estiver em nossa base de dados, você receberá instruções para redefinir sua senha em instantes.
+          </div>
+
+          <div class="recover-success-field">
+            <label class="recover-success-field-label">E-mail</label>
+            <div class="recover-success-input-wrap">
+              <input
+                class="recover-success-input"
+                type="email"
+                value="${emailValue}"
+                readonly
+              />
+              <div class="recover-success-lock"></div>
+            </div>
+          </div>
+
+          <div class="recover-success-actions">
+            <button id="btn-open-email" class="recover-success-primary">
+              Abrir e-mail
+            </button>
+
+            <a href="#" id="back-to-login-success" class="recover-success-secondary">
+              ← Voltar para login
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="recover-help recover-help-success">
+        Não tem uma conta ou precisa de ajuda? Fale com o administrador.
+      </div>
+    </div>
+  `);
+
+  document.getElementById('back-to-login-success').onclick = (e) => {
+    e.preventDefault();
+    renderLogin();
+  };
+
+  document.getElementById('btn-open-email').onclick = () => {
+    alert('Simulação: abrir aplicativo de e-mail.');
+  };
+}
+
