@@ -1,39 +1,40 @@
-/* Página de Login - Centralizada */
-.login-page { 
-    position: absolute; width: 1920px; height: 1080px; 
-    background: linear-gradient(0deg, #FAF8FF, #FAF8FF), #FFFFFF; 
-    display: flex; justify-content: center; align-items: center; 
+body { margin: 0; padding: 0; background: linear-gradient(0deg, #FAF8FF, #FAF8FF), #FFFFFF; }
+
+.login-page {
+    display: flex; justify-content: center; align-items: center;
+    width: 1920px; height: 1100px; position: relative;
 }
 
-/* Card Principal */
-.login-card { 
-    width: 1000px; height: 553px; background: #FFFFFF; 
-    border: 1px solid #C4C6CF; box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05); 
-    display: flex; border-radius: 4px;
+.login-card {
+    display: flex; width: 1000px; height: 476px;
+    background: #FFFFFF; border: 1px solid #C4C6CF; 
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05); border-radius: 4px;
 }
 
-/* Esquerda - Institucional */
-.login-left { 
-    width: 499px; height: 551px; background: #4C56AF; 
-    padding: 32px; display: flex; flex-direction: column; 
-    justify-content: space-between; color: white;
+/* Painel Esquerdo (Institucional) */
+.login-left {
+    width: 499px; background: #4C56AF; padding: 32px;
+    display: flex; flex-direction: column; justify-content: space-between;
+    color: #FFFFFF;
 }
 
-/* Direita - Formulário */
-.login-right { 
-    width: 501px; padding: 32px; display: flex; 
-    flex-direction: column; justify-content: center; gap: 24px;
-}
-.login-input { 
-    width: 435px; height: 43px; padding: 10px 16px; 
-    border: 2px solid #C4C6CF; border-radius: 4px; margin-top: 8px;
-}
-.btn-login { 
-    width: 435px; height: 56px; background: #312E81; 
-    color: white; border: none; border-radius: 4px; font-weight: 400; cursor: pointer;
-}
-.error-msg-box { 
-    background: rgba(186, 26, 26, 0.05); border-left: 2px solid #BA1A1A; 
-    padding: 8px; color: #BA1A1A; width: 435px;
+/* Painel Direito (Formulário) */
+.login-right {
+    width: 499px; padding: 32px; display: flex; flex-direction: column;
 }
 
+.input-group { margin-bottom: 24px; }
+.input-label { 
+    font-size: 13px; font-weight: 600; color: #131B2E; 
+    letter-spacing: 1.3px; text-transform: uppercase; margin-bottom: 4px; display: block;
+}
+.login-input {
+    width: 435px; height: 42px; background: #FAF8FF;
+    border: 1px solid #C4C6CF; border-radius: 4px; padding: 8px 16px;
+}
+
+.btn-entrar {
+    width: 435px; height: 58px; background: #312E81;
+    color: #FFFFFF; border: none; border-radius: 4px; font-weight: 600;
+    font-size: 16px; cursor: pointer; text-transform: uppercase;
+}
