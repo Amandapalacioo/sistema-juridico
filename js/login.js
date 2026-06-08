@@ -349,3 +349,57 @@ function renderLoginProcessando(emailValue = '') {
     }
   }, 1200);
 }
+function renderRecoverPassword() {
+  const app = document.getElementById('app');
+
+  app.innerHTML = getLoginLayout(`
+    <div class="login-form-wrap">
+      <div class="login-title" style="font-size:24px; line-height:32px; font-weight:600; color:#1E3A5F; margin-bottom:8px;">
+        Recuperar Senha
+      </div>
+
+      <div style="font-family:'Inter', sans-serif; font-size:16px; line-height:24px; color:#475569; margin-bottom:24px;">
+        Informe seu e-mail institucional para receber o link de redefinição.
+      </div>
+
+      <div class="login-field">
+        <label class="login-field-label">E-mail institucional</label>
+        <div class="login-input-wrap">
+          <input
+            id="recover-email"
+            class="login-input"
+            type="email"
+            placeholder="exemplo@jurisdoc.com.br"
+            style="padding-left:16px;"
+          />
+        </div>
+      </div>
+
+      <button id="btn-recuperar" class="login-button">Recuperar</button>
+
+      <div style="margin-top:16px;">
+        <a href="#" id="back-to-login" class="login-link">← Voltar para login</a>
+      </div>
+
+      <div class="login-bottom-help">
+        Não tem uma conta ou precisa de ajuda? Fale com o administrador.
+      </div>
+    </div>
+  `);
+
+  document.getElementById('back-to-login').onclick = (e) => {
+    e.preventDefault();
+    renderLogin();
+  };
+
+  document.getElementById('btn-recuperar').onclick = () => {
+    const email = document.getElementById('recover-email').value.toLowerCase().trim();
+
+    if (!email.endsWith('@jurisdoc.com.br')) {
+      alert('E-mail inválido para recuperação.');
+      return;
+    }
+
+    alert('Fluxo de recuperação iniciado com sucesso.');
+  };
+}
