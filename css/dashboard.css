@@ -1,89 +1,1465 @@
-/* --- Base Layout --- */
-.dashboard-page {
-    display: flex;
-    width: 1920px;
-    height: 1024px;
-    background: #F8F9FA;
-    position: relative;
-    overflow: hidden;
-}
+/* Login - Efetuar Login */
 
-/* --- Sidebar --- */
-.sidebar {
-    width: 256px;
-    height: 1024px;
-    background: #F1F5F9;
-    padding: 32px 24px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
+position: relative;
+width: 1920px;
+height: 1100px;
 
-.jurisdoc-title { font-weight: 800; font-size: 18px; color: #312E81; letter-spacing: -0.9px; }
-.sub-title { font-weight: 500; font-size: 12px; color: #64748B; text-transform: uppercase; letter-spacing: 1.2px; }
+background: linear-gradient(0deg, #FAF8FF, #FAF8FF), #FFFFFF;
 
-.nav-link {
-    display: flex; align-items: center; padding: 12px 16px; gap: 12px;
-    height: 48px; border-radius: 4px; cursor: pointer; color: #475569;
-}
-.nav-link.active { background: #FFFFFF; color: #4338CA; font-weight: 600; box-shadow: 0px 1px 2px rgba(0,0,0,0.05); }
 
-/* --- Main Canvas --- */
-.main-canvas {
-    width: 1664px;
-    height: 1024px;
-    display: flex;
-    flex-direction: column;
-    padding: 32px;
-    gap: 32px;
-}
+/* Main */
 
-/* --- Page Header --- */
-.header-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    width: 1600px;
-    height: 60px;
-}
+/* Layout automático */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 100px 16px;
 
-.title-text { font-weight: 700; font-size: 30px; color: #2B3437; letter-spacing: -0.75px; }
+position: absolute;
+height: 733px;
+left: -22px;
+right: 22px;
+top: 183px;
 
-/* --- Bento Grid --- */
-.bento-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-    width: 1600px;
-    height: 217px;
-}
 
-.stat-card {
-    background: #FFFFFF;
-    padding: 24px;
-    border-radius: 8px;
-    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-}
 
-.stat-value { font-weight: 800; font-size: 36px; color: #2B3437; }
-.stat-label { font-weight: 600; font-size: 14px; color: #586064; }
+/* Background+Border+Shadow */
 
-/* --- Tabela --- */
-.table-container {
-    width: 1600px;
-    background: #FFFFFF;
-    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
-    border-radius: 8px;
-    padding-top: 16px;
-}
+box-sizing: border-box;
 
-.table-row {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
-    padding: 20px 24px;
-    align-items: center;
-    border-top: 1px solid #F1F4F6;
-}
+/* Layout automático */
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 0px;
+
+width: 1000px;
+max-width: 1000px;
+height: 476px;
+
+background: #FFFFFF;
+border: 1px solid #C4C6CF;
+box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+border-radius: 4px;
+
+/* Auto layout por dentro */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Background */
+
+/* Layout automático */
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+align-items: flex-start;
+padding: 32px;
+gap: 65.5px;
+isolation: isolate;
+
+width: 499px;
+height: 474px;
+
+background: #4C56AF;
+
+/* Auto layout por dentro */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 1;
+
+
+/* Gradient */
+
+position: absolute;
+left: 0px;
+right: 0px;
+top: 0px;
+bottom: 0px;
+
+background: radial-gradient(129.64% 129.64% at -4116.67% -4116.67%, rgba(255, 255, 255, 0.1) 1.61%, rgba(255, 255, 255, 0) 1.61%);
+opacity: 0.2;
+
+/* Auto layout por dentro */
+flex: none;
+order: 0;
+flex-grow: 0;
+z-index: 0;
+
+
+/* Container */
+
+/* Layout automático */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+gap: 16px;
+
+width: 435px;
+height: 92px;
+
+
+/* Auto layout por dentro */
+flex: none;
+order: 1;
+align-self: stretch;
+flex-grow: 0;
+z-index: 1;
+
+
+/* Heading 2 */
+
+/* Layout automático */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+
+width: 435px;
+height: 28px;
+
+
+/* Auto layout por dentro */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* JurisDoc */
+
+width: 208px;
+height: 28px;
+
+font-family: 'Manrope';
+font-style: normal;
+font-weight: 800;
+font-size: 18px;
+line-height: 28px;
+/* idêntico à altura da caixa ou 156% */
+display: flex;
+align-items: center;
+letter-spacing: -0.9px;
+
+color: #FFFFFF;
+
+
+/* Auto layout por dentro */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Container */
+
+/* Layout automático */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+
+width: 384px;
+max-width: 384px;
+height: 48px;
+
+
+/* Auto layout por dentro */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* O arquivo institucional definitivo para gestão jurídica segura e eficiente. */
+
+width: 336.44px;
+height: 48px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 24px;
+/* ou 150% */
+display: flex;
+align-items: center;
+
+color: #E2E8F0;
+
+
+/* Auto layout por dentro */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Margin */
+
+/* Layout automático */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 32px 0px 0px;
+
+width: 435px;
+height: 160px;
+
+
+/* Auto layout por dentro */
+flex: none;
+order: 2;
+align-self: stretch;
+flex-grow: 0;
+z-index: 2;
+
+
+/* Margin */
+
+/* Layout automático */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 48px 0px 16px;
+
+width: 435px;
+height: 85px;
+
+
+/* Auto layout por dentro */
+flex: none;
+order: 3;
+align-self: stretch;
+flex-grow: 0;
+z-index: 3;
+
+
+/* Container */
+
+/* Layout automático */
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: flex-start;
+padding: 32px;
+
+width: 499px;
+height: 474px;
+
+
+/* Auto layout por dentro */
+flex: none;
+order: 1;
+align-self: stretch;
+flex-grow: 1;
+
+
+/* Margin */
+
+/* Layout automático */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px 0px 32px;
+
+width: 435px;
+height: 39px;
+
+
+/* Auto layout por dentro */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Container */
+
+/* Layout automático */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+gap: 4px;
+
+width: 435px;
+height: 24px;
+
+
+/* Auto layout por dentro */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Heading 1 */
+
+/* Layout automático */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+
+width: 435px;
+height: 24px;
+
+
+/* Auto layout por dentro */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Acesse sua conta */
+
+width: 435px;
+height: 24px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 24px;
+/* idêntico à altura da caixa ou 150% */
+display: flex;
+align-items: center;
+
+color: #131B2E;
+
+
+/* Auto layout por dentro */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Form:margin */
+
+/* Layout automático */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px 0px 16px;
+
+width: 435px;
+height: 282px;
+
+
+/* Auto layout por dentro */
+flex: none;
+order: 1;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Form */
+
+/* Layout automático */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+gap: 16px;
+
+width: 435px;
+height: 266px;
+
+
+/* Auto layout por dentro */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Container */
+
+/* Layout automático */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+gap: 4px;
+
+width: 435px;
+height: 64px;
+
+
+/* Auto layout por dentro */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Label */
+
+/* Layout automático */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+
+width: 435px;
+height: 18px;
+
+
+/* Auto layout por dentro */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* ENDEREÇO DE E-MAIL */
+
+width: 435px;
+height: 18px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 13px;
+line-height: 18px;
+/* idêntico à altura da caixa ou 138% */
+display: flex;
+align-items: center;
+letter-spacing: 1.3px;
+text-transform: uppercase;
+
+color: #131B2E;
+
+
+/* Auto layout por dentro */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Container */
+
+/* Layout automático */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+isolation: isolate;
+
+width: 435px;
+height: 42px;
+
+
+/* Auto layout por dentro */
+flex: none;
+order: 1;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Input */
+
+box-sizing: border-box;
+
+/* Layout automático */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: flex-start;
+padding: 8px 16px 8px 44px;
+
+width: 435px;
+height: 42px;
+
+background: #FAF8FF;
+border: 1px solid #C4C6CF;
+border-radius: 4px;
+
+/* Auto layout por dentro */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+z-index: 0;
+
+
+/* Container */
+
+/* Layout automático */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+
+width: 373px;
+height: 24px;
+
+
+/* Auto layout por dentro */
+flex: none;
+order: 0;
+flex-grow: 1;
+
+
+/* insira seu e-mail */
+
+width: 373px;
+height: 24px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 24px;
+/* idêntico à altura da caixa ou 150% */
+display: flex;
+align-items: center;
+
+color: #131B2E;
+
+
+/* Auto layout por dentro */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Container */
+
+/* Layout automático */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+
+position: absolute;
+width: 16.67px;
+left: 16px;
+top: 26.19%;
+bottom: 26.19%;
+
+
+/* Auto layout por dentro */
+flex: none;
+order: 1;
+flex-grow: 0;
+z-index: 1;
+
+
+/* Icon */
+
+width: 16.67px;
+height: 13.33px;
+
+background: #74777F;
+
+/* Auto layout por dentro */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Container */
+
+/* Layout automático */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+gap: 4px;
+
+width: 435px;
+height: 64px;
+
+
+/* Auto layout por dentro */
+flex: none;
+order: 1;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Container */
+
+/* Layout automático */
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+padding: 0px 5.68434e-14px 0px 0px;
+gap: 275.55px;
+
+width: 435px;
+height: 18px;
+
+
+/* Auto layout por dentro */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Container */
+
+/* Layout automático */
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+padding: 0px;
+gap: 139.53px;
+
+width: 435px;
+height: 18px;
+
+
+/* Auto layout por dentro */
+flex: none;
+order: 0;
+flex-grow: 1;
+
+
+/* Label */
+
+/* Layout automático */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+
+width: 141.97px;
+height: 18px;
+
+
+/* Auto layout por dentro */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Text */
+
+width: 141.97px;
+height: 18px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 13px;
+line-height: 18px;
+/* idêntico à altura da caixa ou 138% */
+display: flex;
+align-items: center;
+letter-spacing: 1.3px;
+text-transform: uppercase;
+
+color: #131B2E;
+
+
+/* Auto layout por dentro */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Link */
+
+/* Layout automático */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+
+width: 92.5px;
+height: 16px;
+
+
+/* Auto layout por dentro */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Text */
+
+width: 92.5px;
+height: 16px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 12px;
+line-height: 16px;
+/* idêntico à altura da caixa ou 133% */
+display: flex;
+align-items: center;
+
+color: #022448;
+
+
+/* Auto layout por dentro */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Container */
+
+/* Layout automático */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+isolation: isolate;
+
+width: 435px;
+height: 42px;
+
+
+/* Auto layout por dentro */
+flex: none;
+order: 1;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Input */
+
+box-sizing: border-box;
+
+/* Layout automático */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: flex-start;
+padding: 8px 16px 8px 44px;
+
+width: 435px;
+height: 42px;
+
+background: #FAF8FF;
+border: 1px solid #C4C6CF;
+border-radius: 4px;
+
+/* Auto layout por dentro */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+z-index: 0;
+
+
+/* Container */
+
+/* Layout automático */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+
+width: 373px;
+height: 24px;
+
+
+/* Auto layout por dentro */
+flex: none;
+order: 0;
+flex-grow: 1;
+
+
+/* insira a sua senha */
+
+width: 373px;
+height: 24px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 24px;
+/* idêntico à altura da caixa ou 150% */
+display: flex;
+align-items: center;
+
+color: #131B2E;
+
+
+/* Auto layout por dentro */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Container */
+
+/* Layout automático */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+
+position: absolute;
+width: 13.33px;
+left: 16px;
+top: 26.19%;
+bottom: 26.19%;
+
+
+/* Auto layout por dentro */
+flex: none;
+order: 1;
+flex-grow: 0;
+z-index: 1;
+
+
+/* Icon */
+
+width: 13.33px;
+height: 17.5px;
+
+background: #74777F;
+
+/* Auto layout por dentro */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Container */
+
+width: 435px;
+height: 32px;
+
+
+/* Auto layout por dentro */
+flex: none;
+order: 2;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Input */
+
+box-sizing: border-box;
+
+/* Layout automático */
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+position: absolute;
+width: 18px;
+height: 18px;
+left: -1px;
+top: calc(50% - 18px/2);
+
+background: #022448;
+border-radius: 2px;
+
+
+/* SVG */
+
+width: 16px;
+height: 16px;
+
+
+/* Auto layout por dentro */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Vector */
+
+position: absolute;
+left: 21.95%;
+right: 21.88%;
+top: 28.12%;
+bottom: 28.13%;
+
+background: #FFFFFF;
+
+
+/* Label */
+
+/* Layout automático */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+
+position: absolute;
+width: 228.16px;
+height: 24px;
+left: 24px;
+top: calc(50% - 24px/2);
+
+
+
+/* Text */
+
+width: 228.16px;
+height: 24px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 24px;
+/* idêntico à altura da caixa ou 150% */
+display: flex;
+align-items: center;
+
+color: #43474E;
+
+
+/* Auto layout por dentro */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Button */
+
+box-sizing: border-box;
+
+/* Layout automático */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 16px 0px;
+gap: 16px;
+
+width: 435px;
+height: 58px;
+
+background: #312E81;
+opacity: 0.9;
+border-radius: 4px;
+
+/* Auto layout por dentro */
+flex: none;
+order: 3;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Container */
+
+/* Layout automático */
+display: flex;
+flex-direction: column;
+align-items: center;
+padding: 0px;
+
+width: 113.89px;
+height: 24px;
+
+
+/* Auto layout por dentro */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* ENTRAR */
+
+width: 113.89px;
+height: 24px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 16px;
+line-height: 24px;
+/* idêntico à altura da caixa ou 150% */
+display: flex;
+align-items: center;
+text-align: center;
+letter-spacing: 0.8px;
+text-transform: uppercase;
+
+color: #FFFFFF;
+
+
+/* Auto layout por dentro */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Margin */
+
+/* Layout automático */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 32px 0px 0px;
+
+width: 435px;
+height: 89px;
+
+
+/* Auto layout por dentro */
+flex: none;
+order: 2;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* HorizontalBorder */
+
+box-sizing: border-box;
+
+/* Layout automático */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 32px 0px 0px;
+
+width: 435px;
+height: 57px;
+
+border-top: 1px solid #C4C6CF;
+
+/* Auto layout por dentro */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Container */
+
+/* Layout automático */
+display: flex;
+flex-direction: column;
+align-items: center;
+padding: 0px;
+
+width: 435px;
+height: 24px;
+
+
+/* Auto layout por dentro */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Não tem uma conta ou precisa de ajuda? Fale com o adminstrador. */
+
+width: 435px;
+height: 24px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 24px;
+/* idêntico à altura da caixa ou 150% */
+display: flex;
+align-items: center;
+text-align: center;
+
+color: #43474E;
+
+
+/* Auto layout por dentro */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Footer */
+
+box-sizing: border-box;
+
+position: absolute;
+height: 89px;
+left: 0px;
+right: 0px;
+top: 1011px;
+
+background: #F8FAFC;
+border-top: 1px solid #E2E8F0;
+
+
+/* Container */
+
+/* Layout automático */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+
+position: absolute;
+width: 67.28px;
+height: 24px;
+left: 24px;
+top: calc(50% - 24px/2 + 0.5px);
+
+
+
+/* Container */
+
+/* Layout automático */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: flex-start;
+padding: 0px;
+gap: 32px;
+
+position: absolute;
+width: 619.22px;
+height: 16px;
+left: 449.68px;
+top: calc(50% - 16px/2 + 0.5px);
+
+
+
+/* Link */
+
+/* Layout automático */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+
+width: 114.78px;
+height: 16px;
+
+
+/* Auto layout por dentro */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Text */
+
+width: 114.78px;
+height: 16px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 12px;
+line-height: 16px;
+/* idêntico à altura da caixa ou 133% */
+display: flex;
+align-items: center;
+letter-spacing: 1.2px;
+text-transform: uppercase;
+
+color: #64748B;
+
+
+/* Auto layout por dentro */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Link */
+
+/* Layout automático */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+
+width: 133.36px;
+height: 16px;
+
+
+/* Auto layout por dentro */
+flex: none;
+order: 1;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Text */
+
+width: 133.36px;
+height: 16px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 12px;
+line-height: 16px;
+/* idêntico à altura da caixa ou 133% */
+display: flex;
+align-items: center;
+letter-spacing: 1.2px;
+text-transform: uppercase;
+
+color: #64748B;
+
+
+/* Auto layout por dentro */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Link */
+
+/* Layout automático */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+
+width: 116.47px;
+height: 16px;
+
+
+/* Auto layout por dentro */
+flex: none;
+order: 2;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Text */
+
+width: 116.47px;
+height: 16px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 12px;
+line-height: 16px;
+/* idêntico à altura da caixa ou 133% */
+display: flex;
+align-items: center;
+letter-spacing: 1.2px;
+text-transform: uppercase;
+
+color: #64748B;
+
+
+/* Auto layout por dentro */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Link */
+
+/* Layout automático */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+
+width: 158.61px;
+height: 16px;
+
+
+/* Auto layout por dentro */
+flex: none;
+order: 3;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Text */
+
+width: 158.61px;
+height: 16px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 12px;
+line-height: 16px;
+/* idêntico à altura da caixa ou 133% */
+display: flex;
+align-items: center;
+letter-spacing: 1.2px;
+text-transform: uppercase;
+
+color: #64748B;
+
+
+/* Auto layout por dentro */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Container */
+
+/* Layout automático */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+
+position: absolute;
+width: 468.67px;
+height: 16px;
+left: 1427.31px;
+top: calc(50% - 16px/2 + 0.5px);
+
+
+
+/* Text */
+
+width: 468.67px;
+height: 16px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 12px;
+line-height: 16px;
+/* idêntico à altura da caixa ou 133% */
+display: flex;
+align-items: center;
+letter-spacing: 1.2px;
+text-transform: uppercase;
+
+color: #64748B;
+
+
+/* Auto layout por dentro */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Heading 1 */
+
+/* Layout automático */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+
+position: absolute;
+height: 28px;
+left: 24px;
+right: 1688px;
+top: 35px;
+
+
+
+/* JurisDoc */
+
+width: 208px;
+height: 28px;
+
+font-family: 'Manrope';
+font-style: normal;
+font-weight: 800;
+font-size: 18px;
+line-height: 28px;
+/* idêntico à altura da caixa ou 156% */
+display: flex;
+align-items: center;
+letter-spacing: -0.9px;
+
+color: #312E81;
+
+
+/* Auto layout por dentro */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Footer */
+
+box-sizing: border-box;
+
+position: absolute;
+height: 89px;
+left: 0px;
+right: 0px;
+top: 0px;
+
+background: #F8FAFC;
+border-top: 1px solid #E2E8F0;
+
+
+/* Container */
+
+/* Layout automático */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+
+position: absolute;
+width: 67.28px;
+height: 24px;
+left: 24px;
+top: calc(50% - 24px/2 + 0.5px);
+
+
+
+/* JurisDoc */
+
+position: absolute;
+width: 208px;
+height: 28px;
+left: 24px;
+top: 25px;
+
+font-family: 'Manrope';
+font-style: normal;
+font-weight: 800;
+font-size: 18px;
+line-height: 28px;
+/* idêntico à altura da caixa ou 156% */
+display: flex;
+align-items: center;
+letter-spacing: -0.9px;
+
+color: #312E81;
+
+
+
+/* © 2026 JURISCDOC - BY AMANDA PALACIO */
+
+position: absolute;
+width: 301px;
+height: 16px;
+left: 1597px;
+top: 33px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 12px;
+line-height: 16px;
+/* idêntico à altura da caixa ou 133% */
+display: flex;
+align-items: center;
+letter-spacing: 1.2px;
+text-transform: uppercase;
+
+color: #64748B;
+
