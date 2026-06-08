@@ -316,7 +316,7 @@ function renderLoginProcessando(emailValue = '') {
       <div class="login-field">
         <div class="login-row-between">
           <label class="login-field-label">Senha</label>
-          <a href="#" class="login-link">Esqueci a senha</a>
+          <a href="#" id="forgot-password-link" class="login-link">Esqueci a senha</a>
         </div>
         <div class="login-input-wrap">
           <div class="login-icon-left password"></div>
