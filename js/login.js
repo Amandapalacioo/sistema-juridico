@@ -32,40 +32,38 @@ function getLoginLayout(content) {
 
 function attachLoginEvents() {
   const btn = document.getElementById('btn-entrar');
-  if (!btn) return;
+  if (btn) {
+    btn.onclick = () => {
+      const emailEl = document.getElementById('email');
+      const passwordEl = document.getElementById('password');
 
-  btn.onclick = () => {
-    const emailEl = document.getElementById('email');
-    const passwordEl = document.getElementById('password');
+      const email = emailEl ? emailEl.value.toLowerCase().trim() : '';
+      const senha = passwordEl ? passwordEl.value.trim() : '';
 
-    const email = emailEl ? emailEl.value.toLowerCase().trim() : '';
-    const senha = passwordEl ? passwordEl.value.trim() : '';
+      if (!email || !senha) {
+        renderLoginCampoVazio(email, senha);
+        return;
+      }
 
-    if (!email || !senha) {
-      renderLoginCampoVazio(email, senha);
-      return;
-    }
+      if (!email.endsWith('@jurisdoc.com.br')) {
+        renderLoginUsuarioNaoEncontrado(email, senha);
+        return;
+      }
 
-    if (!email.endsWith('@jurisdoc.com.br')) {
-      renderLoginUsuarioNaoEncontrado(email, senha);
-      return;
-    }
+      if (senha !== '1234') {
+        renderLoginSenhaIncorreta(email, senha);
+        return;
+      }
 
-    if (senha !== '1234') {
-      renderLoginSenhaIncorreta(email, senha);
-      return;
-    }
-
-    renderLoginProcessando(email);
-  };
+      renderLoginProcessando(email);
+    };
+  }
 
   const forgot = document.getElementById('forgot-password-link');
   if (forgot) {
     forgot.onclick = (e) => {
       e.preventDefault();
-      if (typeof renderRecoverPassword === 'function') {
-        renderRecoverPassword();
-      }
+      renderRecoverPassword();
     };
   }
 }
