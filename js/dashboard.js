@@ -1,3 +1,170 @@
+const dashboardClients = [
+  {
+    id: 1,
+    nome: 'Larissa Souza',
+    iniciais: 'LS',
+    tipoAvatar: 'avatar-1',
+    documento: 'Carta Convite',
+    data: '08/06/2026',
+    status: 'Pendente'
+  },
+  {
+    id: 2,
+    nome: 'João Fernando Pereira',
+    iniciais: 'JP',
+    tipoAvatar: 'avatar-2',
+    documento: 'Procuração',
+    data: '08/06/2026',
+    status: 'Análise'
+  },
+  {
+    id: 3,
+    nome: 'Odete Maria da Silva',
+    iniciais: 'OS',
+    tipoAvatar: 'avatar-3',
+    documento: 'CNIS',
+    data: '07/06/2026',
+    status: 'Complemento'
+  },
+  {
+    id: 4,
+    nome: 'Tiago Oliveira',
+    iniciais: 'TO',
+    tipoAvatar: 'avatar-4',
+    documento: 'Declaração de Hipossuficiência',
+    data: '07/06/2026',
+    status: 'Pendente'
+  },
+  {
+    id: 5,
+    nome: 'Amanda Castro',
+    iniciais: 'AC',
+    tipoAvatar: 'avatar-1',
+    documento: 'RG',
+    data: '06/06/2026',
+    status: 'Concluído'
+  },
+  {
+    id: 6,
+    nome: 'Bruno Martins',
+    iniciais: 'BM',
+    tipoAvatar: 'avatar-2',
+    documento: 'CPF',
+    data: '06/06/2026',
+    status: 'Análise'
+  },
+  {
+    id: 7,
+    nome: 'Camila Rocha',
+    iniciais: 'CR',
+    tipoAvatar: 'avatar-3',
+    documento: 'Comprovante de Residência',
+    data: '05/06/2026',
+    status: 'Pendente'
+  },
+  {
+    id: 8,
+    nome: 'Daniel Lima',
+    iniciais: 'DL',
+    tipoAvatar: 'avatar-4',
+    documento: 'Contrato Social',
+    data: '05/06/2026',
+    status: 'Concluído'
+  },
+  {
+    id: 9,
+    nome: 'Eduarda Nunes',
+    iniciais: 'EN',
+    tipoAvatar: 'avatar-1',
+    documento: 'Petição Inicial',
+    data: '04/06/2026',
+    status: 'Análise'
+  },
+  {
+    id: 10,
+    nome: 'Felipe Gomes',
+    iniciais: 'FG',
+    tipoAvatar: 'avatar-2',
+    documento: 'Laudo Médico',
+    data: '04/06/2026',
+    status: 'Complemento'
+  },
+  {
+    id: 11,
+    nome: 'Gabriela Teixeira',
+    iniciais: 'GT',
+    tipoAvatar: 'avatar-3',
+    documento: 'CTPS',
+    data: '03/06/2026',
+    status: 'Pendente'
+  },
+  {
+    id: 12,
+    nome: 'Henrique Alves',
+    iniciais: 'HA',
+    tipoAvatar: 'avatar-4',
+    documento: 'Holerite',
+    data: '03/06/2026',
+    status: 'Concluído'
+  },
+  {
+    id: 13,
+    nome: 'Isabela Moraes',
+    iniciais: 'IM',
+    tipoAvatar: 'avatar-1',
+    documento: 'Extrato Bancário',
+    data: '02/06/2026',
+    status: 'Análise'
+  },
+  {
+    id: 14,
+    nome: 'José Ricardo',
+    iniciais: 'JR',
+    tipoAvatar: 'avatar-2',
+    documento: 'Comprovante INSS',
+    data: '02/06/2026',
+    status: 'Pendente'
+  },
+  {
+    id: 15,
+    nome: 'Karen Dias',
+    iniciais: 'KD',
+    tipoAvatar: 'avatar-3',
+    documento: 'Ata Notarial',
+    data: '01/06/2026',
+    status: 'Complemento'
+  },
+  {
+    id: 16,
+    nome: 'Lucas Prado',
+    iniciais: 'LP',
+    tipoAvatar: 'avatar-4',
+    documento: 'Certidão de Nascimento',
+    data: '01/06/2026',
+    status: 'Concluído'
+  },
+  {
+    id: 17,
+    nome: 'Marina Pires',
+    iniciais: 'MP',
+    tipoAvatar: 'avatar-1',
+    documento: 'Certidão de Casamento',
+    data: '08/06/2026',
+    status: 'Pendente'
+  },
+  {
+    id: 18,
+    nome: 'Nathan Vieira',
+    iniciais: 'NV',
+    tipoAvatar: 'avatar-2',
+    documento: 'Documentos Trabalhistas',
+    data: '07/06/2026',
+    status: 'Análise'
+  }
+];
+
+let dashboardSearchTerm = '';
+
 function renderSidebar(active = 'dashboard') {
   return `
     <aside class="sidebar">
@@ -14,8 +181,8 @@ function renderSidebar(active = 'dashboard') {
           <div class="nav-link ${active === 'docs' ? 'active' : ''}" onclick="renderDocuments()">
             Documentos
           </div>
-          <div class="nav-link">
-            Processos
+          <div class="nav-link" onclick="renderClientsList()">
+            Clientes
           </div>
           <div class="nav-link">
             Financeiro
@@ -31,8 +198,87 @@ function renderSidebar(active = 'dashboard') {
   `;
 }
 
+function getStatusBadgeClass(status) {
+  if (status === 'Pendente') return 'status-pendente';
+  if (status === 'Análise') return 'status-analise';
+  if (status === 'Complemento') return 'status-complemento';
+  if (status === 'Concluído') return 'status-concluido';
+  return 'status-analise';
+}
+
+function getFilteredDashboardClients() {
+  if (!dashboardSearchTerm) return dashboardClients.slice(0, 8);
+
+  const term = dashboardSearchTerm.toLowerCase();
+
+  return dashboardClients.filter((cliente) => {
+    return (
+      cliente.nome.toLowerCase().includes(term) ||
+      cliente.documento.toLowerCase().includes(term) ||
+      cliente.status.toLowerCase().includes(term) ||
+      cliente.data.toLowerCase().includes(term)
+    );
+  });
+}
+
+function renderDashboardRows() {
+  const clients = getFilteredDashboardClients();
+
+  if (!clients.length) {
+    return `
+      <div class="table-empty">
+        Nenhum documento encontrado para a busca informada.
+      </div>
+    `;
+  }
+
+  return clients.map((cliente) => `
+    <div class="table-row" onclick="openDashboardClient(${cliente.id})">
+      <div class="client-cell">
+        <div class="client-avatar ${cliente.tipoAvatar}">${cliente.iniciais}</div>
+        <div class="client-name">${cliente.nome}</div>
+      </div>
+      <div class="table-cell">${cliente.documento}</div>
+      <div class="table-cell">${cliente.data}</div>
+      <div class="table-cell">
+        <span class="status-badge ${getStatusBadgeClass(cliente.status)}">${cliente.status}</span>
+      </div>
+      <div class="table-actions">⋮</div>
+    </div>
+  `).join('');
+}
+
+function openDashboardClient(id) {
+  const cliente = dashboardClients.find(c => c.id === id);
+  if (!cliente) return;
+
+  alert(`Cliente selecionado: ${cliente.nome}\nDocumento: ${cliente.documento}\nData: ${cliente.data}`);
+}
+
+function attachDashboardEvents() {
+  const searchInput = document.getElementById('dashboard-search');
+
+  if (searchInput) {
+    searchInput.addEventListener('input', (e) => {
+      dashboardSearchTerm = e.target.value.trim();
+      const tbody = document.getElementById('dashboard-table-body');
+      const count = document.getElementById('dashboard-results-count');
+
+      if (tbody) {
+        tbody.innerHTML = renderDashboardRows();
+      }
+
+      if (count) {
+        const total = getFilteredDashboardClients().length;
+        count.textContent = `EXIBINDO ${total} RESULTADOS`;
+      }
+    });
+  }
+}
+
 function renderDashboard() {
   const app = document.getElementById('app');
+  const filtered = getFilteredDashboardClients();
 
   app.innerHTML = `
     <div class="dashboard-page">
@@ -40,7 +286,15 @@ function renderDashboard() {
 
       <div class="main-shell">
         <header class="topbar">
-          <div class="topbar-search">Buscar no JurisDoc...</div>
+          <div class="topbar-search">
+            <input
+              id="dashboard-search"
+              class="topbar-search-input"
+              type="text"
+              placeholder="Buscar no JurisDoc..."
+              value="${dashboardSearchTerm}"
+            />
+          </div>
 
           <div class="topbar-user">
             <div class="topbar-divider"></div>
@@ -62,7 +316,7 @@ function renderDashboard() {
                 <div class="page-subtitle">Visualize o resumo geral da operação jurídica.</div>
               </div>
 
-              <div class="page-date">10 DE MAIO, 2026</div>
+              <div class="page-date">08 DE JUNHO, 2026</div>
             </section>
 
             <section class="bento-grid">
@@ -122,64 +376,18 @@ function renderDashboard() {
                   <div class="table-header-cell">Documento</div>
                   <div class="table-header-cell">Data</div>
                   <div class="table-header-cell">Status</div>
-                  <div class="table-header-cell" style="text-align:right;">Ações</div>
+                  <div class="table-header-cell table-header-cell-right">Ações</div>
                 </div>
 
-                <div class="table-row">
-                  <div class="client-cell">
-                    <div class="client-avatar avatar-1">JS</div>
-                    <div class="client-name">João Silva</div>
-                  </div>
-                  <div class="table-cell">Contrato Social</div>
-                  <div class="table-cell">10/05/2026</div>
-                  <div class="table-cell">
-                    <span class="status-badge status-analise">Análise</span>
-                  </div>
-                  <div class="table-actions">⋮</div>
-                </div>
-
-                <div class="table-row">
-                  <div class="client-cell">
-                    <div class="client-avatar avatar-2">MS</div>
-                    <div class="client-name">Maria Souza</div>
-                  </div>
-                  <div class="table-cell">Petição Inicial</div>
-                  <div class="table-cell">09/05/2026</div>
-                  <div class="table-cell">
-                    <span class="status-badge status-concluido">Concluído</span>
-                  </div>
-                  <div class="table-actions">⋮</div>
-                </div>
-
-                <div class="table-row">
-                  <div class="client-cell">
-                    <div class="client-avatar avatar-3">AC</div>
-                    <div class="client-name">Ana Carolina</div>
-                  </div>
-                  <div class="table-cell">Procuração Atualizada</div>
-                  <div class="table-cell">08/05/2026</div>
-                  <div class="table-cell">
-                    <span class="status-badge status-complemento">Complemento</span>
-                  </div>
-                  <div class="table-actions">⋮</div>
-                </div>
-
-                <div class="table-row">
-                  <div class="client-cell">
-                    <div class="client-avatar avatar-4">RP</div>
-                    <div class="client-name">Rafael Prado</div>
-                  </div>
-                  <div class="table-cell">Comprovante Residencial</div>
-                  <div class="table-cell">08/05/2026</div>
-                  <div class="table-cell">
-                    <span class="status-badge status-analise">Análise</span>
-                  </div>
-                  <div class="table-actions">⋮</div>
+                <div id="dashboard-table-body">
+                  ${renderDashboardRows()}
                 </div>
               </div>
 
               <div class="table-pagination">
-                <div class="pagination-info">EXIBINDO 1 A 4 DE 24 RESULTADOS</div>
+                <div id="dashboard-results-count" class="pagination-info">
+                  EXIBINDO ${filtered.length} RESULTADOS
+                </div>
 
                 <div class="pagination-controls">
                   <div class="page-btn">‹</div>
@@ -200,4 +408,6 @@ function renderDashboard() {
       </div>
     </div>
   `;
+
+  attachDashboardEvents();
 }
