@@ -1030,7 +1030,8 @@
   background: #F1F5F9;
 }
 
-.document-placeholder-line.w-40 { width: 40-placeholder-line.w-68 { width: 68%; }
+.document-placeholder-line.w-40 { width: 40%; }
+.document-placeholder-line.w-68 { width: 68%; }
 .document-placeholder-line.w-72 { width: 72%; }
 .document-placeholder-line.w-84 { width: 84%; }
 .document-placeholder-line.w-100 { width: 100%; }
@@ -1375,4 +1376,3 @@
     min-width: 860px;
   }
 }
-
