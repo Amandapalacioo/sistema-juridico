@@ -838,13 +838,18 @@ function renderDocumentAnalysis(docId) {
   const doc = window.documentsStore.find(d => d.id === docId);
   if (!doc) return;
 
+  const sameDoc = documentosCurrentAnalysisId === docId;
+
   documentosCurrentAnalysisId = docId;
-  documentosAnalysisDraft = {
-    pertinencia: doc.analise?.pertinencia || '',
-    fase: doc.analise?.fase || '',
-    notas: doc.analise?.notas || '',
-    changed: false
-  };
+
+  if (!sameDoc) {
+    documentosAnalysisDraft = {
+      pertinencia: doc.analise?.pertinencia || '',
+      fase: doc.analise?.fase || '',
+      notas: doc.analise?.notas || '',
+      changed: false
+    };
+  }
 
   const app = document.getElementById('app');
   app.innerHTML = `
@@ -1010,11 +1015,19 @@ function attachDocumentAnalysisEvents() {
   const doc = window.documentsStore.find(d => d.id === documentosCurrentAnalysisId);
   if (!doc) return;
 
-  document.querySelectorAll('input[name="pertinencia"]').forEach(input => {
+    document.querySelectorAll('input[name="pertinencia"]').forEach(input => {
     input.addEventListener('change', () => {
       documentosAnalysisDraft.pertinencia = input.value;
       documentosAnalysisDraft.changed = true;
-      renderDocumentAnalysis(documentosCurrentAnalysisId);
+
+      document.querySelectorAll('.analysis-radio-card').forEach(card => {
+        card.classList.remove('active');
+      });
+
+      const card = input.closest('.analysis-radio-card');
+      if (card) {
+        card.classList.add('active');
+      }
     });
   });
 
