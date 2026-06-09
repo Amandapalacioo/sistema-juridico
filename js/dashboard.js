@@ -75,7 +75,7 @@ function renderSidebar(active = 'dashboard') {
           <div class="nav-link ${active === 'dashboard' ? 'active' : ''}" data-nav="dashboard">Dashboard</div>
           <div class="nav-link ${active === 'docs' ? 'active' : ''}" data-nav="docs">Documentos</div>
           <div class="nav-link" data-nav="clientes">Clientes</div>
-          <div class="nav-link" data-nav="financeiro">Financeiro</div>
+          <div class="nav-link" data-nav="configurações">Configurações</div>
         </div>
       </div>
 
@@ -251,8 +251,8 @@ function renderDashboard() {
           <div class="topbar-user">
             <div class="topbar-divider"></div>
             <div class="topbar-user-info">
-              <div class="topbar-user-role">Administrador Financeiro</div>
-              <div class="topbar-user-name">Amanda Palacio</div>
+              <div class="topbar-user-role">Advogado</div>
+              <div class="topbar-user-name">Usuario Teste</div>
             </div>
             <div class="topbar-avatar"></div>
           </div>
