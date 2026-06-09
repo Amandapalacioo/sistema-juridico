@@ -1,0 +1,468 @@
+.clientes-main {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: clamp(20px, 2vw, 32px);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  box-sizing: border-box;
+}
+
+.clientes-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(340px, 420px);
+  gap: 24px;
+  align-items: start;
+}
+
+.clientes-left,
+.clientes-right {
+  min-width: 0;
+}
+
+.clientes-card,
+.clientes-side-card,
+.config-card,
+.config-hero {
+  background: #FFFFFF;
+  border-radius: 8px;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
+}
+
+.clientes-card {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.clientes-header-block {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.clientes-title {
+  font-family: 'Manrope', sans-serif;
+  font-size: 30px;
+  line-height: 36px;
+  font-weight: 700;
+  letter-spacing: -0.75px;
+  color: #2B3437;
+}
+
+.clientes-subtitle {
+  font-family: 'Manrope', sans-serif;
+  font-size: 16px;
+  line-height: 26px;
+  color: #586064;
+}
+
+.clientes-search {
+  position: relative;
+}
+
+.clientes-search input {
+  width: 100%;
+  height: 44px;
+  border: none;
+  outline: none;
+  background: #EAEFF1;
+  border-radius: 4px;
+  padding: 12px 44px 12px 14px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  color: #2B3437;
+}
+
+.clientes-search input::placeholder {
+  color: rgba(107, 114, 128, 0.75);
+}
+
+.clientes-search-icon {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #586064;
+  font-size: 16px;
+  pointer-events: none;
+}
+
+.clientes-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.cliente-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  background: #FFFFFF;
+  border-radius: 8px;
+  padding: 20px 24px;
+  border-left: 4px solid transparent;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.04);
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.cliente-row:hover {
+  transform: translateY(-1px);
+  box-shadow: 0px 6px 16px rgba(15, 23, 42, 0.06);
+}
+
+.cliente-row.active {
+  border-left-color: #4C56AF;
+  background: #FFFFFF;
+}
+
+.cliente-row-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-width: 0;
+}
+
+.cliente-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 6px;
+  background: #EAEFF1;
+  color: #40555F;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Manrope', sans-serif;
+  font-size: 14px;
+  font-weight: 800;
+  flex: 0 0 auto;
+}
+
+.cliente-row.active .cliente-avatar {
+  background: #CFE6F2;
+}
+
+.cliente-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.cliente-nome {
+  font-family: 'Manrope', sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 700;
+  color: #2B3437;
+}
+
+.cliente-info {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.cliente-info-item {
+  font-family: 'Manrope', sans-serif;
+  font-size: 12px;
+  line-height: 16px;
+  color: #586064;
+}
+
+.cliente-row-arrow {
+  color: #586064;
+  font-size: 18px;
+  flex: 0 0 auto;
+}
+
+.clientes-pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  background: #F1F4F6;
+  border-top: 1px solid #EAEFF1;
+  border-radius: 8px;
+  padding: 16px 24px;
+  flex-wrap: wrap;
+}
+
+.clientes-pagination-info {
+  font-family: 'Manrope', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 15px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #586064;
+}
+
+.clientes-pagination-controls {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.clientes-page-btn {
+  width: 32px;
+  height: 32px;
+  border: 1px solid rgba(171, 179, 183, 0.3);
+  border-radius: 6px;
+  background: #FFFFFF;
+  color: #586064;
+  font-family: 'Manrope', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.clientes-page-btn.active {
+  background: #4C56AF;
+  color: #F9F6FF;
+  border-color: #4C56AF;
+}
+
+.clientes-erp-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  border: none;
+  background: #4C56AF;
+  color: #F9F6FF;
+  border-radius: 4px;
+  padding: 16px;
+  min-height: 63px;
+  cursor: pointer;
+  font-family: 'Manrope', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 16px;
+  transition: 0.2s ease;
+  align-self: flex-start;
+}
+
+.clientes-erp-btn:hover {
+  background: #424ca0;
+}
+
+.clientes-erp-sub {
+  display: block;
+  opacity: 0.8;
+  font-size: 10px;
+  font-weight: 400;
+  margin-top: 2px;
+}
+
+.clientes-side-card {
+  background: #E3E9EC;
+  border-left: 1px solid rgba(171, 179, 183, 0.1);
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  min-height: 100%;
+}
+
+.clientes-side-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 16px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: #586064;
+}
+
+.clientes-side-title::before {
+  content: "";
+  width: 8px;
+  height: 16px;
+  background: #4C56AF;
+  border-radius: 2px;
+}
+
+.clientes-docs {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.clientes-doc-item {
+  position: relative;
+  padding-left: 24px;
+  border-left: 2px solid rgba(64, 73, 162, 0.2);
+  padding-bottom: 8px;
+}
+
+.clientes-doc-item::before {
+  content: "";
+  position: absolute;
+  left: -9px;
+  top: 0;
+  width: 16px;
+  height: 16px;
+  border-radius: 999px;
+  background: #ABB3B7;
+  box-shadow: 0 0 0 4px #E3E9EC;
+}
+
+.clientes-doc-item.primary::before {
+  background: #4C56AF;
+}
+
+.clientes-doc-title {
+  font-family: 'Manrope', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 16px;
+  color: #2B3437;
+}
+
+.clientes-doc-date {
+  margin-top: 4px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 10px;
+  line-height: 15px;
+  color: #586064;
+}
+
+.clientes-doc-file {
+  margin-top: 8px;
+  background: #FFFFFF;
+  border-radius: 4px;
+  padding: 10px 12px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 11px;
+  line-height: 16px;
+  color: #2B3437;
+  border: 1px solid rgba(171, 179, 183, 0.15);
+}
+
+.clientes-empty {
+  background: #FFFFFF;
+  border-radius: 8px;
+  padding: 32px;
+  text-align: center;
+  color: #586064;
+  font-family: 'Manrope', sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.config-main {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: clamp(20px, 2vw, 32px);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.config-hero {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.config-title {
+  font-family: 'Manrope', sans-serif;
+  font-size: 30px;
+  line-height: 36px;
+  font-weight: 700;
+  letter-spacing: -0.75px;
+  color: #2B3437;
+}
+
+.config-subtitle {
+  font-family: 'Manrope', sans-serif;
+  font-size: 16px;
+  line-height: 26px;
+  color: #586064;
+}
+
+.config-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.config-card {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.config-card-title {
+  font-family: 'Manrope', sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 700;
+  color: #2B3437;
+}
+
+.config-card-text {
+  font-family: 'Manrope', sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  color: #586064;
+}
+
+.config-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.config-btn {
+  height: 40px;
+  padding: 0 16px;
+  border: none;
+  border-radius: 4px;
+  background: #4C56AF;
+  color: #F9F6FF;
+  font-family: 'Manrope', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+@media (max-width: 1200px) {
+  .clientes-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .config-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .clientes-main,
+  .config-main {
+    padding: 16px;
+  }
+
+  .clientes-card,
+  .clientes-side-card,
+  .config-hero,
+  .config-card {
+    padding: 24px;
+  }
+
+  .cliente-row {
+    padding: 16px;
+  }
+}
