@@ -1,29 +1,29 @@
 if (typeof window.documentsStore === 'undefined') {
   window.documentsStore = [
-    { id: 1, clienteId: 1, clienteNome: 'Larissa Souza', clienteIniciais: 'LS', avatar: 'avatar-1', tipo: 'Carta Convite', data: '2026-06-08', status: 'Pendente', recebimento: 'E-mail', observacoes: '', arquivoNome: 'larissa-carta-convite.pdf', arquivoUrl: '', analise: null, processo: '0801234-56.2026.5.09.0012' },
-    { id: 2, clienteId: 2, clienteNome: 'João Fernando Pereira', clienteIniciais: 'JP', avatar: 'avatar-2', tipo: 'Procuração', data: '2026-06-08', status: 'Análise', recebimento: 'Portal', observacoes: '', arquivoNome: 'joao-procuracao.pdf', arquivoUrl: '', analise: null, processo: '0802234-56.2026.5.09.0012' },
-    { id: 3, clienteId: 3, clienteNome: 'Odete Maria da Silva', clienteIniciais: 'OS', avatar: 'avatar-3', tipo: 'CNIS', data: '2026-06-07', status: 'Complemento', recebimento: 'WhatsApp', observacoes: '', arquivoNome: 'odete-cnis.pdf', arquivoUrl: '', analise: null, processo: '0803234-56.2026.5.09.0012' },
-    { id: 4, clienteId: 4, clienteNome: 'Tiago Oliveira', clienteIniciais: 'TO', avatar: 'avatar-4', tipo: 'Declaração de Hipossuficiência', data: '2026-06-07', status: 'Pendente', recebimento: 'E-mail', observacoes: '', arquivoNome: 'tiago-hipossuficiencia.pdf', arquivoUrl: '', analise: null, processo: '0804234-56.2026.5.09.0012' },
-    { id: 5, clienteId: 5, clienteNome: 'Amanda Castro', clienteIniciais: 'AC', avatar: 'avatar-1', tipo: 'RG', data: '2026-06-06', status: 'Concluído', recebimento: 'Portal', observacoes: '', arquivoNome: 'amanda-rg.jpg', arquivoUrl: '', analise: { pertinencia: 'Essencial', fase: 'Instrução', notas: 'Documento legível e compatível com o cadastro.', ultimaAtualizacao: '06 de maio 2026, 09:12' }, processo: '0805234-56.2026.5.09.0012' },
-    { id: 6, clienteId: 6, clienteNome: 'Bruno Martins', clienteIniciais: 'BM', avatar: 'avatar-2', tipo: 'CPF', data: '2026-06-06', status: 'Análise', recebimento: 'Presencial', observacoes: '', arquivoNome: 'bruno-cpf.png', arquivoUrl: '', analise: null, processo: '0806234-56.2026.5.09.0012' },
-    { id: 7, clienteId: 7, clienteNome: 'Camila Rocha', clienteIniciais: 'CR', avatar: 'avatar-3', tipo: 'Comprovante de Residência', data: '2026-06-05', status: 'Pendente', recebimento: 'E-mail', observacoes: '', arquivoNome: 'camila-residencia.pdf', arquivoUrl: '', analise: null, processo: '0807234-56.2026.5.09.0012' },
-    { id: 8, clienteId: 8, clienteNome: 'Daniel Lima', clienteIniciais: 'DL', avatar: 'avatar-4', tipo: 'Contrato Social', data: '2026-06-05', status: 'Concluído', recebimento: 'Portal', observacoes: '', arquivoNome: 'daniel-contrato-social.pdf', arquivoUrl: '', analise: { pertinencia: 'Complementar', fase: 'Instrução', notas: 'Documento auxiliar para composição do dossiê.', ultimaAtualizacao: '06 de maio 2026, 09:12' }, processo: '0808234-56.2026.5.09.0012' },
-    { id: 9, clienteId: 9, clienteNome: 'Eduarda Nunes', clienteIniciais: 'EN', avatar: 'avatar-1', tipo: 'Petição Inicial', data: '2026-06-04', status: 'Análise', recebimento: 'E-mail', observacoes: '', arquivoNome: 'eduarda-peticao.pdf', arquivoUrl: '', analise: null, processo: '0809234-56.2026.5.09.0012' },
-    { id: 10, clienteId: 10, clienteNome: 'Felipe Gomes', clienteIniciais: 'FG', avatar: 'avatar-2', tipo: 'Laudo Médico', data: '2026-06-04', status: 'Complemento', recebimento: 'WhatsApp', observacoes: '', arquivoNome: 'felipe-laudo.pdf', arquivoUrl: '', analise: null, processo: '0810234-56.2026.5.09.0012' },
-    { id: 11, clienteId: 11, clienteNome: 'Gabriela Teixeira', clienteIniciais: 'GT', avatar: 'avatar-3', tipo: 'CTPS', data: '2026-06-03', status: 'Pendente', recebimento: 'Portal', observacoes: '', arquivoNome: 'gabriela-ctps.pdf', arquivoUrl: '', analise: null, processo: '0811234-56.2026.5.09.0012' },
-    { id: 12, clienteId: 12, clienteNome: 'Henrique Alves', clienteIniciais: 'HA', avatar: 'avatar-4', tipo: 'Holerite', data: '2026-06-03', status: 'Concluído', recebimento: 'E-mail', observacoes: '', arquivoNome: 'henrique-holerite.pdf', arquivoUrl: '', analise: { pertinencia: 'Essencial', fase: 'Instrução', notas: 'Comprovação suficiente para a etapa atual.', ultimaAtualizacao: '06 de maio 2026, 09:12' }, processo: '0812234-56.2026.5.09.0012' },
-    { id: 13, clienteId: 13, clienteNome: 'Isabela Moraes', clienteIniciais: 'IM', avatar: 'avatar-1', tipo: 'Extrato Bancário', data: '2026-06-02', status: 'Análise', recebimento: 'Portal', observacoes: '', arquivoNome: 'isabela-extrato.pdf', arquivoUrl: '', analise: null, processo: '0813234-56.2026.5.09.0012' },
-    { id: 14, clienteId: 14, clienteNome: 'José Ricardo', clienteIniciais: 'JR', avatar: 'avatar-2', tipo: 'Comprovante INSS', data: '2026-06-02', status: 'Pendente', recebimento: 'WhatsApp', observacoes: '', arquivoNome: 'jose-inss.pdf', arquivoUrl: '', analise: null, processo: '0814234-56.2026.5.09.0012' },
-    { id: 15, clienteId: 15, clienteNome: 'Karen Dias', clienteIniciais: 'KD', avatar: 'avatar-3', tipo: 'Ata Notarial', data: '2026-06-01', status: 'Complemento', recebimento: 'Presencial', observacoes: '', arquivoNome: 'karen-ata-notarial.pdf', arquivoUrl: '', analise: null, processo: '0815234-56.2026.5.09.0012' },
-    { id: 16, clienteId: 16, clienteNome: 'Lucas Prado', clienteIniciais: 'LP', avatar: 'avatar-4', tipo: 'Certidão de Nascimento', data: '2026-06-01', status: 'Concluído', recebimento: 'E-mail', observacoes: '', arquivoNome: 'lucas-nascimento.pdf', arquivoUrl: '', analise: { pertinencia: 'Essencial', fase: 'Instrução', notas: 'Documento principal conferido e validado.', ultimaAtualizacao: '06 de maio 2026, 09:12' }, processo: '0816234-56.2026.5.09.0012' },
-    { id: 17, clienteId: 17, clienteNome: 'Marina Pires', clienteIniciais: 'MP', avatar: 'avatar-1', tipo: 'Certidão de Casamento', data: '2026-06-08', status: 'Pendente', recebimento: 'Portal', observacoes: '', arquivoNome: 'marina-casamento.pdf', arquivoUrl: '', analise: null, processo: '0817234-56.2026.5.09.0012' },
-    { id: 18, clienteId: 18, clienteNome: 'Nathan Vieira', clienteIniciais: 'NV', avatar: 'avatar-2', tipo: 'Documentos Trabalhistas', data: '2026-06-07', status: 'Análise', recebimento: 'WhatsApp', observacoes: '', arquivoNome: 'nathan-trabalhistas.pdf', arquivoUrl: '', analise: null, processo: '0818234-56.2026.5.09.0012' },
-    { id: 19, clienteId: 19, clienteNome: 'Olivia Santana', clienteIniciais: 'OS', avatar: 'avatar-3', tipo: 'Comprovante de Endereço', data: '2026-06-06', status: 'Pendente', recebimento: 'E-mail', observacoes: '', arquivoNome: 'olivia-endereco.pdf', arquivoUrl: '', analise: null, processo: '0819234-56.2026.5.09.0012' },
-    { id: 20, clienteId: 20, clienteNome: 'Paulo Henrique', clienteIniciais: 'PH', avatar: 'avatar-4', tipo: 'Carteira de Trabalho', data: '2026-06-05', status: 'Concluído', recebimento: 'Portal', observacoes: '', arquivoNome: 'paulo-ctps.pdf', arquivoUrl: '', analise: { pertinencia: 'Complementar', fase: 'Instrução', notas: 'Utilizado para cruzamento de dados do vínculo.', ultimaAtualizacao: '06 de maio 2026, 09:12' }, processo: '0820234-56.2026.5.09.0012' },
-    { id: 21, clienteId: 21, clienteNome: 'Queila Ramos', clienteIniciais: 'QR', avatar: 'avatar-1', tipo: 'Procuração Particular', data: '2026-06-04', status: 'Análise', recebimento: 'E-mail', observacoes: '', arquivoNome: 'queila-procuracao.pdf', arquivoUrl: '', analise: null, processo: '0821234-56.2026.5.09.0012' },
-    { id: 22, clienteId: 22, clienteNome: 'Rafael Melo', clienteIniciais: 'RM', avatar: 'avatar-2', tipo: 'Petição Intermediária', data: '2026-06-03', status: 'Complemento', recebimento: 'WhatsApp', observacoes: '', arquivoNome: 'rafael-peticao.pdf', arquivoUrl: '', analise: null, processo: '0822234-56.2026.5.09.0012' },
-    { id: 23, clienteId: 23, clienteNome: 'Sandra Luz', clienteIniciais: 'SL', avatar: 'avatar-3', tipo: 'Sentença', data: '2026-06-02', status: 'Concluído', recebimento: 'Portal', observacoes: '', arquivoNome: 'sandra-sentenca.pdf', arquivoUrl: '', analise: { pertinencia: 'Essencial', fase: 'Julgamento', notas: 'Sentença consolidada e apta para uso na etapa posterior.', ultimaAtualizacao: '06 de maio 2026, 09:12' }, processo: '0823234-56.2026.5.09.0012' },
-    { id: 24, clienteId: 24, clienteNome: 'Tatiane Costa', clienteIniciais: 'TC', avatar: 'avatar-4', tipo: 'RG Atualizado', data: '2026-06-01', status: 'Pendente', recebimento: 'Presencial', observacoes: '', arquivoNome: 'tatiane-rg.pdf', arquivoUrl: '', analise: null, processo: '0824234-56.2026.5.09.0012' }
+    { id: 1, clienteId: 1, clienteNome: 'Larissa Souza', clienteIniciais: 'LS', avatar: 'avatar-1', tipo: 'Carta Convite', data: '2026-06-08', status: 'Pendente', recebimento: 'E-mail', observacoes: '', arquivoNome: 'larissa-carta-convite.pdf', arquivoUrl: '', processo: '0801234-56.2026.5.09.0012', analise: null },
+    { id: 2, clienteId: 2, clienteNome: 'João Fernando Pereira', clienteIniciais: 'JP', avatar: 'avatar-2', tipo: 'Procuração', data: '2026-06-08', status: 'Análise', recebimento: 'Portal', observacoes: '', arquivoNome: 'joao-procuracao.pdf', arquivoUrl: '', processo: '0802234-56.2026.5.09.0012', analise: null },
+    { id: 3, clienteId: 3, clienteNome: 'Odete Maria da Silva', clienteIniciais: 'OS', avatar: 'avatar-3', tipo: 'CNIS', data: '2026-06-07', status: 'Complemento', recebimento: 'WhatsApp', observacoes: '', arquivoNome: 'odete-cnis.pdf', arquivoUrl: '', processo: '0803234-56.2026.5.09.0012', analise: null },
+    { id: 4, clienteId: 4, clienteNome: 'Tiago Oliveira', clienteIniciais: 'TO', avatar: 'avatar-4', tipo: 'Declaração de Hipossuficiência', data: '2026-06-07', status: 'Pendente', recebimento: 'E-mail', observacoes: '', arquivoNome: 'tiago-hipossuficiencia.pdf', arquivoUrl: '', processo: '0804234-56.2026.5.09.0012', analise: null },
+    { id: 5, clienteId: 5, clienteNome: 'Amanda Castro', clienteIniciais: 'AC', avatar: 'avatar-1', tipo: 'RG', data: '2026-06-06', status: 'Concluído', recebimento: 'Portal', observacoes: '', arquivoNome: 'amanda-rg.jpg', arquivoUrl: '', processo: '0805234-56.2026.5.09.0012', analise: { pertinencia: 'Essencial', fase: 'Instrução', notas: 'Documento legível e compatível com o cadastro.', ultimaAtualizacao: '06 de maio 2026, 09:12' } },
+    { id: 6, clienteId: 6, clienteNome: 'Bruno Martins', clienteIniciais: 'BM', avatar: 'avatar-2', tipo: 'CPF', data: '2026-06-06', status: 'Análise', recebimento: 'Presencial', observacoes: '', arquivoNome: 'bruno-cpf.png', arquivoUrl: '', processo: '0806234-56.2026.5.09.0012', analise: null },
+    { id: 7, clienteId: 7, clienteNome: 'Camila Rocha', clienteIniciais: 'CR', avatar: 'avatar-3', tipo: 'Comprovante de Residência', data: '2026-06-05', status: 'Pendente', recebimento: 'E-mail', observacoes: '', arquivoNome: 'camila-residencia.pdf', arquivoUrl: '', processo: '0807234-56.2026.5.09.0012', analise: null },
+    { id: 8, clienteId: 8, clienteNome: 'Daniel Lima', clienteIniciais: 'DL', avatar: 'avatar-4', tipo: 'Contrato Social', data: '2026-06-05', status: 'Concluído', recebimento: 'Portal', observacoes: '', arquivoNome: 'daniel-contrato-social.pdf', arquivoUrl: '', processo: '0808234-56.2026.5.09.0012', analise: { pertinencia: 'Complementar', fase: 'Instrução', notas: 'Documento auxiliar para composição do dossiê.', ultimaAtualizacao: '06 de maio 2026, 09:12' } },
+    { id: 9, clienteId: 9, clienteNome: 'Eduarda Nunes', clienteIniciais: 'EN', avatar: 'avatar-1', tipo: 'Petição Inicial', data: '2026-06-04', status: 'Análise', recebimento: 'E-mail', observacoes: '', arquivoNome: 'eduarda-peticao.pdf', arquivoUrl: '', processo: '0809234-56.2026.5.09.0012', analise: null },
+    { id: 10, clienteId: 10, clienteNome: 'Felipe Gomes', clienteIniciais: 'FG', avatar: 'avatar-2', tipo: 'Laudo Médico', data: '2026-06-04', status: 'Complemento', recebimento: 'WhatsApp', observacoes: '', arquivoNome: 'felipe-laudo.pdf', arquivoUrl: '', processo: '0810234-56.2026.5.09.0012', analise: null },
+    { id: 11, clienteId: 11, clienteNome: 'Gabriela Teixeira', clienteIniciais: 'GT', avatar: 'avatar-3', tipo: 'CTPS', data: '2026-06-03', status: 'Pendente', recebimento: 'Portal', observacoes: '', arquivoNome: 'gabriela-ctps.pdf', arquivoUrl: '', processo: '0811234-56.2026.5.09.0012', analise: null },
+    { id: 12, clienteId: 12, clienteNome: 'Henrique Alves', clienteIniciais: 'HA', avatar: 'avatar-4', tipo: 'Holerite', data: '2026-06-03', status: 'Concluído', recebimento: 'E-mail', observacoes: '', arquivoNome: 'henrique-holerite.pdf', arquivoUrl: '', processo: '0812234-56.2026.5.09.0012', analise: { pertinencia: 'Essencial', fase: 'Instrução', notas: 'Comprovação suficiente para a etapa atual.', ultimaAtualizacao: '06 de maio 2026, 09:12' } },
+    { id: 13, clienteId: 13, clienteNome: 'Isabela Moraes', clienteIniciais: 'IM', avatar: 'avatar-1', tipo: 'Extrato Bancário', data: '2026-06-02', status: 'Análise', recebimento: 'Portal', observacoes: '', arquivoNome: 'isabela-extrato.pdf', arquivoUrl: '', processo: '0813234-56.2026.5.09.0012', analise: null },
+    { id: 14, clienteId: 14, clienteNome: 'José Ricardo', clienteIniciais: 'JR', avatar: 'avatar-2', tipo: 'Comprovante INSS', data: '2026-06-02', status: 'Pendente', recebimento: 'WhatsApp', observacoes: '', arquivoNome: 'jose-inss.pdf', arquivoUrl: '', processo: '0814234-56.2026.5.09.0012', analise: null },
+    { id: 15, clienteId: 15, clienteNome: 'Karen Dias', clienteIniciais: 'KD', avatar: 'avatar-3', tipo: 'Ata Notarial', data: '2026-06-01', status: 'Complemento', recebimento: 'Presencial', observacoes: '', arquivoNome: 'karen-ata-notarial.pdf', arquivoUrl: '', processo: '0815234-56.2026.5.09.0012', analise: null },
+    { id: 16, clienteId: 16, clienteNome: 'Lucas Prado', clienteIniciais: 'LP', avatar: 'avatar-4', tipo: 'Certidão de Nascimento', data: '2026-06-01', status: 'Concluído', recebimento: 'E-mail', observacoes: '', arquivoNome: 'lucas-nascimento.pdf', arquivoUrl: '', processo: '0816234-56.2026.5.09.0012', analise: { pertinencia: 'Essencial', fase: 'Instrução', notas: 'Documento principal conferido e validado.', ultimaAtualizacao: '06 de maio 2026, 09:12' } },
+    { id: 17, clienteId: 17, clienteNome: 'Marina Pires', clienteIniciais: 'MP', avatar: 'avatar-1', tipo: 'Certidão de Casamento', data: '2026-06-08', status: 'Pendente', recebimento: 'Portal', observacoes: '', arquivoNome: 'marina-casamento.pdf', arquivoUrl: '', processo: '0817234-56.2026.5.09.0012', analise: null },
+    { id: 18, clienteId: 18, clienteNome: 'Nathan Vieira', clienteIniciais: 'NV', avatar: 'avatar-2', tipo: 'Documentos Trabalhistas', data: '2026-06-07', status: 'Análise', recebimento: 'WhatsApp', observacoes: '', arquivoNome: 'nathan-trabalhistas.pdf', arquivoUrl: '', processo: '0818234-56.2026.5.09.0012', analise: null },
+    { id: 19, clienteId: 19, clienteNome: 'Olivia Santana', clienteIniciais: 'OS', avatar: 'avatar-3', tipo: 'Comprovante de Endereço', data: '2026-06-06', status: 'Pendente', recebimento: 'E-mail', observacoes: '', arquivoNome: 'olivia-endereco.pdf', arquivoUrl: '', processo: '0819234-56.2026.5.09.0012', analise: null },
+    { id: 20, clienteId: 20, clienteNome: 'Paulo Henrique', clienteIniciais: 'PH', avatar: 'avatar-4', tipo: 'Carteira de Trabalho', data: '2026-06-05', status: 'Concluído', recebimento: 'Portal', observacoes: '', arquivoNome: 'paulo-ctps.pdf', arquivoUrl: '', processo: '0820234-56.2026.5.09.0012', analise: { pertinencia: 'Complementar', fase: 'Instrução', notas: 'Utilizado para cruzamento de dados do vínculo.', ultimaAtualizacao: '06 de maio 2026, 09:12' } },
+    { id: 21, clienteId: 21, clienteNome: 'Queila Ramos', clienteIniciais: 'QR', avatar: 'avatar-1', tipo: 'Procuração Particular', data: '2026-06-04', status: 'Análise', recebimento: 'E-mail', observacoes: '', arquivoNome: 'queila-procuracao.pdf', arquivoUrl: '', processo: '0821234-56.2026.5.09.0012', analise: null },
+    { id: 22, clienteId: 22, clienteNome: 'Rafael Melo', clienteIniciais: 'RM', avatar: 'avatar-2', tipo: 'Petição Intermediária', data: '2026-06-03', status: 'Complemento', recebimento: 'WhatsApp', observacoes: '', arquivoNome: 'rafael-peticao.pdf', arquivoUrl: '', processo: '0822234-56.2026.5.09.0012', analise: null },
+    { id: 23, clienteId: 23, clienteNome: 'Sandra Luz', clienteIniciais: 'SL', avatar: 'avatar-3', tipo: 'Sentença', data: '2026-06-02', status: 'Concluído', recebimento: 'Portal', observacoes: '', arquivoNome: 'sandra-sentenca.pdf', arquivoUrl: '', processo: '0823234-56.2026.5.09.0012', analise: { pertinencia: 'Essencial', fase: 'Julgamento', notas: 'Sentença consolidada e apta para uso na etapa posterior.', ultimaAtualizacao: '06 de maio 2026, 09:12' } },
+    { id: 24, clienteId: 24, clienteNome: 'Tatiane Costa', clienteIniciais: 'TC', avatar: 'avatar-4', tipo: 'RG Atualizado', data: '2026-06-01', status: 'Pendente', recebimento: 'Presencial', observacoes: '', arquivoNome: 'tatiane-rg.pdf', arquivoUrl: '', processo: '0824234-56.2026.5.09.0012', analise: null }
   ];
 }
 
@@ -36,7 +36,6 @@ let documentosCurrentPage = 1;
 const DOCUMENTOS_ITEMS_PER_PAGE = 4;
 
 let documentoDraft = {
-  clienteId: '',
   clienteNome: '',
   tipo: '',
   data: '',
@@ -134,6 +133,27 @@ function clearDocumentFilters() {
   renderDocuments();
 }
 
+function bindDocsNav() {
+  document.querySelectorAll('[data-nav="dashboard"]').forEach(el => {
+    el.addEventListener('click', () => renderDashboard());
+  });
+
+  document.querySelectorAll('[data-nav="docs"]').forEach(el => {
+    el.addEventListener('click', () => renderDocuments());
+  });
+
+  document.querySelectorAll('[data-nav="clientes"]').forEach(el => {
+    el.addEventListener('click', () => {
+      if (typeof renderClientsList === 'function') renderClientsList();
+      else alert('Página de clientes ainda não implementada.');
+    });
+  });
+
+  document.querySelectorAll('[data-nav="sair"]').forEach(el => {
+    el.addEventListener('click', () => renderLogin());
+  });
+}
+
 function renderDocumentsRows() {
   const docs = getDocumentsPaginated();
 
@@ -210,13 +230,7 @@ function renderDocuments() {
       <div class="main-shell">
         <header class="topbar">
           <div class="topbar-search">
-            <input
-              id="docs-global-search"
-              class="topbar-search-input"
-              type="text"
-              placeholder="Buscar no JurisDoc..."
-              value="${documentosSearchTerm}"
-            />
+            <input id="docs-global-search" class="topbar-search-input" type="text" placeholder="Buscar no JurisDoc..." value="${documentosSearchTerm}">
           </div>
 
           <div class="topbar-user">
@@ -247,12 +261,7 @@ function renderDocuments() {
                 </div>
 
                 <div class="documentos-local-search">
-                  <input
-                    id="docs-local-search"
-                    type="text"
-                    placeholder="Pesquisar..."
-                    value="${documentosSearchTerm}"
-                  />
+                  <input id="docs-local-search" type="text" placeholder="Pesquisar..." value="${documentosSearchTerm}">
                 </div>
 
                 <div class="documentos-filter-group">
@@ -455,27 +464,6 @@ function attachDocumentsEvents() {
   bindDocsNav();
 }
 
-function bindDocsNav() {
-  document.querySelectorAll('[data-nav="dashboard"]').forEach(el => {
-    el.addEventListener('click', () => renderDashboard());
-  });
-
-  document.querySelectorAll('[data-nav="docs"]').forEach(el => {
-    el.addEventListener('click', () => renderDocuments());
-  });
-
-  document.querySelectorAll('[data-nav="clientes"]').forEach(el => {
-    el.addEventListener('click', () => {
-      if (typeof renderClientsList === 'function') renderClientsList();
-      else alert('Página de clientes ainda não implementada.');
-    });
-  });
-
-  document.querySelectorAll('[data-nav="sair"]').forEach(el => {
-    el.addEventListener('click', () => renderLogin());
-  });
-}
-
 function renderDocumentNew() {
   const clientes = getDocumentsClients();
   const tipos = getDocumentsTiposDisponiveis();
@@ -577,7 +565,7 @@ function renderDocumentNew() {
                 <div class="cadastro-card">
                   <div class="cadastro-card-title">Observações</div>
                   <div class="cadastro-field full">
-                    <label>Notas Técnicas</>
+                    <label>Notas Técnicas</label>
                     <textarea id="doc-observacoes" placeholder="Descreva possíveis falhas de imagem, rasuras ou divergências de conteúdo...">${documentoDraft.observacoes}</textarea>
                   </div>
                 </div>
@@ -592,13 +580,13 @@ function renderDocumentNew() {
                     <select id="doc-status">
                       <option value="Pendente" ${documentoDraft.statusInicial === 'Pendente' ? 'selected' : ''}>Pendente</option>
                       <option value="Análise" ${documentoDraft.statusInicial === 'Análise' ? 'selected' : ''}>Análise</option>
-                      <option value="Complemento" ${documentoDraft.statusInicial === 'o' ? 'selected' : ''}>Complemento</option>
+                      <option value="Complemento" ${documentoDraft.statusInicial === 'Complemento' ? 'selected' : ''}>Complemento</option>
                       <option value="Concluído" ${documentoDraft.statusInicial === 'Concluído' ? 'selected' : ''}>Concluído</option>
                     </select>
                   </div>
 
                   <div class="cadastro-actions">
-                    <button id="btn-confirmar-salvar" class="cadastro-save-btn">Salvar Cadastro</>
+                    <button id="btn-confirmar-salvar" class="cadastro-save-btn">Salvar Cadastro</button>
                     <button id="btn-confirmar-cancelar" class="cadastro-cancel-btn">Cancelar</button>
                   </div>
                 </div>
@@ -610,4 +598,647 @@ function renderDocumentNew() {
         <footer class="dashboard-footer">
           <div class="dashboard-footer-text">JurisDoc</div>
           <div class="dashboard-footer-text">© 2026 JURISDOC - BY AMANDA PALACIO</div>
-        </footer
+        </footer>
+      </div>
+    </div>
+  `;
+
+function attachDocumentNewEvents() {
+  const fileInput = document.getElementById('doc-arquivo');
+  const fileName = document.getElementById('doc-arquivo-nome');
+  const filePreview = document.getElementById('cadastro-file-preview');
+  const statusSelect = document.getElementById('doc-status');
+  const clienteSelect = document.getElementById('doc-cliente-search');
+  const tipoInput = document.getElementById('doc-tipo');
+  const dataInput = document.getElementById('doc-data');
+  const obsInput = document.getElementById('doc-observacoes');
+
+  if (fileInput) {
+    fileInput.addEventListener('change', () => {
+      const file = fileInput.files && fileInput.files[0] ? fileInput.files[0] : null;
+      documentoDraft.arquivo = file;
+
+      if (file) {
+        documentoDraft.arquivoUrl = URL.createObjectURL(file);
+      } else {
+        documentoDraft.arquivoUrl = '';
+      }
+
+      if (fileName) {
+        fileName.textContent = file ? file.name : 'Nenhum arquivo selecionado';
+      }
+
+      if (filePreview) {
+        filePreview.textContent = file
+          ? `${file.name} • ${(file.size / 1024).toFixed(1)} KB`
+          : 'Selecione um arquivo para visualizar informações básicas';
+      }
+    });
+  }
+
+  if (statusSelect) {
+    statusSelect.addEventListener('change', () => {
+      documentoDraft.statusInicial = statusSelect.value;
+    });
+  }
+
+  if (clienteSelect) {
+    clienteSelect.addEventListener('change', () => {
+      documentoDraft.clienteNome = clienteSelect.value;
+    });
+  }
+
+  if (tipoInput) {
+    tipoInput.addEventListener('input', () => {
+      documentoDraft.tipo = tipoInput.value;
+    });
+  }
+
+  if (dataInput) {
+    dataInput.addEventListener('change', () => {
+      documentoDraft.data = dataInput.value;
+    });
+  }
+
+  if (obsInput) {
+    obsInput.addEventListener('input', () => {
+      documentoDraft.observacoes = obsInput.value;
+    });
+  }
+
+  document.querySelectorAll('.recebimento-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      documentoDraft.recebimento = btn.dataset.recebimento;
+      renderDocumentNew();
+    });
+  });
+
+  const saveBtn = document.getElementById('btn-confirmar-salvar');
+  if (saveBtn) {
+    saveBtn.addEventListener('click', () => {
+      documentoDraft.clienteNome = document.getElementById('doc-cliente-search').value.trim();
+      documentoDraft.tipo = document.getElementById('doc-tipo').value.trim();
+      documentoDraft.data = document.getElementById('doc-data').value;
+      documentoDraft.observacoes = document.getElementById('doc-observacoes').value.trim();
+      documentoDraft.statusInicial = document.getElementById('doc-status').value;
+      renderDocumentSaveConfirmModal();
+    });
+  }
+
+  const cancelBtn = document.getElementById('btn-confirmar-cancelar');
+  if (cancelBtn) {
+    cancelBtn.addEventListener('click', () => {
+      documentoDraft.clienteNome = document.getElementById('doc-cliente-search').value.trim();
+      documentoDraft.tipo = document.getElementById('doc-tipo').value.trim();
+      documentoDraft.data = document.getElementById('doc-data').value;
+      documentoDraft.observacoes = document.getElementById('doc-observacoes').value.trim();
+      documentoDraft.statusInicial = document.getElementById('doc-status').value;
+      renderDocumentCancelModal();
+    });
+  }
+
+  bindDocsNav();
+}
+
+function renderDocumentSaveConfirmModal() {
+  const modal = document.createElement('div');
+  modal.className = 'doc-modal-overlay';
+  modal.innerHTML = `
+    <div class="doc-modal-card">
+      <div class="doc-modal-header">
+        <div class="doc-modal-title">Confirmar salvamento</div>
+      </div>
+      <div class="doc-modal-body">
+        <div class="doc-modal-text">
+          Deseja salvar este cadastro de documento?
+        </div>
+      </div>
+      <div class="doc-modal-footer">
+        <button id="doc-modal-cancel" class="doc-modal-btn secondary">Voltar</button>
+        <button id="doc-modal-confirm" class="doc-modal-btn primary">Confirmar</button>
+      </div>
+    </div>
+  `;
+  document.body.appendChild(modal);
+
+  document.getElementById('doc-modal-cancel').onclick = () => modal.remove();
+  document.getElementById('doc-modal-confirm').onclick = () => {
+    modal.remove();
+    saveDocumentDraft();
+  };
+}
+
+function saveDocumentDraft() {
+  const clientes = getDocumentsClients();
+  const cliente = clientes.find(c => c.nome.toLowerCase() === documentoDraft.clienteNome.toLowerCase());
+
+  if (!cliente || !documentoDraft.tipo || !documentoDraft.data || !documentoDraft.recebimento || !documentoDraft.arquivo) {
+    alert('Preencha cliente, tipo, data, forma de recebimento e selecione um arquivo.');
+    return;
+  }
+
+  window.documentsStore.unshift({
+    id: Date.now(),
+    clienteId: cliente.id,
+    clienteNome: cliente.nome,
+    clienteIniciais: cliente.iniciais,
+    avatar: cliente.tipoAvatar,
+    tipo: documentoDraft.tipo,
+    data: documentoDraft.data,
+    status: documentoDraft.statusInicial || 'Pendente',
+    recebimento: documentoDraft.recebimento,
+    observacoes: documentoDraft.observacoes,
+    arquivoNome: documentoDraft.arquivo.name,
+    arquivoUrl: documentoDraft.arquivoUrl || '',
+    processo: `08${Math.floor(Math.random() * 9000 + 1000)}-56.2026.5.09.0012`,
+    analise: null
+  });
+
+  documentoDraft = {
+    clienteNome: '',
+    tipo: '',
+    data: '',
+    recebimento: '',
+    observacoes: '',
+    arquivo: null,
+    arquivoUrl: '',
+    statusInicial: 'Pendente'
+  };
+
+  renderDocumentSavedSuccess();
+}
+
+function renderDocumentSavedSuccess() {
+  const modal = document.createElement('div');
+  modal.className = 'doc-modal-overlay';
+  modal.innerHTML = `
+    <div class="doc-modal-card success">
+      <div class="doc-modal-success-icon"></div>
+      <div class="doc-modal-title center">Registrado com Sucesso</div>
+      <div class="doc-modal-text center">O documento foi cadastrado com sucesso no sistema.</div>
+      <div class="doc-modal-actions center">
+        <button id="doc-success-list" class="doc-modal-btn soft">Ir para lista</button>
+        <button id="doc-success-new" class="doc-modal-btn primary">Novo cadastro</button>
+      </div>
+    </div>
+  `;
+  document.body.appendChild(modal);
+
+  document.getElementById('doc-success-list').onclick = () => {
+    modal.remove();
+    renderDocuments();
+  };
+
+  document.getElementById('doc-success-new').onclick = () => {
+    modal.remove();
+    renderDocumentNew();
+  };
+}
+
+function renderDocumentCancelModal() {
+  const modal = document.createElement('div');
+  modal.className = 'doc-modal-overlay';
+  modal.innerHTML = `
+    <div class="doc-modal-card">
+      <div class="doc-modal-header danger">
+        <div class="doc-modal-title">Descartar alterações</div>
+      </div>
+      <div class="doc-modal-body">
+        <div class="doc-modal-text">
+          Você possui alterações não salvas no cadastro deste documento. Deseja realmente sair sem salvar os dados preenchidos?
+        </div>
+      </div>
+      <div class="doc-modal-footer tinted">
+        <button id="doc-cancel-back" class="doc-modal-btn secondary">Voltar</button>
+        <button id="doc-cancel-confirm" class="doc-modal-btn primary">Sair sem salvar</button>
+      </div>
+    </div>
+  `;
+  document.body.appendChild(modal);
+
+  document.getElementById('doc-cancel-back').onclick = () => modal.remove();
+  document.getElementById('doc-cancel-confirm').onclick = () => {
+    modal.remove();
+    documentoDraft = {
+      clienteNome: '',
+      tipo: '',
+      data: '',
+      recebimento: '',
+      observacoes: '',
+      arquivo: null,
+      arquivoUrl: '',
+      statusInicial: 'Pendente'
+    };
+    renderDocuments();
+  };
+}
+
+function renderDocumentAnalysis(docId) {
+  const doc = window.documentsStore.find(d => d.id === docId);
+  if (!doc) return;
+
+  documentosCurrentAnalysisId = docId;
+  documentosAnalysisDraft = {
+    pertinencia: doc.analise?.pertinencia || '',
+    fase: doc.analise?.fase || '',
+    notas: doc.analise?.notas || '',
+    changed: false
+  };
+
+  const app = document.getElementById('app');
+  app.innerHTML = `
+    <div class="dashboard-page">
+      ${renderSidebar('docs')}
+
+      <div class="main-shell">
+        <header class="topbar">
+          <div class="topbar-search">
+            <input class="topbar-search-input" type="text" placeholder="Buscar no JurisDoc...">
+          </div>
+
+          <div class="topbar-user">
+            <div class="topbar-divider"></div>
+            <div class="topbar-user-info">
+              <div class="topbar-user-role">Administrador Financeiro</div>
+              <div class="topbar-user-name">Amanda Palacio</div>
+            </div>
+            <div class="topbar-avatar"></div>
+          </div>
+        </header>
+
+        <div class="main-canvas-margin">
+          <main class="main-canvas documentos-analysis-main">
+            <section class="documentos-analysis-header">
+              <div class="page-title">Análise de Documento</div>
+            </section>
+
+            <section class="document-analysis-layout">
+              <section class="document-analysis-preview">
+                <div class="document-preview-topbar">
+                  <div class="document-preview-filename">${doc.arquivoNome}</div>
+                  <div class="document-preview-actions">
+                    ${doc.arquivoUrl ? `<a href="${doc.arquivoUrl}" target="_blank" class="document-preview-action">Abrir</a>` : ''}
+                    <button type="button" class="document-preview-action" id="btn-download-doc">Baixar</button>
+                  </div>
+                </div>
+
+                <div class="document-preview-body">
+                  ${
+                    doc.arquivoUrl && doc.arquivoNome.match(/\.(jpg|jpeg|png)$/i)
+                      ? `<img src="${doc.arquivoUrl}" alt="${doc.arquivoNome}" class="document-preview-image">`
+                      : doc.arquivoUrl && doc.arquivoNome.match(/\.pdf$/i)
+                        ? `<iframe src="${doc.arquivoUrl}" class="document-preview-iframe"></iframe>`
+                        : `
+                          <div class="document-placeholder-page">
+                            <div class="document-placeholder-badge">${doc.status}</div>
+                            <div class="document-placeholder-line w-40"></div>
+                            <div class="document-placeholder-block">
+                              <div class="document-placeholder-line w-100"></div>
+                              <div class="document-placeholder-line w-72"></div>
+                            </div>
+                            <div class="document-placeholder-text-group">
+                              <div class="document-placeholder-line w-100"></div>
+                              <div class="document-placeholder-line w-100"></div>
+                              <div class="document-placeholder-line w-100"></div>
+                              <div class="document-placeholder-line w-84"></div>
+                              <div class="document-placeholder-line w-68"></div>
+                            </div>
+                            <div class="document-placeholder-text-group">
+                              <div class="document-placeholder-line w-100"></div>
+                              <div class="document-placeholder-line w-100"></div>
+                              <div class="document-placeholder-line w-100"></div>
+                              <div class="document-placeholder-line w-100"></div>
+                            </div>
+                          </div>
+                        `
+                  }
+                </div>
+              </section>
+
+              <section class="document-analysis-form-side">
+                <div class="analysis-case-header">
+                  <div class="analysis-case-label">Autos do processo</div>
+                  <div class="analysis-case-number">${doc.processo || '0801234-56.2026.5.09.0012'}</div>
+                  <div class="analysis-case-tags">
+                    <span class="analysis-tag primary">${doc.tipo}</span>
+                    <span class="analysis-tag neutral">${doc.status}</span>
+                  </div>
+                </div>
+
+                <div class="analysis-form-card">
+                  <div class="analysis-block">
+                    <div class="analysis-block-title">Classificação de Pertinência</div>
+
+                    <label class="analysis-radio-card ${documentosAnalysisDraft.pertinencia === 'Essencial' ? 'active' : ''}">
+                      <input type="radio" name="pertinencia" value="Essencial" ${documentosAnalysisDraft.pertinencia === 'Essencial' ? 'checked' : ''}>
+                      <div>
+                        <strong>Essencial</strong>
+                        <small>Documento central para a análise do caso</small>
+                      </div>
+                    </label>
+
+                    <label class="analysis-radio-card ${documentosAnalysisDraft.pertinencia === 'Complementar' ? 'active' : ''}">
+                      <input type="radio" name="pertinencia" value="Complementar" ${documentosAnalysisDraft.pertinencia === 'Complementar' ? 'checked' : ''}>
+                      <div>
+                        <strong>Complementar</strong>
+                        <small>Serve como apoio ou validação</small>
+                      </div>
+                    </label>
+
+                    <label class="analysis-radio-card ${documentosAnalysisDraft.pertinencia === 'Descartável' ? 'active' : ''}">
+                      <input type="radio" name="pertinencia" value="Descartável" ${documentosAnalysisDraft.pertinencia === 'Descartável' ? 'checked' : ''}>
+                      <div>
+                        <strong>Descartável / Redundante</strong>
+                        <small>Não agrega valor à fase atual</small>
+                      </div>
+                    </label>
+                  </div>
+
+                  <div class="analysis-block">
+                    <div class="analysis-block-title">Fase Processual</div>
+                    <select id="analysis-fase" class="analysis-select">
+                      <option value="">Selecione</option>
+                      <option value="Instrução" ${documentosAnalysisDraft.fase === 'Instrução' ? 'selected' : ''}>Instrução</option>
+                      <option value="Julgamento" ${documentosAnalysisDraft.fase === 'Julgamento' ? 'selected' : ''}>Julgamento</option>
+                      <option value="Execução" ${documentosAnalysisDraft.fase === 'Execução' ? 'selected' : ''}>Execução</option>
+                      <option value="Recurso" ${documentosAnalysisDraft.fase === 'Recurso' ? 'selected' : ''}>Recurso</option>
+                    </select>
+                  </div>
+
+                  <div class="analysis-block">
+                    <div class="analysis-block-title row">
+                      <span>Notas Técnicas</span>
+                      <small>Opcional</small>
+                    </div>
+                    <textarea id="analysis-notas" class="analysis-textarea" placeholder="Insira análise acadêmica ou precedentes legais identificados nesta peça...">${documentosAnalysisDraft.notas}</textarea>
+                  </div>
+
+                  <div class="analysis-actions">
+                    <button id="btn-save-analysis" class="analysis-save-btn">SALVAR ANÁLISE</button>
+                    <button id="btn-back-analysis" class="analysis-back-btn">VOLTAR PARA LISTA</button>
+                  </div>
+                </div>
+
+                <div class="analysis-meta-card">
+                  <div class="analysis-meta-title">Metadados do documento</div>
+                  <div class="analysis-meta-row">
+                    <div>
+                      <strong>Cadastro</strong>
+                      <small>Secretaria</small>
+                    </div>
+                    <span>${doc.analise?.ultimaAtualizacao || '06 de maio 2026, 09:12'}</span>
+                  </div>
+                </div>
+              </section>
+            </section>
+          </main>
+        </div>
+
+        <footer class="dashboard-footer">
+          <div class="dashboard-footer-text">JurisDoc</div>
+          <div class="dashboard-footer-text">© 2026 JURISDOC - BY AMANDA PALACIO</div>
+        </footer>
+      </div>
+    </div>
+  `;
+
+  attachDocumentAnalysisEvents();
+}
+
+function attachDocumentAnalysisEvents() {
+  const doc = window.documentsStore.find(d => d.id === documentosCurrentAnalysisId);
+  if (!doc) return;
+
+  document.querySelectorAll('input[name="pertinencia"]').forEach(input => {
+    input.addEventListener('change', () => {
+      documentosAnalysisDraft.pertinencia = input.value;
+      documentosAnalysisDraft.changed = true;
+      renderDocumentAnalysis(documentosCurrentAnalysisId);
+    });
+  });
+
+  const fase = document.getElementById('analysis-fase');
+  if (fase) {
+    fase.addEventListener('change', () => {
+      documentosAnalysisDraft.fase = fase.value;
+      documentosAnalysisDraft.changed = true;
+    });
+  }
+
+  const notas = document.getElementById('analysis-notas');
+  if (notas) {
+    notas.addEventListener('input', () => {
+      documentosAnalysisDraft.notas = notas.value;
+      documentosAnalysisDraft.changed = true;
+    });
+  }
+
+  const saveBtn = document.getElementById('btn-save-analysis');
+  if (saveBtn) {
+    saveBtn.addEventListener('click', () => {
+      documentosAnalysisDraft.fase = document.getElementById('analysis-fase').value;
+      documentosAnalysisDraft.notas = document.getElementById('analysis-notas').value;
+      renderAnalysisSaveConfirmModal();
+    });
+  }
+
+  const backBtn = document.getElementById('btn-back-analysis');
+  if (backBtn) {
+    backBtn.addEventListener('click', () => {
+      const original = doc.analise || {};
+      const hasUnsaved =
+        documentosAnalysisDraft.pertinencia !== (original.pertinencia || '') ||
+        documentosAnalysisDraft.fase !== (original.fase || '') ||
+        documentosAnalysisDraft.notas !== (original.notas || '');
+
+      if (hasUnsaved) {
+        renderAnalysisBackConfirmModal();
+      } else {
+        renderDocuments();
+      }
+    });
+  }
+
+  const downloadBtn = document.getElementById('btn-download-doc');
+  if (downloadBtn) {
+    downloadBtn.addEventListener('click', () => {
+      if (doc.arquivoUrl) {
+        const a = document.createElement('a');
+        a.href = doc.arquivoUrl;
+        a.download = doc.arquivoNome;
+        a.click();
+      } else {
+        alert(`Arquivo: ${doc.arquivoNome}`);
+      }
+    });
+  }
+
+  bindDocsNav();
+}
+
+function renderAnalysisSaveConfirmModal() {
+  const modal = document.createElement('div');
+  modal.className = 'doc-modal-overlay';
+  modal.innerHTML = `
+    <div class="doc-modal-card">
+      <div class="doc-modal-header">
+        <div class="doc-modal-title">Confirmar salvamento</div>
+      </div>
+      <div class="doc-modal-body">
+        <div class="doc-modal-text">
+          Deseja salvar a análise deste documento?
+        </div>
+      </div>
+      <div class="doc-modal-footer">
+        <button id="analysis-save-cancel" class="doc-modal-btn secondary">Voltar</button>
+        <button id="analysis-save-confirm" class="doc-modal-btn primary">Confirmar</button>
+      </div>
+    </div>
+  `;
+  document.body.appendChild(modal);
+
+  document.getElementById('analysis-save-cancel').onclick = () => modal.remove();
+  document.getElementById('analysis-save-confirm').onclick = () => {
+    modal.remove();
+    saveDocumentAnalysis();
+  };
+}
+
+function saveDocumentAnalysis() {
+  const doc = window.documentsStore.find(d => d.id === documentosCurrentAnalysisId);
+  if (!doc) return;
+
+  if (!documentosAnalysisDraft.pertinencia || !documentosAnalysisDraft.fase) {
+    alert('Selecione a pertinência e a fase processual.');
+    return;
+  }
+
+  doc.analise = {
+    pertinencia: documentosAnalysisDraft.pertinencia,
+    fase: documentosAnalysisDraft.fase,
+    notas: documentosAnalysisDraft.notas,
+    ultimaAtualizacao: '06 de maio 2026, 09:12'
+  };
+
+  if (doc.status !== 'Concluído') {
+    doc.status = 'Concluído';
+  }
+
+  documentosAnalysisDraft.changed = false;
+  renderAnalysisSavedSuccessModal();
+}
+
+function renderAnalysisSavedSuccessModal() {
+  const modal = document.createElement('div');
+  modal.className = 'doc-modal-overlay';
+  modal.innerHTML = `
+    <div class="doc-modal-card success">
+      <div class="doc-modal-success-icon"></div>
+      <div class="doc-modal-title center">Análise salva com sucesso</div>
+      <div class="doc-modal-text center">As informações do documento foram atualizadas.</div>
+      <div class="doc-modal-actions center">
+        <button id="analysis-success-list" class="doc-modal-btn primary">Voltar para lista</button>
+      </div>
+    </div>
+  `;
+  document.body.appendChild(modal);
+
+  document.getElementById('analysis-success-list').onclick = () => {
+    modal.remove();
+    renderDocuments();
+  };
+}
+
+function renderAnalysisBackConfirmModal() {
+  const modal = document.createElement('div');
+  modal.className = 'doc-modal-overlay';
+  modal.innerHTML = `
+    <div class="doc-modal-card">
+      <div class="doc-modal-header danger">
+        <div class="doc-modal-title">Descartar alterações</div>
+      </div>
+      <div class="doc-modal-body">
+        <div class="doc-modal-text">
+          Existem edições não salvas neste documento. Se você sair agora, todas as informações inseridas nesta sessão serão permanentemente perdidas. Deseja continuar?
+        </div>
+      </div>
+      <div class="doc-modal-footer tinted">
+        <button id="analysis-back-cancel" class="doc-modal-btn secondary">Continuar editando</button>
+        <button id="analysis-back-confirm" class="doc-modal-btn primary">Sair sem salvar</button>
+      </div>
+    </div>
+  `;
+  document.body.appendChild(modal);
+
+  document.getElementById('analysis-back-cancel').onclick = () => modal.remove();
+  document.getElementById('analysis-back-confirm').onclick = () => {
+    modal.remove();
+    renderDocuments();
+  };
+}
+
+function renderDeleteConfirmModal(docId) {
+  const doc = window.documentsStore.find(d => d.id === docId);
+  if (!doc) return;
+
+  const modal = document.createElement('div');
+  modal.className = 'doc-modal-overlay';
+  modal.innerHTML = `
+    <div class="doc-modal-card delete">
+      <div class="doc-modal-header delete">
+        <div class="doc-modal-title">Confirmar exclusão</div>
+      </div>
+
+      <div class="doc-modal-body">
+        <div class="doc-modal-text">
+          Tem certeza que deseja excluir este registro? Esta ação não poderá ser desfeita.
+        </div>
+
+        <div class="doc-delete-file-box">
+          <span class="doc-delete-file-name">${doc.arquivoNome}</span>
+        </div>
+      </div>
+
+      <div class="doc-modal-footer">
+        <button id="doc-delete-cancel" class="doc-modal-btn secondary-text">Cancelar</button>
+        <button id="doc-delete-confirm" class="doc-modal-btn danger">Excluir</button>
+      </div>
+    </div>
+  `;
+  document.body.appendChild(modal);
+
+  document.getElementById('doc-delete-cancel').onclick = () => modal.remove();
+  document.getElementById('doc-delete-confirm').onclick = () => {
+    modal.remove();
+    deleteDocumentById(docId);
+  };
+}
+
+function deleteDocumentById(docId) {
+  const index = window.documentsStore.findIndex(d => d.id === docId);
+  if (index === -1) return;
+
+  window.documentsStore.splice(index, 1);
+  renderDeleteSuccessModal();
+}
+
+function renderDeleteSuccessModal() {
+  const modal = document.createElement('div');
+  modal.className = 'doc-modal-overlay';
+  modal.innerHTML = `
+    <div class="doc-modal-card success delete-success">
+      <div class="doc-modal-success-icon"></div>
+      <div class="doc-modal-title center">Documento excluído com sucesso</div>
+      <div class="doc-modal-text center">O arquivo foi removido permanentemente.</div>
+      <div class="doc-modal-actions center">
+        <button id="doc-delete-success-ok" class="doc-modal-btn primary full">Entendido</button>
+      </div>
+    </div>
+  `;
+  document.body.appendChild(modal);
+
+  document.getElementById('doc-delete-success-ok').onclick = () => {
+    modal.remove();
+    renderDocuments();
+  };
+}
