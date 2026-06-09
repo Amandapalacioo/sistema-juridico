@@ -602,7 +602,8 @@ function renderDocumentNew() {
       </div>
     </div>
   `;
-
+  attachDocumentNewEvents();
+}
 function attachDocumentNewEvents() {
   const fileInput = document.getElementById('doc-arquivo');
   const fileName = document.getElementById('doc-arquivo-nome');
