@@ -1,21 +1,46 @@
 /* Reset Global */
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body { 
-    background-color: #F8F9FA; 
-    font-family: 'Manrope', 'Inter', sans-serif; 
-    overflow: hidden; /* Evita scroll desnecessário no protótipo */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body,
+#app {
+  width: 100%;
+  min-height: 100%;
+}
+
+body {
+  background-color: #F8F9FA;
+  font-family: 'Manrope', 'Inter', sans-serif;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 /* Container de Aplicação */
-#app { width: 1920px; height: 1024px; position: relative; }
+#app {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+}
 
 /* Botões Globais */
-.btn-primary { 
-    background: #4C56AF; color: #FFFFFF; font-weight: 700; 
-    border-radius: 4px; border: none; cursor: pointer; 
-}
-.btn-secondary { 
-    background: #EAEFF1; color: #2B3437; font-weight: 700; 
-    border-radius: 4px; border: none; cursor: pointer; 
+.btn-primary {
+  background: #4C56AF;
+  color: #FFFFFF;
+  font-weight: 700;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
 }
 
+.btn-secondary {
+  background: #EAEFF1;
+  color: #2B3437;
+  font-weight: 700;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+}
