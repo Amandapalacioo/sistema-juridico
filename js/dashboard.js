@@ -1,169 +1,37 @@
 const dashboardClients = [
-  {
-    id: 1,
-    nome: 'Larissa Souza',
-    iniciais: 'LS',
-    tipoAvatar: 'avatar-1',
-    documento: 'Carta Convite',
-    data: '08/06/2026',
-    status: 'Pendente'
-  },
-  {
-    id: 2,
-    nome: 'João Fernando Pereira',
-    iniciais: 'JP',
-    tipoAvatar: 'avatar-2',
-    documento: 'Procuração',
-    data: '08/06/2026',
-    status: 'Análise'
-  },
-  {
-    id: 3,
-    nome: 'Odete Maria da Silva',
-    iniciais: 'OS',
-    tipoAvatar: 'avatar-3',
-    documento: 'CNIS',
-    data: '07/06/2026',
-    status: 'Complemento'
-  },
-  {
-    id: 4,
-    nome: 'Tiago Oliveira',
-    iniciais: 'TO',
-    tipoAvatar: 'avatar-4',
-    documento: 'Declaração de Hipossuficiência',
-    data: '07/06/2026',
-    status: 'Pendente'
-  },
-  {
-    id: 5,
-    nome: 'Amanda Castro',
-    iniciais: 'AC',
-    tipoAvatar: 'avatar-1',
-    documento: 'RG',
-    data: '06/06/2026',
-    status: 'Concluído'
-  },
-  {
-    id: 6,
-    nome: 'Bruno Martins',
-    iniciais: 'BM',
-    tipoAvatar: 'avatar-2',
-    documento: 'CPF',
-    data: '06/06/2026',
-    status: 'Análise'
-  },
-  {
-    id: 7,
-    nome: 'Camila Rocha',
-    iniciais: 'CR',
-    tipoAvatar: 'avatar-3',
-    documento: 'Comprovante de Residência',
-    data: '05/06/2026',
-    status: 'Pendente'
-  },
-  {
-    id: 8,
-    nome: 'Daniel Lima',
-    iniciais: 'DL',
-    tipoAvatar: 'avatar-4',
-    documento: 'Contrato Social',
-    data: '05/06/2026',
-    status: 'Concluído'
-  },
-  {
-    id: 9,
-    nome: 'Eduarda Nunes',
-    iniciais: 'EN',
-    tipoAvatar: 'avatar-1',
-    documento: 'Petição Inicial',
-    data: '04/06/2026',
-    status: 'Análise'
-  },
-  {
-    id: 10,
-    nome: 'Felipe Gomes',
-    iniciais: 'FG',
-    tipoAvatar: 'avatar-2',
-    documento: 'Laudo Médico',
-    data: '04/06/2026',
-    status: 'Complemento'
-  },
-  {
-    id: 11,
-    nome: 'Gabriela Teixeira',
-    iniciais: 'GT',
-    tipoAvatar: 'avatar-3',
-    documento: 'CTPS',
-    data: '03/06/2026',
-    status: 'Pendente'
-  },
-  {
-    id: 12,
-    nome: 'Henrique Alves',
-    iniciais: 'HA',
-    tipoAvatar: 'avatar-4',
-    documento: 'Holerite',
-    data: '03/06/2026',
-    status: 'Concluído'
-  },
-  {
-    id: 13,
-    nome: 'Isabela Moraes',
-    iniciais: 'IM',
-    tipoAvatar: 'avatar-1',
-    documento: 'Extrato Bancário',
-    data: '02/06/2026',
-    status: 'Análise'
-  },
-  {
-    id: 14,
-    nome: 'José Ricardo',
-    iniciais: 'JR',
-    tipoAvatar: 'avatar-2',
-    documento: 'Comprovante INSS',
-    data: '02/06/2026',
-    status: 'Pendente'
-  },
-  {
-    id: 15,
-    nome: 'Karen Dias',
-    iniciais: 'KD',
-    tipoAvatar: 'avatar-3',
-    documento: 'Ata Notarial',
-    data: '01/06/2026',
-    status: 'Complemento'
-  },
-  {
-    id: 16,
-    nome: 'Lucas Prado',
-    iniciais: 'LP',
-    tipoAvatar: 'avatar-4',
-    documento: 'Certidão de Nascimento',
-    data: '01/06/2026',
-    status: 'Concluído'
-  },
-  {
-    id: 17,
-    nome: 'Marina Pires',
-    iniciais: 'MP',
-    tipoAvatar: 'avatar-1',
-    documento: 'Certidão de Casamento',
-    data: '08/06/2026',
-    status: 'Pendente'
-  },
-  {
-    id: 18,
-    nome: 'Nathan Vieira',
-    iniciais: 'NV',
-    tipoAvatar: 'avatar-2',
-    documento: 'Documentos Trabalhistas',
-    data: '07/06/2026',
-    status: 'Análise'
-  }
+  { id: 1, nome: 'Larissa Souza', iniciais: 'LS', tipoAvatar: 'avatar-1', documento: 'Carta Convite', data: '08/06/2026', status: 'Pendente' },
+  { id: 2, nome: 'João Fernando Pereira', iniciais: 'JP', tipoAvatar: 'avatar-2', documento: 'Procuração', data: '08/06/2026', status: 'Análise' },
+  { id: 3, nome: 'Odete Maria da Silva', iniciais: 'OS', tipoAvatar: 'avatar-3', documento: 'CNIS', data: '07/06/2026', status: 'Complemento' },
+  { id: 4, nome: 'Tiago Oliveira', iniciais: 'TO', tipoAvatar: 'avatar-4', documento: 'Declaração de Hipossuficiência', data: '07/06/2026', status: 'Pendente' },
+  { id: 5, nome: 'Amanda Castro', iniciais: 'AC', tipoAvatar: 'avatar-1', documento: 'RG', data: '06/06/2026', status: 'Concluído' },
+  { id: 6, nome: 'Bruno Martins', iniciais: 'BM', tipoAvatar: 'avatar-2', documento: 'CPF', data: '06/06/2026', status: 'Análise' },
+  { id: 7, nome: 'Camila Rocha', iniciais: 'CR', tipoAvatar: 'avatar-3', documento: 'Comprovante de Residência', data: '05/06/2026', status: 'Pendente' },
+  { id: 8, nome: 'Daniel Lima', iniciais: 'DL', tipoAvatar: 'avatar-4', documento: 'Contrato Social', data: '05/06/2026', status: 'Concluído' },
+  { id: 9, nome: 'Eduarda Nunes', iniciais: 'EN', tipoAvatar: 'avatar-1', documento: 'Petição Inicial', data: '04/06/2026', status: 'Análise' },
+  { id: 10, nome: 'Felipe Gomes', iniciais: 'FG', tipoAvatar: 'avatar-2', documento: 'Laudo Médico', data: '04/06/2026', status: 'Complemento' }
 ];
 
 let dashboardSearchTerm = '';
+
+function getStatusBadgeClass(status) {
+  if (status === 'Pendente') return 'status-pendente';
+  if (status === 'Análise') return 'status-analise';
+  if (status === 'Complemento') return 'status-complemento';
+  if (status === 'Concluído') return 'status-concluido';
+  return 'status-analise';
+}
+
+function getFilteredDashboardClients() {
+  if (!dashboardSearchTerm) return dashboardClients;
+  const term = dashboardSearchTerm.toLowerCase();
+
+  return dashboardClients.filter((cliente) =>
+    cliente.nome.toLowerCase().includes(term) ||
+    cliente.documento.toLowerCase().includes(term) ||
+    cliente.status.toLowerCase().includes(term) ||
+    cliente.data.toLowerCase().includes(term)
+  );
+}
 
 function renderSidebar(active = 'dashboard') {
   return `
@@ -175,65 +43,30 @@ function renderSidebar(active = 'dashboard') {
         </div>
 
         <div class="sidebar-nav">
-          <div class="nav-link ${active === 'dashboard' ? 'active' : ''}" onclick="renderDashboard()">
-            Dashboard
-          </div>
-          <div class="nav-link ${active === 'docs' ? 'active' : ''}" onclick="renderDocuments()">
-            Documentos
-          </div>
-          <div class="nav-link" onclick="renderClientsList()">
-            Clientes
-          </div>
-          <div class="nav-link">
-            Financeiro
-          </div>
+          <div class="nav-link ${active === 'dashboard' ? 'active' : ''}" data-nav="dashboard">Dashboard</div>
+          <div class="nav-link ${active === 'docs' ? 'active' : ''}" data-nav="docs">Documentos</div>
+          <div class="nav-link" data-nav="clientes">Clientes</div>
+          <div class="nav-link" data-nav="financeiro">Financeiro</div>
         </div>
       </div>
 
       <div class="sidebar-bottom">
-        <div class="sidebar-bottom-link">Configurações</div>
-        <div class="sidebar-bottom-link" onclick="renderLogin()">Sair</div>
+        <div class="sidebar-bottom-link" data-nav="config">Configurações</div>
+        <div class="sidebar-bottom-link" data-nav="sair">Sair</div>
       </div>
     </aside>
   `;
-}
-
-function getStatusBadgeClass(status) {
-  if (status === 'Pendente') return 'status-pendente';
-  if (status === 'Análise') return 'status-analise';
-  if (status === 'Complemento') return 'status-complemento';
-  if (status === 'Concluído') return 'status-concluido';
-  return 'status-analise';
-}
-
-function getFilteredDashboardClients() {
-  if (!dashboardSearchTerm) return dashboardClients.slice(0, 8);
-
-  const term = dashboardSearchTerm.toLowerCase();
-
-  return dashboardClients.filter((cliente) => {
-    return (
-      cliente.nome.toLowerCase().includes(term) ||
-      cliente.documento.toLowerCase().includes(term) ||
-      cliente.status.toLowerCase().includes(term) ||
-      cliente.data.toLowerCase().includes(term)
-    );
-  });
 }
 
 function renderDashboardRows() {
   const clients = getFilteredDashboardClients();
 
   if (!clients.length) {
-    return `
-      <div class="table-empty">
-        Nenhum documento encontrado para a busca informada.
-      </div>
-    `;
+    return `<div class="table-empty">Nenhum documento encontrado para a busca informada.</div>`;
   }
 
   return clients.map((cliente) => `
-    <div class="table-row" onclick="openDashboardClient(${cliente.id})">
+    <div class="table-row dashboard-row-click" data-client-id="${cliente.id}">
       <div class="client-cell">
         <div class="client-avatar ${cliente.tipoAvatar}">${cliente.iniciais}</div>
         <div class="client-name">${cliente.nome}</div>
@@ -248,32 +81,57 @@ function renderDashboardRows() {
   `).join('');
 }
 
-function openDashboardClient(id) {
-  const cliente = dashboardClients.find(c => c.id === id);
-  if (!cliente) return;
-
-  alert(`Cliente selecionado: ${cliente.nome}\nDocumento: ${cliente.documento}\nData: ${cliente.data}`);
-}
-
 function attachDashboardEvents() {
   const searchInput = document.getElementById('dashboard-search');
-
   if (searchInput) {
     searchInput.addEventListener('input', (e) => {
       dashboardSearchTerm = e.target.value.trim();
       const tbody = document.getElementById('dashboard-table-body');
       const count = document.getElementById('dashboard-results-count');
 
-      if (tbody) {
-        tbody.innerHTML = renderDashboardRows();
-      }
+      if (tbody) tbody.innerHTML = renderDashboardRows();
+      if (count) count.textContent = `EXIBINDO ${getFilteredDashboardClients().length} RESULTADOS`;
 
-      if (count) {
-        const total = getFilteredDashboardClients().length;
-        count.textContent = `EXIBINDO ${total} RESULTADOS`;
-      }
+      attachDashboardRowEvents();
     });
   }
+
+  document.querySelectorAll('[data-nav="dashboard"]').forEach(el => {
+    el.addEventListener('click', () => renderDashboard());
+  });
+
+  document.querySelectorAll('[data-nav="docs"]').forEach(el => {
+    el.addEventListener('click', () => {
+      if (typeof renderDocuments === 'function') renderDocuments();
+      else alert('Página de documentos ainda não implementada.');
+    });
+  });
+
+  document.querySelectorAll('[data-nav="clientes"]').forEach(el => {
+    el.addEventListener('click', () => {
+      if (typeof renderClientsList === 'function') renderClientsList();
+      else alert('Página de clientes ainda não implementada.');
+    });
+  });
+
+  document.querySelectorAll('[data-nav="sair"]').forEach(el => {
+    el.addEventListener('click', () => renderLogin());
+  });
+
+  attachDashboardRowEvents();
+}
+
+function attachDashboardRowEvents() {
+  document.querySelectorAll('.dashboard-row-click').forEach(row => {
+    row.addEventListener('click', () => {
+      const id = Number(row.dataset.clientId);
+      const cliente = dashboardClients.find(c => c.id === id);
+      if (!cliente) return;
+      alert(
+        `Cliente: ${cliente.nome}\nDocumento: ${cliente.documento}\nData: ${cliente.data}\nStatus: ${cliente.status}`
+      );
+    });
+  });
 }
 
 function renderDashboard() {
@@ -298,12 +156,10 @@ function renderDashboard() {
 
           <div class="topbar-user">
             <div class="topbar-divider"></div>
-
             <div class="topbar-user-info">
               <div class="topbar-user-role">Administrador Financeiro</div>
               <div class="topbar-user-name">Amanda Palacio</div>
             </div>
-
             <div class="topbar-avatar"></div>
           </div>
         </header>
@@ -315,7 +171,6 @@ function renderDashboard() {
                 <div class="page-title">Dashboard</div>
                 <div class="page-subtitle">Visualize o resumo geral da operação jurídica.</div>
               </div>
-
               <div class="page-date">08 DE JUNHO, 2026</div>
             </section>
 
