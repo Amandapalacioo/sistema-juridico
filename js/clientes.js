@@ -1,12 +1,56 @@
+let clientesSearchTerm = '';
+let clienteSelecionadoId = null;
+
+function getClientInitials(nome) {
+  if (!nome) return 'CL';
+  const parts = String(nome).trim().split(' ').filter(Boolean);
+  return parts.slice(0, 2).map(p => p[0].toUpperCase()).join('');
+}
+
+function formatDocumentDate(value) {
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) return 'Data não informada';
+
+  return `${date.toLocaleDateString('pt-BR')} • ${date.toLocaleTimeString('pt-BR', {
+    hour: '2-digit',
+    minute: '2-digit'
+  })}`;
+}
+
+function getClientesData() {
+  if (Array.isArray(window.clientesData)) return window.clientesData;
+  if (Array.isArray(window.mockClientes)) return window.mockClientes;
+  if (Array.isArray(window.clientsData)) return window.clientsData;
+  return [];
+}
+
+function getDocumentosData() {
+  if (Array.isArray(window.documentosData)) return window.documentosData;
+  if (Array.isArray(window.docsData)) return window.docsData;
+  if (Array.isArray(window.mockDocumentos)) return window.mockDocumentos;
+  return [];
+}
+
+function getDocumentosByCliente(cliente) {
+  const documentos = getDocumentosData();
+  if (!cliente) return [];
+
+  return documentos.filter(doc => {
+    if (doc.clienteId != null && cliente.id != null) {
+      return String(doc.clienteId) === String(cliente.id);
+    }
+
+    return String(doc.clienteNome || '')
+      .toLowerCase()
+      .trim() === String(cliente.nome || '')
+      .toLowerCase()
+      .trim();
+  });
+}
+
+/* mantém compatibilidade se algum lugar ainda chamar a função antiga */
 function renderClientsList() {
-  const app = document.getElementById('app');
-  app.innerHTML = `
-    <div style="padding:40px;font-family:Manrope,sans-serif">
-      <h1>Clientes</h1>
-      <p>Página de clientes ainda será implementada.</p>
-      <button onclick="renderDashboard()">Voltar</button>
-    </div>
-  `;
+  renderClientesPage();
 }
 
 function renderClientesPage() {
@@ -19,12 +63,19 @@ function renderClientesPage() {
 
   if (!filtrados.length) {
     clienteSelecionadoId = null;
-  } else if (!clienteSelecionadoId || !filtrados.some(c => String(c.id) === String(clienteSelecionadoId))) {
+  } else if (
+    !clienteSelecionadoId ||
+    !filtrados.some(c => String(c.id) === String(clienteSelecionadoId))
+  ) {
     clienteSelecionadoId = filtrados[0].id;
   }
 
-  const clienteSelecionado = filtrados.find(c => String(c.id) === String(clienteSelecionadoId)) || null;
-  const documentosCliente = clienteSelecionado ? getDocumentosByCliente(clienteSelecionado) : [];
+  const clienteSelecionado =
+    filtrados.find(c => String(c.id) === String(clienteSelecionadoId)) || null;
+
+  const documentosCliente = clienteSelecionado
+    ? getDocumentosByCliente(clienteSelecionado)
+    : [];
 
   const content = `
     <main class="clientes-main">
@@ -80,15 +131,15 @@ function renderClientesPage() {
               </div>
 
               <div class="clientes-pagination-controls">
-                <button class="clientes-page-btn">‹</button>
-                <button class="clientes-page-btn active">1</button>
-                <button class="clientes-page-btn">2</button>
-                <button class="clientes-page-btn">3</button>
-                <button class="clientes-page-btn">›</button>
+                <button type="button" class="clientes-page-btn">‹</button>
+                <button type="button" class="clientes-page-btn active">1</button>
+                <button type="button" class="clientes-page-btn">2</button>
+                <button type="button" class="clientes-page-btn">3</button>
+                <button type="button" class="clientes-page-btn">›</button>
               </div>
             </div>
 
-            <button id="clientes-sync-erp" class="clientes-erp-btn">
+            <button type="button" id="clientes-sync-erp" class="clientes-erp-btn">
               <span>⟳</span>
               <span>
                 Sincronizar ERP
@@ -136,3 +187,33 @@ function renderClientesPage() {
   attachClientesEvents();
 }
 
+function attachClientesEvents() {
+  const searchInput = document.getElementById('clientes-search-input');
+  if (searchInput) {
+    searchInput.addEventListener('input', (event) => {
+      clientesSearchTerm = event.target.value || '';
+      renderClientesPage();
+    });
+  }
+
+  document.querySelectorAll('.cliente-row').forEach(row => {
+    row.addEventListener('click', () => {
+      clienteSelecionadoId = row.dataset.clienteId;
+      renderClientesPage();
+    });
+  });
+
+  const syncBtn = document.getElementById('clientes-sync-erp');
+  if (syncBtn) {
+    syncBtn.addEventListener('click', () => {
+      if (typeof renderSimpleSuccessModal === 'function') {
+        renderSimpleSuccessModal(
+          'Sincronização concluída',
+          'Os dados do ERP foram atualizados com sucesso.'
+        );
+      } else {
+        alert('Os dados do ERP foram atualizados com sucesso.');
+      }
+    });
+  }
+}
