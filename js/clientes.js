@@ -1,115 +1,28 @@
 let clientesSearchTerm = '';
-let clienteSelecionadoId = null;
 
-function getClientInitials(nome) {
-  if (!nome) return 'CL';
-  const parts = String(nome).trim().split(' ').filter(Boolean);
-  return parts.slice(0, 2).map(p => p[0].toUpperCase()).join('');
-}
-
-function formatDocumentDate(value) {
-  const date = new Date(value);
-  if (Number.isNaN(date.getTime())) return 'Data não informada';
-
-  return `${date.toLocaleDateString('pt-BR')} • ${date.toLocaleTimeString('pt-BR', {
-    hour: '2-digit',
-    minute: '2-digit'
-  })}`;
-}
-
-function getClientesData() {
+function getClientesBase() {
   if (Array.isArray(window.dashboardClients)) {
-    return window.dashboardClients.map((cliente) => ({
-      id: cliente.id,
-      nome: cliente.nome,
-      cpf: `000.000.000-${String(cliente.id).padStart(2, '0')}`
-    }));
+    return window.dashboardClients;
   }
-
-  if (typeof dashboardClients !== 'undefined' && Array.isArray(dashboardClients)) {
-    return dashboardClients.map((cliente) => ({
-      id: cliente.id,
-      nome: cliente.nome,
-      cpf: `000.000.000-${String(cliente.id).padStart(2, '0')}`
-    }));
-  }
-
   return [];
 }
 
-function getDocumentosData() {
-  if (Array.isArray(window.dashboardClients)) {
-    return window.dashboardClients.map((cliente) => ({
-      id: cliente.id,
-      clienteId: cliente.id,
-      clienteNome: cliente.nome,
-      titulo: cliente.documento,
-      tipo: cliente.documento,
-      nomeArquivo: `${cliente.documento.toLowerCase().replace(/\s+/g, '-')}.pdf`,
-      dataCadastro: '2026-06-08T14:00:00'
-    }));
-  }
-
-  if (typeof dashboardClients !== 'undefined' && Array.isArray(dashboardClients)) {
-    return dashboardClients.map((cliente) => ({
-      id: cliente.id,
-      clienteId: cliente.id,
-      clienteNome: cliente.nome,
-      titulo: cliente.documento,
-      tipo: cliente.documento,
-      nomeArquivo: `${cliente.documento.toLowerCase().replace(/\s+/g, '-')}.pdf`,
-      dataCadastro: '2026-06-08T14:00:00'
-    }));
-  }
-
-  return [];
-}
-
-function getDocumentosByCliente(cliente) {
-  const documentos = getDocumentosData();
-  if (!cliente) return [];
-
-  return documentos.filter(doc => {
-    if (doc.clienteId != null && cliente.id != null) {
-      return String(doc.clienteId) === String(cliente.id);
-    }
-
-    return String(doc.clienteNome || '')
-      .toLowerCase()
-      .trim() === String(cliente.nome || '')
-      .toLowerCase()
-      .trim();
-  });
-}
-
-/* Compatibilidade com chamadas antigas */
 function renderClientsList() {
   renderClientesPage();
 }
 
 function renderClientesPage() {
-  const clientes = getClientesData();
+  const base = getClientesBase();
 
-  const filtrados = clientes.filter(cliente => {
-    const texto = `${cliente.nome || ''} ${cliente.cpf || ''}`.toLowerCase();
+  const clientes = base.filter((cliente) => {
+    const texto = `${cliente.nome || ''} ${cliente.documento || ''} ${cliente.status || ''}`.toLowerCase();
     return texto.includes(clientesSearchTerm.toLowerCase());
   });
 
-  if (!filtrados.length) {
-    clienteSelecionadoId = null;
-  } else if (
-    !clienteSelecionadoId ||
-    !filtrados.some(c => String(c.id) === String(clienteSelecionadoId))
-  ) {
-    clienteSelecionadoId = filtrados[0].id;
-  }
+  const primeiroCliente = clientes.length ? clientes[0] : null;
 
-  const clienteSelecionado =
-    filtrados.find(c => String(c.id) === String(clienteSelecionadoId)) || null;
-
-  const documentosCliente = clienteSelecionado
-    ? getDocumentosByCliente(clienteSelecionado)
-    : [];
+  const app = document.getElementById('app');
+  if (!app) return;
 
   const content = `
     <main class="clientes-main">
@@ -127,7 +40,7 @@ function renderClientesPage() {
               <input
                 id="clientes-search-input"
                 type="text"
-                placeholder="Pesquisar cliente por nome ou CPF."
+                placeholder="Pesquisar cliente por nome."
                 value="${clientesSearchTerm}"
               />
               <span class="clientes-search-icon">🔎</span>
@@ -135,42 +48,24 @@ function renderClientesPage() {
 
             <div class="clientes-list">
               ${
-                filtrados.length
-                  ? filtrados.map(cliente => {
-                      const docsCount = getDocumentosByCliente(cliente).length;
-
-                      return `
-                        <div class="cliente-row ${String(cliente.id) === String(clienteSelecionadoId) ? 'active' : ''}" data-cliente-id="${cliente.id}">
-                          <div class="cliente-row-left">
-                            <div class="cliente-avatar">${getClientInitials(cliente.nome)}</div>
-                            <div class="cliente-meta">
-                              <div class="cliente-nome">${cliente.nome || 'Cliente'}</div>
-                              <div class="cliente-info">
-                                <span class="cliente-info-item">${cliente.cpf || 'CPF não informado'}</span>
-                                <span class="cliente-info-item">${docsCount} documento(s) vinculado(s)</span>
-                              </div>
-                            </div>
+                clientes.length
+                  ? clientes.map((cliente) => `
+                    <div class="cliente-row">
+                      <div class="cliente-row-left">
+                        <div class="cliente-avatar">${cliente.iniciais || 'CL'}</div>
+                        <div class="cliente-meta">
+                          <div class="cliente-nome">${cliente.nome || 'Cliente'}</div>
+                          <div class="cliente-info">
+                            <span class="cliente-info-item">${cliente.documento || 'Sem documento'}</span>
+                            <span class="cliente-info-item">${cliente.status || 'Sem status'}</span>
                           </div>
-                          <div class="cliente-row-arrow">›</div>
                         </div>
-                      `;
-                    }).join('')
-                  : `<div class="clientes-empty">Nenhum cliente encontrado para esta busca.</div>`
+                      </div>
+                      <div class="cliente-row-arrow">›</div>
+                    </div>
+                  `).join('')
+                  : `<div class="clientes-empty">Nenhum cliente encontrado.</div>`
               }
-            </div>
-
-            <div class="clientes-pagination">
-              <div class="clientes-pagination-info">
-                Mostrando ${filtrados.length} cliente(s)
-              </div>
-
-              <div class="clientes-pagination-controls">
-                <button type="button" class="clientes-page-btn">‹</button>
-                <button type="button" class="clientes-page-btn active">1</button>
-                <button type="button" class="clientes-page-btn">2</button>
-                <button type="button" class="clientes-page-btn">3</button>
-                <button type="button" class="clientes-page-btn">›</button>
-              </div>
             </div>
 
             <button type="button" id="clientes-sync-erp" class="clientes-erp-btn">
@@ -188,21 +83,17 @@ function renderClientesPage() {
             <div class="clientes-side-title">Histórico documental do cliente</div>
 
             ${
-              clienteSelecionado
-                ? documentosCliente.length
-                  ? `
-                    <div class="clientes-docs">
-                      ${documentosCliente.map((doc, index) => `
-                        <div class="clientes-doc-item ${index === 0 ? 'primary' : ''}">
-                          <div class="clientes-doc-title">${doc.titulo || doc.tipo || 'Documento salvo'}</div>
-                          <div class="clientes-doc-date">${formatDocumentDate(doc.dataCadastro || doc.data || new Date())}</div>
-                          <div class="clientes-doc-file">${doc.nomeArquivo || 'arquivo.pdf'}</div>
-                        </div>
-                      `).join('')}
+              primeiroCliente
+                ? `
+                  <div class="clientes-docs">
+                    <div class="clientes-doc-item primary">
+                      <div class="clientes-doc-title">${primeiroCliente.documento || 'Documento salvo'}</div>
+                      <div class="clientes-doc-date">${primeiroCliente.data || 'Sem data'}</div>
+                      <div class="clientes-doc-file">${(primeiroCliente.documento || 'arquivo').toLowerCase().replace(/\s+/g, '-')}.pdf</div>
                     </div>
-                  `
-                  : `<div class="clientes-empty">Este cliente ainda não possui documentos vinculados.</div>`
-                : `<div class="clientes-empty">Selecione um cliente para visualizar os documentos.</div>`
+                  </div>
+                `
+                : `<div class="clientes-empty">Nenhum histórico disponível.</div>`
             }
           </div>
         </aside>
@@ -210,16 +101,14 @@ function renderClientesPage() {
     </main>
   `;
 
-  const app = document.getElementById('app');
-
-  if (typeof renderDashboardShell === 'function') {
-    app.innerHTML = renderDashboardShell('clientes', content);
+  if (typeof window.renderDashboardShell === 'function') {
+    app.innerHTML = window.renderDashboardShell('clientes', content);
   } else {
     app.innerHTML = content;
   }
 
-  if (typeof attachGlobalNavigationEvents === 'function') {
-    attachGlobalNavigationEvents();
+  if (typeof window.attachGlobalNavigationEvents === 'function') {
+    window.attachGlobalNavigationEvents();
   }
 
   attachClientesEvents();
@@ -234,18 +123,11 @@ function attachClientesEvents() {
     });
   }
 
-  document.querySelectorAll('.cliente-row').forEach(row => {
-    row.addEventListener('click', () => {
-      clienteSelecionadoId = row.dataset.clienteId;
-      renderClientesPage();
-    });
-  });
-
   const syncBtn = document.getElementById('clientes-sync-erp');
   if (syncBtn) {
     syncBtn.addEventListener('click', () => {
-      if (typeof renderSimpleSuccessModal === 'function') {
-        renderSimpleSuccessModal(
+      if (typeof window.renderSimpleSuccessModal === 'function') {
+        window.renderSimpleSuccessModal(
           'Sincronização concluída',
           'Os dados do ERP foram atualizados com sucesso.'
         );
@@ -255,3 +137,6 @@ function attachClientesEvents() {
     });
   }
 }
+
+window.renderClientesPage = renderClientesPage;
+window.renderClientsList = renderClientsList;
