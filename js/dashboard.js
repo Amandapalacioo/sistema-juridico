@@ -410,3 +410,4 @@ window.renderDashboardShell = renderDashboardShell;
 window.attachGlobalNavigationEvents = attachGlobalNavigationEvents;
 window.renderDashboard = renderDashboard;
 
+
