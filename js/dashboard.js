@@ -388,3 +388,25 @@ function renderDashboard() {
   app.innerHTML = renderDashboardShell('dashboard', dashboardContent);
   attachDashboardEvents();
 }
+
+window.clientesData = dashboardClients.map((cliente) => ({
+  id: cliente.id,
+  nome: cliente.nome,
+  cpf: `000.000.000-${String(cliente.id).padStart(2, '0')}`
+}));
+
+window.documentosData = dashboardClients.map((cliente) => ({
+  id: cliente.id,
+  clienteId: cliente.id,
+  clienteNome: cliente.nome,
+  titulo: cliente.documento,
+  tipo: cliente.documento,
+  nomeArquivo: `${cliente.documento.toLowerCase().replace(/\s+/g, '-')}.pdf`,
+  dataCadastro: '2026-06-08T14:00:00'
+}));
+
+window.dashboardClients = dashboardClients;
+window.renderDashboardShell = renderDashboardShell;
+window.attachGlobalNavigationEvents = attachGlobalNavigationEvents;
+window.renderDashboard = renderDashboard;
+
