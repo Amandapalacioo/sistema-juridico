@@ -18,16 +18,50 @@ function formatDocumentDate(value) {
 }
 
 function getClientesData() {
-  if (Array.isArray(window.clientesData)) return window.clientesData;
-  if (Array.isArray(window.mockClientes)) return window.mockClientes;
-  if (Array.isArray(window.clientsData)) return window.clientsData;
+  if (Array.isArray(window.dashboardClients)) {
+    return window.dashboardClients.map((cliente) => ({
+      id: cliente.id,
+      nome: cliente.nome,
+      cpf: `000.000.000-${String(cliente.id).padStart(2, '0')}`
+    }));
+  }
+
+  if (typeof dashboardClients !== 'undefined' && Array.isArray(dashboardClients)) {
+    return dashboardClients.map((cliente) => ({
+      id: cliente.id,
+      nome: cliente.nome,
+      cpf: `000.000.000-${String(cliente.id).padStart(2, '0')}`
+    }));
+  }
+
   return [];
 }
 
 function getDocumentosData() {
-  if (Array.isArray(window.documentosData)) return window.documentosData;
-  if (Array.isArray(window.docsData)) return window.docsData;
-  if (Array.isArray(window.mockDocumentos)) return window.mockDocumentos;
+  if (Array.isArray(window.dashboardClients)) {
+    return window.dashboardClients.map((cliente) => ({
+      id: cliente.id,
+      clienteId: cliente.id,
+      clienteNome: cliente.nome,
+      titulo: cliente.documento,
+      tipo: cliente.documento,
+      nomeArquivo: `${cliente.documento.toLowerCase().replace(/\s+/g, '-')}.pdf`,
+      dataCadastro: '2026-06-08T14:00:00'
+    }));
+  }
+
+  if (typeof dashboardClients !== 'undefined' && Array.isArray(dashboardClients)) {
+    return dashboardClients.map((cliente) => ({
+      id: cliente.id,
+      clienteId: cliente.id,
+      clienteNome: cliente.nome,
+      titulo: cliente.documento,
+      tipo: cliente.documento,
+      nomeArquivo: `${cliente.documento.toLowerCase().replace(/\s+/g, '-')}.pdf`,
+      dataCadastro: '2026-06-08T14:00:00'
+    }));
+  }
+
   return [];
 }
 
@@ -48,7 +82,7 @@ function getDocumentosByCliente(cliente) {
   });
 }
 
-/* mantém compatibilidade se algum lugar ainda chamar a função antiga */
+/* Compatibilidade com chamadas antigas */
 function renderClientsList() {
   renderClientesPage();
 }
@@ -182,6 +216,10 @@ function renderClientesPage() {
     app.innerHTML = renderDashboardShell('clientes', content);
   } else {
     app.innerHTML = content;
+  }
+
+  if (typeof attachGlobalNavigationEvents === 'function') {
+    attachGlobalNavigationEvents();
   }
 
   attachClientesEvents();
