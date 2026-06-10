@@ -80,7 +80,6 @@ function renderSidebar(active = 'dashboard') {
       </div>
 
       <div class="sidebar-bottom">
-        <div class="sidebar-bottom-link" data-nav="configuracoes">Configurações</div>
         <div class="sidebar-bottom-link" data-nav="sair">Sair</div>
       </div>
     </aside>
@@ -141,33 +140,48 @@ function renderDashboardShell(active = 'dashboard', content = '') {
 
 function attachGlobalNavigationEvents() {
   document.querySelectorAll('[data-nav="dashboard"]').forEach(el => {
-    el.addEventListener('click', () => renderDashboard());
+    el.addEventListener('click', () => {
+      if (typeof renderDashboard === 'function') renderDashboard();
+    });
   });
 
   document.querySelectorAll('[data-nav="documentos"]').forEach(el => {
     el.addEventListener('click', () => {
-      if (typeof renderDocuments === 'function') renderDocuments();
-      else alert('Página de documentos ainda não implementada.');
+      if (typeof renderDocuments === 'function') {
+        renderDocuments();
+      } else {
+        alert('Página de documentos ainda não implementada.');
+      }
     });
   });
 
   document.querySelectorAll('[data-nav="clientes"]').forEach(el => {
     el.addEventListener('click', () => {
-      if (typeof renderClientesPage === 'function') renderClientesPage();
-      else alert('Página de clientes ainda não implementada.');
+      if (typeof renderClientesPage === 'function') {
+        renderClientesPage();
+      } else {
+        alert('Página de clientes ainda não implementada.');
+      }
     });
   });
 
   document.querySelectorAll('[data-nav="configuracoes"]').forEach(el => {
     el.addEventListener('click', () => {
-      if (typeof renderConfiguracoesPage === 'function') renderConfiguracoesPage();
-      else alert('Página de configurações ainda não implementada.');
+      if (typeof renderConfiguracoesPage === 'function') {
+        renderConfiguracoesPage();
+      } else {
+        alert('Página de configurações ainda não implementada.');
+      }
     });
   });
 
   document.querySelectorAll('[data-nav="sair"]').forEach(el => {
     el.addEventListener('click', () => {
-      if (typeof renderLogin === 'function') renderLogin();
+      if (typeof renderLogin === 'function') {
+        renderLogin();
+      } else {
+        console.error('renderLogin() não encontrada.');
+      }
     });
   });
 }
