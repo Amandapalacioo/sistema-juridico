@@ -2,6 +2,15 @@ document.addEventListener('DOMContentLoaded', () => {
   if (typeof renderLogin === 'function') {
     renderLogin();
   } else {
+    const app = document.getElementById('app');
+    if (app) {
+      app.innerHTML = `
+        <div style="padding:40px-family:Manrope,sans-serif">
+          <h1>Erro de inicialização</h1>
+          <p>A função <strong>renderLogin()</strong> não foi encontrada.</p>
+        </div>
+      `;
+    }
     console.error('renderLogin() não foi encontrada.');
   }
 });
@@ -37,7 +46,7 @@ function renderSimpleSuccessModal(title, text) {
 
   document.body.appendChild(overlay);
 
-  const okBtn = document.getElementById('-success-ok');
+  const okBtn = document.getElementById('simple-success-ok');
   if (okBtn) {
     okBtn.addEventListener('click', () => {
       overlay.remove();
@@ -51,7 +60,7 @@ function renderSimpleSuccessModal(title, text) {
   });
 }
 
- renderConfiguracoesPage() {
+function renderConfiguracoesPage() {
   const content = `
     <main class="config-main">
       <section class="config-hero">
@@ -113,7 +122,6 @@ function renderSimpleSuccessModal(title, text) {
   }
 }
 
-/* Expor globalmente para os outros arquivos */
 window.escapeHtml = escapeHtml;
 window.renderSimpleSuccessModal = renderSimpleSuccessModal;
 window.renderConfiguracoesPage = renderConfiguracoesPage;
