@@ -466,3 +466,10 @@
     padding: 16px;
   }
 }
+
+.clientes-sync-wrap {
+  margin-top: 16px;
+  display: flex;
+  justify-content: flex-start;
+}
+
