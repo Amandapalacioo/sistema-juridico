@@ -1,7 +1,57 @@
 document.addEventListener('DOMContentLoaded', () => {
-  renderLogin();
+  if (typeof renderLogin === 'function') {
+    renderLogin();
+  } else {
+    console.error('renderLogin() não foi encontrada.');
+  }
 });
-function renderConfiguracoesPage() {
+
+function escapeHtml(value) {
+  return String(value ?? '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
+function renderSimpleSuccessModal(title, text) {
+  const existingModal = document.querySelector('.doc-modal-overlay');
+  if (existingModal) {
+    existingModal.remove();
+  }
+
+  const overlay = document.createElement('div');
+  overlay.className = 'doc-modal-overlay';
+
+  overlay.innerHTML = `
+    <div class="doc-modal-card success">
+      <div class="doc-modal-success-icon"></div>
+      <div class="doc-modal-title center">${escapeHtml(title)}</div>
+      <div class="doc-modal-text center">${escapeHtml(text)}</div>
+      <div class="doc-modal-actions center">
+        <button id="simple-success-ok" class="doc-modal-btn primary full">Entendido</button>
+      </div>
+    </div>
+  `;
+
+  document.body.appendChild(overlay);
+
+  const okBtn = document.getElementById('-success-ok');
+  if (okBtn) {
+    okBtn.addEventListener('click', () => {
+      overlay.remove();
+    });
+  }
+
+  overlay.addEventListener('click', (event) => {
+    if (event.target === overlay) {
+      overlay.remove();
+    }
+  });
+}
+
+ renderConfiguracoesPage() {
   const content = `
     <main class="config-main">
       <section class="config-hero">
@@ -41,6 +91,10 @@ function renderConfiguracoesPage() {
   `;
 
   const app = document.getElementById('app');
+  if (!app) {
+    console.error('#app não encontrado.');
+    return;
+  }
 
   if (typeof renderDashboardShell === 'function') {
     app.innerHTML = renderDashboardShell('configuracoes', content);
@@ -51,7 +105,15 @@ function renderConfiguracoesPage() {
   const saveBtn = document.getElementById('config-save-btn');
   if (saveBtn) {
     saveBtn.addEventListener('click', () => {
-      alert('As preferências foram salvas com sucesso.');
+      renderSimpleSuccessModal(
+        'Configurações salvas',
+        'As preferências gerais foram atualizadas com sucesso.'
+      );
     });
   }
 }
+
+/* Expor globalmente para os outros arquivos */
+window.escapeHtml = escapeHtml;
+window.renderSimpleSuccessModal = renderSimpleSuccessModal;
+window.renderConfiguracoesPage = renderConfiguracoesPage;
