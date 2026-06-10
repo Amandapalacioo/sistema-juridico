@@ -1,4 +1,5 @@
 let clientesSearchTerm = '';
+let clienteSelecionadoId = null;
 
 function getClientesBase() {
   if (Array.isArray(window.dashboardClients)) {
@@ -19,7 +20,17 @@ function renderClientesPage() {
     return texto.includes(clientesSearchTerm.toLowerCase());
   });
 
-  const primeiroCliente = clientes.length ? clientes[0] : null;
+  if (!clientes.length) {
+    clienteSelecionadoId = null;
+  } else if (
+    clienteSelecionadoId === null ||
+    !clientes.some((cliente) => String(cliente.id) === String(clienteSelecionadoId))
+  ) {
+    clienteSelecionadoId = clientes[0].id;
+  }
+
+  const clienteSelecionado =
+    clientes.find((cliente) => String(cliente.id) === String(clienteSelecionadoId)) || null;
 
   const app = document.getElementById('app');
   if (!app) return;
@@ -50,7 +61,7 @@ function renderClientesPage() {
               ${
                 clientes.length
                   ? clientes.map((cliente) => `
-                    <div class="cliente-row">
+                    <div class="cliente-row ${String(cliente.id) === String(clienteSelecionadoId) ? 'active' : ''}" data-cliente-id="${cliente.id}">
                       <div class="cliente-row-left">
                         <div class="cliente-avatar">${cliente.iniciais || 'CL'}</div>
                         <div class="cliente-meta">
@@ -67,14 +78,6 @@ function renderClientesPage() {
                   : `<div class="clientes-empty">Nenhum cliente encontrado.</div>`
               }
             </div>
-
-            <button type="button" id="clientes-sync-erp" class="clientes-erp-btn">
-              <span>⟳</span>
-              <span>
-                Sincronizar ERP
-                <span class="clientes-erp-sub">Atualiza clientes e vínculos documentais</span>
-              </span>
-            </button>
           </div>
         </section>
 
@@ -83,18 +86,28 @@ function renderClientesPage() {
             <div class="clientes-side-title">Histórico documental do cliente</div>
 
             ${
-              primeiroCliente
+              clienteSelecionado
                 ? `
                   <div class="clientes-docs">
                     <div class="clientes-doc-item primary">
-                      <div class="clientes-doc-title">${primeiroCliente.documento || 'Documento salvo'}</div>
-                      <div class="clientes-doc-date">${primeiroCliente.data || 'Sem data'}</div>
-                      <div class="clientes-doc-file">${(primeiroCliente.documento || 'arquivo').toLowerCase().replace(/\s+/g, '-')}.pdf</div>
+                      <div class="clientes-doc-title">${clienteSelecionado.documento || 'Documento salvo'}</div>
+                      <div class="clientes-doc-date">${clienteSelecionado.data || 'Sem data'}</div>
+                      <div class="clientes-doc-file">${(clienteSelecionado.documento || 'arquivo').toLowerCase().replace(/\s+/g, '-')}.pdf</div>
                     </div>
                   </div>
                 `
                 : `<div class="clientes-empty">Nenhum histórico disponível.</div>`
             }
+          </div>
+
+          <div class="clientes-sync-wrap">
+            <button type="button" id="clientes-sync-erp" class="clientes-erp-btn">
+              <span>⟳</span>
+              <span>
+                Sincronizar ERP
+                <span class="clientes-erp-sub">Atualiza clientes e vínculos documentais</span>
+              </span>
+            </button>
           </div>
         </aside>
       </div>
@@ -122,6 +135,13 @@ function attachClientesEvents() {
       renderClientesPage();
     });
   }
+
+  document.querySelectorAll('.cliente-row').forEach((row) => {
+    row.addEventListener('click', () => {
+      clienteSelecionadoId = row.dataset.clienteId;
+      renderClientesPage();
+    });
+  });
 
   const syncBtn = document.getElementById('clientes-sync-erp');
   if (syncBtn) {
