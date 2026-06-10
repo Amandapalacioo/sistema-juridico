@@ -73,18 +73,103 @@ function renderSidebar(active = 'dashboard') {
 
         <div class="sidebar-nav">
           <div class="nav-link ${active === 'dashboard' ? 'active' : ''}" data-nav="dashboard">Dashboard</div>
-          <div class="nav-link ${active === 'docs' ? 'active' : ''}" data-nav="docs">Documentos</div>
-          <div class="nav-link" data-nav="clientes">Clientes</div>
-          <div class="nav-link" data-nav="configurações">Configurações</div>
+          <div class="nav-link ${active === 'documentos' ? 'active' : ''}" data-nav="documentos">Documentos</div>
+          <div class="nav-link ${active === 'clientes' ? 'active' : ''}" data-nav="clientes">Clientes</div>
+          <div class="nav-link ${active === 'configuracoes' ? 'active' : ''}" data-nav="configuracoes">Configurações</div>
         </div>
       </div>
 
       <div class="sidebar-bottom">
-        <div class="sidebar-bottom-link" data-nav="config">Configurações</div>
+        <div class="sidebar-bottom-link" data-nav="configuracoes">Configurações</div>
         <div class="sidebar-bottom-link" data-nav="sair">Sair</div>
       </div>
     </aside>
   `;
+}
+
+function renderTopbar(searchValue = '') {
+  return `
+    <header class="topbar">
+      <div class="topbar-search">
+        <input
+          id="dashboard-search"
+          class="topbar-search-input"
+          type="text"
+          placeholder="Buscar no JurisDoc..."
+          value="${searchValue}"
+        />
+      </div>
+
+      <div class="topbar-user">
+        <div class="topbar-divider"></div>
+        <div class="topbar-user-info">
+          <div class="topbar-user-role">Administrador</div>
+          <div class="topbar-user-name">Usuario Teste</div>
+        </div>
+        <div class="topbar-avatar"></div>
+      </div>
+    </header>
+  `;
+}
+
+function renderFooter() {
+  return `
+    <footer class="dashboard-footer">
+      <div class="dashboard-footer-text">JurisDoc</div>
+      <div class="dashboard-footer-text">© 2026 JURISDOC - BY AMANDA PALACIO</div>
+    </footer>
+  `;
+}
+
+function renderDashboardShell(active = 'dashboard', content = '') {
+  return `
+    <div class="dashboard-page">
+      ${renderSidebar(active)}
+
+      <div class="main-shell">
+        ${renderTopbar(active === 'dashboard' ? dashboardSearchTerm : '')}
+
+        <div class="main-canvas-margin">
+          ${content}
+        </div>
+
+        ${renderFooter()}
+      </div>
+    </div>
+  `;
+}
+
+function attachGlobalNavigationEvents() {
+  document.querySelectorAll('[data-nav="dashboard"]').forEach(el => {
+    el.addEventListener('click', () => renderDashboard());
+  });
+
+  document.querySelectorAll('[data-nav="documentos"]').forEach(el => {
+    el.addEventListener('click', () => {
+      if (typeof renderDocuments === 'function') renderDocuments();
+      else alert('Página de documentos ainda não implementada.');
+    });
+  });
+
+  document.querySelectorAll('[data-nav="clientes"]').forEach(el => {
+    el.addEventListener('click', () => {
+      if (typeof renderClientesPage === 'function') renderClientesPage();
+      else alert('Página de clientes ainda não implementada.');
+    });
+  });
+
+  document.querySelectorAll('[data-nav="configuracoes"]').forEach(el => {
+    el.addEventListener('click', () => {
+      if (typeof renderConfiguracoesPage === 'function') renderConfiguracoesPage();
+      else alert('Página de configurações ainda não implementada.');
+    });
+  });
+
+  document.querySelectorAll('[data-nav="sair"]').forEach(el => {
+    el.addEventListener('click', () => {
+      if (typeof renderLogin === 'function') renderLogin();
+    });
+  });
 }
 
 function renderDashboardRows() {
@@ -190,6 +275,8 @@ function attachDashboardRowEvents() {
 }
 
 function attachDashboardEvents() {
+  attachGlobalNavigationEvents();
+
   const searchInput = document.getElementById('dashboard-search');
 
   if (searchInput) {
@@ -199,28 +286,6 @@ function attachDashboardEvents() {
       updateDashboardTable();
     });
   }
-
-  document.querySelectorAll('[data-nav="dashboard"]').forEach(el => {
-    el.addEventListener('click', () => renderDashboard());
-  });
-
-  document.querySelectorAll('[data-nav="docs"]').forEach(el => {
-    el.addEventListener('click', () => {
-      if (typeof renderDocuments === 'function') renderDocuments();
-      else alert('Página de documentos ainda não implementada.');
-    });
-  });
-
-  document.querySelectorAll('[data-nav="clientes"]').forEach(el => {
-    el.addEventListener('click', () => {
-      if (typeof renderClientsList === 'function') renderClientsList();
-      else alert('Página de clientes ainda não implementada.');
-    });
-  });
-
-  document.querySelectorAll('[data-nav="sair"]').forEach(el => {
-    el.addEventListener('click', () => renderLogin());
-  });
 
   attachDashboardRowEvents();
   attachDashboardPaginationEvents();
@@ -232,127 +297,94 @@ function renderDashboard() {
   const start = filtered.length === 0 ? 0 : ((dashboardCurrentPage - 1) * DASHBOARD_ITEMS_PER_PAGE) + 1;
   const end = Math.min(dashboardCurrentPage * DASHBOARD_ITEMS_PER_PAGE, filtered.length);
 
-  app.innerHTML = `
-    <div class="dashboard-page">
-      ${renderSidebar('dashboard')}
+  const dashboardContent = `
+    <main class="main-canvas">
+      <section class="page-header">
+        <div class="page-header-left">
+          <div class="page-title">Dashboard</div>
+          <div class="page-subtitle">Visualize o resumo geral da operação jurídica.</div>
+        </div>
+        <div class="page-date">08 DE JUNHO, 2026</div>
+      </section>
 
-      <div class="main-shell">
-        <header class="topbar">
-          <div class="topbar-search">
-            <input
-              id="dashboard-search"
-              class="topbar-search-input"
-              type="text"
-              placeholder="Buscar no JurisDoc..."
-              value="${dashboardSearchTerm}"
-            />
-          </div>
-
-          <div class="topbar-user">
-            <div class="topbar-divider"></div>
-            <div class="topbar-user-info">
-              <div class="topbar-user-role">Advogado</div>
-              <div class="topbar-user-name">Usuario Teste</div>
+      <section class="bento-grid">
+        <div class="stat-card stat-card-1">
+          <div class="stat-top">
+            <div class="stat-badge">
+              <div class="stat-icon stat-icon-1"></div>
+              <div class="stat-top-label stat-top-label-1">PENDENTES</div>
             </div>
-            <div class="topbar-avatar"></div>
           </div>
-        </header>
-
-        <div class="main-canvas-margin">
-          <main class="main-canvas">
-            <section class="page-header">
-              <div class="page-header-left">
-                <div class="page-title">Dashboard</div>
-                <div class="page-subtitle">Visualize o resumo geral da operação jurídica.</div>
-              </div>
-              <div class="page-date">08 DE JUNHO, 2026</div>
-            </section>
-
-            <section class="bento-grid">
-              <div class="stat-card stat-card-1">
-                <div class="stat-top">
-                  <div class="stat-badge">
-                    <div class="stat-icon stat-icon-1"></div>
-                    <div class="stat-top-label stat-top-label-1">PENDENTES</div>
-                  </div>
-                </div>
-                <div class="stat-value">12</div>
-                <div class="stat-description">Pendentes de Análise</div>
-                <div class="stat-footer stat-footer-1">+3 DESDE ONTEM</div>
-              </div>
-
-              <div class="stat-card stat-card-2">
-                <div class="stat-top">
-                  <div class="stat-badge">
-                    <div class="stat-icon stat-icon-2"></div>
-                    <div class="stat-top-label stat-top-label-2">COMPLEMENTO</div>
-                  </div>
-                </div>
-                <div class="stat-value">05</div>
-                <div class="stat-description">Aguardando Complemento</div>
-                <div class="stat-footer stat-footer-2">2 COM PRAZO HOJE</div>
-              </div>
-
-              <div class="stat-card stat-card-3">
-                <div class="stat-top">
-                  <div class="stat-badge">
-                    <div class="stat-icon stat-icon-3"></div>
-                    <div class="stat-top-label stat-top-label-3">FINALIZADOS</div>
-                  </div>
-                </div>
-                <div class="stat-value">08</div>
-                <div class="stat-description">Concluídos hoje</div>
-                <div class="stat-footer stat-footer-3">META DE HOJE</div>
-              </div>
-            </section>
-
-            <section class="table-exhibit">
-              <div class="table-top">
-                <div class="table-top-left">
-                  <div class="table-top-accent"></div>
-                  <div class="table-title">Documentos recentes</div>
-                </div>
-
-                <div class="table-top-right">
-                  <div class="table-top-btn table-top-btn-muted">Hoje</div>
-                  <div class="table-top-btn table-top-btn-active">Últimos 7 dias</div>
-                </div>
-              </div>
-
-              <div class="table">
-                <div class="table-header">
-                  <div class="table-header-cell">Cliente</div>
-                  <div class="table-header-cell">Documento</div>
-                  <div class="table-header-cell">Data</div>
-                  <div class="table-header-cell">Status</div>
-                  <div class="table-header-cell table-header-cell-right">Ações</div>
-                </div>
-
-                <div id="dashboard-table-body">
-                  ${renderDashboardRows()}
-                </div>
-              </div>
-
-              <div class="table-pagination">
-                <div id="dashboard-results-count" class="pagination-info">
-                  EXIBINDO ${start} A ${end} DE ${filtered.length} RESULTADOS
-                </div>
-
-                <div id="dashboard-pagination-controls" class="pagination-controls">
-                  ${renderDashboardPagination()}
-                </div>
-              </div>
-            </section>
-          </main>
+          <div class="stat-value">12</div>
+          <div class="stat-description">Pendentes de Análise</div>
+          <div class="stat-footer stat-footer-1">+3 DESDE ONTEM</div>
         </div>
 
-        <footer class="dashboard-footer">
-          <div class="dashboard-footer-text">JurisDoc</div>
-          <div class="dashboard-footer-text">© 2026 JURISDOC - BY AMANDA PALACIO</div>
-        </footer>
-      </div>
-    </div>
+        <div class="stat-card stat-card-2">
+          <div class="stat-top">
+            <div class="stat-badge">
+              <div class="stat-icon stat-icon-2"></div>
+              <div class="stat-top-label stat-top-label-2">COMPLEMENTO</div>
+            </div>
+          </div>
+          <div class="stat-value">05</div>
+          <div class="stat-description">Aguardando Complemento</div>
+          <div class="stat-footer stat-footer-2">2 COM PRAZO HOJE</div>
+        </div>
+
+        <div class="stat-card stat-card-3">
+          <div class="stat-top">
+            <div class="stat-badge">
+              <div class="stat-icon stat-icon-3"></div>
+              <div class="stat-top-label stat-top-label-3">FINALIZADOS</div>
+            </div>
+          </div>
+          <div class="stat-value">08</div>
+          <div class="stat-description">Concluídos hoje</div>
+          <div class="stat-footer stat-footer-3">META DE HOJE</div>
+        </div>
+      </section>
+
+      <section class="table-exhibit">
+        <div class="table-top">
+          <div class="table-top-left">
+            <div class="table-top-accent"></div>
+            <div class="table-title">Documentos recentes</div>
+          </div>
+
+          <div class="table-top-right">
+            <div class="table-top-btn table-top-btn-muted">Hoje</div>
+            <div class="table-top-btn table-top-btn-active">Últimos 7 dias</div>
+          </div>
+        </div>
+
+        <div class="table">
+          <div class="table-header">
+            <div class="table-header-cell">Cliente</div>
+            <div class="table-header-cell">Documento</div>
+            <div class="table-header-cell">Data</div>
+            <div class="table-header-cell">Status</div>
+            <div class="table-header-cell table-header-cell-right">Ações</div>
+          </div>
+
+          <div id="dashboard-table-body">
+            ${renderDashboardRows()}
+          </div>
+        </div>
+
+        <div class="table-pagination">
+          <div id="dashboard-results-count" class="pagination-info">
+            EXIBINDO ${start} A ${end} DE ${filtered.length} RESULTADOS
+          </div>
+
+          <div id="dashboard-pagination-controls" class="pagination-controls">
+            ${renderDashboardPagination()}
+          </div>
+        </div>
+      </section>
+    </main>
   `;
 
+  app.innerHTML = renderDashboardShell('dashboard', dashboardContent);
   attachDashboardEvents();
 }
