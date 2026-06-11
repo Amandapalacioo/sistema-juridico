@@ -912,13 +912,17 @@ async function saveDocumentDraft() {
 
   if (!cliente || !documentoDraft.tipo || !documentoDraft.data || !documentoDraft.recebimento || !documentoDraft.arquivo) {
     alert('Preencha cliente, tipo, data, forma de recebimento e selecione um arquivo.');
+    console.log('cliente encontrado?', cliente);
+    console.log('documentoDraft:', documentoDraft);
     return;
   }
 
   try {
+    console.log('Iniciando upload...');
     const arquivoUrl = await uploadDocumentFileToSupabase(documentoDraft.arquivo);
+    console.log('Upload OK:', arquivoUrl);
 
-    const novoDoc = await insertDocumentToSupabase({
+    const payload = {
       cliente_id: cliente.id,
       cliente_nome: cliente.nome,
       cliente_iniciais: cliente.iniciais,
@@ -932,7 +936,12 @@ async function saveDocumentDraft() {
       arquivo_url: arquivoUrl,
       processo: `08${Math.floor(Math.random() * 9000 + 1000)}-56.2026.5.09.0012`,
       analise: null
-    });
+    };
+
+    console.log('Payload insert:', payload);
+
+    const novoDoc = await insertDocumentToSupabase(payload);
+    console.log('Insert OK:', novoDoc);
 
     window.documentsStore.unshift(novoDoc);
 
@@ -949,7 +958,8 @@ async function saveDocumentDraft() {
 
     renderDocumentSavedSuccess();
   } catch (error) {
-    console.error(error);
+    console.error('Erro completo ao salvar documento:', error);
+    console.error('Erro JSON:', JSON.stringify(error, null, 2));
     alert('Não foi possível salvar o documento no servidor.');
   }
 }
