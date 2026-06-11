@@ -34,6 +34,7 @@ let documentosTipoFilter = '';
 let documentosDateStart = '';
 let documentosDateEnd = '';
 let documentosCurrentPage = 1;
+let documentosPollingInterval = null;
 const DOCUMENTOS_ITEMS_PER_PAGE = 4;
 
 let documentoDraft = {
@@ -62,7 +63,9 @@ function getDocumentsClients() {
 }
 
 function getDocumentsTiposDisponiveis() {
-  return [...new Set((window.documentsStore || []).map(d => d.tipo).filter(Boolean))].sort();
+  const tiposSeed = DOCUMENTS_SEED.map(d => d.tipo);
+  const tiposStore = (window.documentsStore || []).map(d => d.tipo);
+  return [...new Set([...tiposSeed, ...tiposStore].filter(Boolean))].sort();
 }
 
 function formatDateBR(dateStr) {
@@ -156,14 +159,13 @@ async function refreshDocumentsStore() {
 }
 
 async function ensureDocumentsLoaded() {
-  if (!window.supabaseClient) {
-    console.error('Supabase não inicializado.');
-    return;
-  }
-
-  if (!documentosLoaded) {
+  try {
     await seedDocumentsIfEmpty();
     await refreshDocumentsStore();
+  } catch (error) {
+    console.error('Erro ao carregar documentos:', error);
+    window.documentsStore = [];
+    documentosLoaded = true;
   }
 }
 
@@ -220,10 +222,7 @@ async function deleteDocumentFromSupabase(docId) {
 async function updateDocumentAnalysisInSupabase(docId, analise, status) {
   const { data, error } = await window.supabaseClient
     .from('documentos')
-    .update({
-      analise,
-      status
-    })
+    .update({ analise, status })
     .eq('id', docId)
     .select()
     .single();
@@ -300,6 +299,7 @@ function bindDocsNav() {
 
   document.querySelectorAll('[data-nav="dashboard"]').forEach(el => {
     el.addEventListener('click', () => {
+      stopDocumentsAutoRefresh();
       if (typeof renderDashboard === 'function') renderDashboard();
     });
   });
@@ -312,18 +312,21 @@ function bindDocsNav() {
 
   document.querySelectorAll('[data-nav="clientes"]').forEach(el => {
     el.addEventListener('click', () => {
+      stopDocumentsAutoRefresh();
       if (typeof renderClientesPage === 'function') renderClientesPage();
     });
   });
 
   document.querySelectorAll('[data-nav="configuracoes"]').forEach(el => {
     el.addEventListener('click', () => {
+      stopDocumentsAutoRefresh();
       if (typeof renderConfiguracoesPage === 'function') renderConfiguracoesPage();
     });
   });
 
   document.querySelectorAll('[data-nav="sair"]').forEach(el => {
     el.addEventListener('click', () => {
+      stopDocumentsAutoRefresh();
       if (typeof renderLogin === 'function') renderLogin();
     });
   });
@@ -339,20 +342,6 @@ function renderDocumentsRows() {
         <div class="documents-empty-title">Nenhum resultado encontrado</div>
         <div class="documents-empty-text">
           Não encontramos registros com os filtros selecionados.
-        </div>
-        <div class="documents-empty-suggestions">
-          <div class="documents-empty-card blue">
-            <div class="documents-empty-card-title">Refine sua busca</div>
-            <div class="documents-empty-card-text">
-              Tente termos mais genéricos ou verifique se há erros de digitação no número do processo.
-            </div>
-          </div>
-          <div class="documents-empty-card gold">
-            <div class="documents-empty-card-title">Remova os filtros</div>
-            <div class="documents-empty-card-text">
-              Alguns dos filtros ativos podem estar restringindo demais os resultados.
-            </div>
-          </div>
         </div>
       </div>
     `;
@@ -398,7 +387,7 @@ async function renderDocuments() {
   if (!app) return;
 
   const filtered = getFilteredDocuments();
-  const start = filtered.length ? ((documentosCurrentPage - 1) * DOCUMENTOS_ITEMS_PER_PAGE) + 1 : 0;
+  const start = filtered.length ? ((documentosCurrentPage - 1) *OS_ITEMS_PER_PAGE) + 1 : 0;
   const end = Math.min(documentosCurrentPage * DOCUMENTOS_ITEMS_PER_PAGE, filtered.length);
   const tipos = getDocumentsTiposDisponiveis();
 
@@ -428,7 +417,6 @@ async function renderDocuments() {
               <div class="page-header-left">
                 <div class="page-title">Documentos Jurídicos</div>
               </div>
-
               <button id="btn-novo-documento" class="documentos-new-btn">+ Novo Cadastro</button>
             </section>
 
@@ -539,6 +527,7 @@ async function renderDocuments() {
   `;
 
   attachDocumentsEvents();
+  startDocumentsAutoRefresh();
 }
 
 function attachDocumentsEvents() {
@@ -644,8 +633,11 @@ function attachDocumentsEvents() {
 }
 
 function renderDocumentNew() {
+  stopDocumentsAutoRefresh();
+
   const clientes = getDocumentsClients();
   const tipos = getDocumentsTiposDisponiveis();
+
   const app = document.getElementById('app');
   if (!app) return;
 
@@ -676,8 +668,7 @@ function renderDocumentNew() {
                 <div class="page-title">Novo Cadastro de Documento</div>
                 <div class="page-subtitle">Preencha as informações abaixo para registrar um novo documento.</div>
               </div>
-              <div class="page-date">08 DE JUNHO
-                          </section>
+            </section>
 
             <section class="cadastro-layout">
               <div class="cadastro-left">
@@ -918,9 +909,7 @@ async function saveDocumentDraft() {
   }
 
   try {
-    console.log('Iniciando upload...');
     const arquivoUrl = await uploadDocumentFileToSupabase(documentoDraft.arquivo);
-    console.log('Upload OK:', arquivoUrl);
 
     const payload = {
       cliente_id: cliente.id,
@@ -938,11 +927,7 @@ async function saveDocumentDraft() {
       analise: null
     };
 
-    console.log('Payload insert:', payload);
-
     const novoDoc = await insertDocumentToSupabase(payload);
-    console.log('Insert OK:', novoDoc);
-
     window.documentsStore.unshift(novoDoc);
 
     documentoDraft = {
@@ -959,7 +944,6 @@ async function saveDocumentDraft() {
     renderDocumentSavedSuccess();
   } catch (error) {
     console.error('Erro completo ao salvar documento:', error);
-    console.error('Erro JSON:', JSON.stringify(error, null, 2));
     alert('Não foi possível salvar o documento no servidor.');
   }
 }
@@ -989,6 +973,29 @@ function renderDocumentSavedSuccess() {
     modal.remove();
     renderDocumentNew();
   };
+}
+
+function startDocumentsAutoRefresh() {
+  if (documentosPollingInterval) return;
+
+  documentosPollingInterval = setInterval(async () => {
+    const isListScreenActive = !!document.querySelector('.documentos-content');
+    if (!isListScreenActive) return;
+
+    try {
+      await refreshDocumentsStore();
+      renderDocuments();
+    } catch (error) {
+      console.error('Erro ao atualizar documentos automaticamente:', error);
+    }
+  }, 5000);
+}
+
+function stopDocumentsAutoRefresh() {
+  if (documentosPollingInterval) {
+    clearInterval(documentosPollingInterval);
+    documentosPollingInterval = null;
+  }
 }
 
 function renderDocumentCancelModal() {
@@ -1030,6 +1037,8 @@ function renderDocumentCancelModal() {
 }
 
 function renderDocumentAnalysis(docId) {
+  stopDocumentsAutoRefresh();
+
   const doc = window.documentsStore.find(d => d.id === docId);
   if (!doc) return;
 
@@ -1097,19 +1106,6 @@ function renderDocumentAnalysis(docId) {
                             <div class="document-placeholder-block">
                               <div class="document-placeholder-line w-100"></div>
                               <div class="document-placeholder-line w-72"></div>
-                            </div>
-                            <div class="document-placeholder-text-group">
-                              <div class="document-placeholder-line w-100"></div>
-                              <div class="document-placeholder-line w-100"></div>
-                              <div class="document-placeholder-line w-100"></div>
-                              <div class="document-placeholder-line w-84"></div>
-                              <div class="document-placeholder-line w-68"></div>
-                            </div>
-                            <div class="document-placeholder-text-group">
-                              <div class="document-placeholder-line w-100"></div>
-                              <div class="document-placeholder-line w-100"></div>
-                              <div class="document-placeholder-line w-100"></div>
-                              <div class="document-placeholder-line w-100"></div>
                             </div>
                           </div>
                         `
@@ -1221,9 +1217,7 @@ function attachDocumentAnalysisEvents() {
       });
 
       const card = input.closest('.analysis-radio-card');
-      if (card) {
-        card.classList.add('active');
-      }
+      if (card) card.classList.add('active');
     });
   });
 
@@ -1473,4 +1467,4 @@ window.renderDocuments = renderDocuments;
 window.renderDocumentNew = renderDocumentNew;
 window.renderDocumentAnalysis = renderDocumentAnalysis;
 window.ensureDocumentsLoaded = ensureDocumentsLoaded;
-
+window.stopDocumentsAutoRefresh = stopDocumentsAutoRefresh;
