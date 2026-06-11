@@ -62,6 +62,14 @@ function getPaginatedDashboardClients() {
   return filtered.slice(start, end);
 }
 
+function getDashboardStats() {
+  return {
+    pendentes: dashboardClients.filter(cliente => cliente.status === 'Pendente').length,
+    complemento: dashboardClients.filter(cliente => cliente.status === 'Complemento').length,
+    concluidos: dashboardClients.filter(cliente => cliente.status === 'Concluído').length
+  };
+}
+
 function renderSidebar(active = 'dashboard') {
   return `
     <aside class="sidebar">
@@ -141,7 +149,13 @@ function renderDashboardShell(active = 'dashboard', content = '') {
 function attachGlobalNavigationEvents() {
   document.querySelectorAll('[data-nav="dashboard"]').forEach(el => {
     el.addEventListener('click', () => {
-      if (typeof renderDashboard === 'function') renderDashboard();
+      if (typeof window.stopDocumentsAutoRefresh === 'function') {
+        window.stopDocumentsAutoRefresh();
+      }
+
+      if (typeof renderDashboard === 'function') {
+        renderDashboard();
+      }
     });
   });
 
@@ -157,6 +171,10 @@ function attachGlobalNavigationEvents() {
 
   document.querySelectorAll('[data-nav="clientes"]').forEach(el => {
     el.addEventListener('click', () => {
+      if (typeof window.stopDocumentsAutoRefresh === 'function') {
+        window.stopDocumentsAutoRefresh();
+      }
+
       if (typeof renderClientesPage === 'function') {
         renderClientesPage();
       } else {
@@ -167,6 +185,10 @@ function attachGlobalNavigationEvents() {
 
   document.querySelectorAll('[data-nav="configuracoes"]').forEach(el => {
     el.addEventListener('click', () => {
+      if (typeof window.stopDocumentsAutoRefresh === 'function') {
+        window.stopDocumentsAutoRefresh();
+      }
+
       if (typeof renderConfiguracoesPage === 'function') {
         renderConfiguracoesPage();
       } else {
@@ -177,6 +199,10 @@ function attachGlobalNavigationEvents() {
 
   document.querySelectorAll('[data-nav="sair"]').forEach(el => {
     el.addEventListener('click', () => {
+      if (typeof window.stopDocumentsAutoRefresh === 'function') {
+        window.stopDocumentsAutoRefresh();
+      }
+
       if (typeof renderLogin === 'function') {
         renderLogin();
       } else {
@@ -307,9 +333,12 @@ function attachDashboardEvents() {
 
 function renderDashboard() {
   const app = document.getElementById('app');
+  if (!app) return;
+
   const filtered = getFilteredDashboardClients();
   const start = filtered.length === 0 ? 0 : ((dashboardCurrentPage - 1) * DASHBOARD_ITEMS_PER_PAGE) + 1;
   const end = Math.min(dashboardCurrentPage * DASHBOARD_ITEMS_PER_PAGE, filtered.length);
+  const stats = getDashboardStats();
 
   const dashboardContent = `
     <main class="main-canvas">
@@ -329,9 +358,9 @@ function renderDashboard() {
               <div class="stat-top-label stat-top-label-1">PENDENTES</div>
             </div>
           </div>
-          <div class="stat-value">12</div>
+          <div class="stat-value">${stats.pendentes}</div>
           <div class="stat-description">Pendentes de Análise</div>
-          <div class="stat-footer stat-footer-1">+3 DESDE ONTEM</div>
+          <div class="stat-footer stat-footer-1">DOCUMENTOS NO FLUXO</div>
         </div>
 
         <div class="stat-card stat-card-2">
@@ -341,9 +370,9 @@ function renderDashboard() {
               <div class="stat-top-label stat-top-label-2">COMPLEMENTO</div>
             </div>
           </div>
-          <div class="stat-value">05</div>
+          <div class="stat-value">${stats.complemento}</div>
           <div class="stat-description">Aguardando Complemento</div>
-          <div class="stat-footer stat-footer-2">2 COM PRAZO HOJE</div>
+          <div class="stat-footer stat-footer-2">PENDÊNCIAS IDENTIFICADAS</div>
         </div>
 
         <div class="stat-card stat-card-3">
@@ -353,9 +382,9 @@ function renderDashboard() {
               <div class="stat-top-label stat-top-label-3">FINALIZADOS</div>
             </div>
           </div>
-          <div class="stat-value">08</div>
-          <div class="stat-description">Concluídos hoje</div>
-          <div class="stat-footer stat-footer-3">META DE HOJE</div>
+          <div class="stat-value">${stats.concluidos}</div>
+          <div class="stat-description">Concluídos no período</div>
+          <div class="stat-footer stat-footer-3">REGISTROS FINALIZADOS</div>
         </div>
       </section>
 
@@ -420,8 +449,9 @@ window.documentosData = dashboardClients.map((cliente) => ({
 }));
 
 window.dashboardClients = dashboardClients;
+window.renderSidebar = renderSidebar;
+window.renderTopbar = renderTopbar;
+window.renderFooter = renderFooter;
 window.renderDashboardShell = renderDashboardShell;
 window.attachGlobalNavigationEvents = attachGlobalNavigationEvents;
 window.renderDashboard = renderDashboard;
-
-
