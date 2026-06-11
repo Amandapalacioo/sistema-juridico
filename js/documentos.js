@@ -36,6 +36,7 @@ let documentosDateEnd = '';
 let documentosCurrentPage = 1;
 let documentosPollingInterval = null;
 const DOCUMENTOS_ITEMS_PER_PAGE = 4;
+const OS_ITEMS_PER_PAGE = DOCUMENTOS_ITEMS_PER_PAGE;
 
 let documentoDraft = {
   clienteNome: '',
