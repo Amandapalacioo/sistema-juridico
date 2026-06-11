@@ -106,7 +106,7 @@ async function fetchDocumentsFromSupabase() {
     .order('data', { ascending: false });
 
   if (error) {
-    console.error('Erro ao buscar documentos:', error);
+    console.error('Erro ao buscar documentos:', JSON.stringify(error, null, 2));
     throw error;
   }
 
@@ -146,7 +146,7 @@ async function seedDocumentsIfEmpty() {
     .insert(payload);
 
   if (insertError) {
-    console.error('Erro ao inserir seed:', insertError);
+    console.error('Erro ao inserir seed:', JSON.stringify(insertError, null, 2));
   }
 }
 
