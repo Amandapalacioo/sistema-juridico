@@ -100,15 +100,16 @@ function renderConfiguracoesPage() {
   `;
 
   const app = document.getElementById('app');
-  if (!app) {
-    console.error('#app não encontrado.');
-    return;
-  }
+  if (!app) return;
 
   if (typeof renderDashboardShell === 'function') {
     app.innerHTML = renderDashboardShell('configuracoes', content);
   } else {
     app.innerHTML = content;
+  }
+
+  if (typeof attachGlobalNavigationEvents === 'function') {
+    attachGlobalNavigationEvents();
   }
 
   const saveBtn = document.getElementById('config-save-btn');
@@ -121,6 +122,7 @@ function renderConfiguracoesPage() {
     });
   }
 }
+
 
 window.escapeHtml = escapeHtml;
 window.renderSimpleSuccessModal = renderSimpleSuccessModal;
