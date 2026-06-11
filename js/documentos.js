@@ -1,32 +1,33 @@
-if (typeof window.documentsStore === 'undefined') {
-  window.documentsStore = [
-    { id: 1, clienteId: 1, clienteNome: 'Larissa Souza', clienteIniciais: 'LS', avatar: 'avatar-1', tipo: 'Carta Convite', data: '2026-06-08', status: 'Pendente', recebimento: 'E-mail', observacoes: '', arquivoNome: 'larissa-carta-convite.pdf', arquivoUrl: '', processo: '0801234-56.2026.5.09.0012', analise: null },
-    { id: 2, clienteId: 2, clienteNome: 'João Fernando Pereira', clienteIniciais: 'JP', avatar: 'avatar-2', tipo: 'Procuração', data: '2026-06-08', status: 'Análise', recebimento: 'Portal', observacoes: '', arquivoNome: 'joao-procuracao.pdf', arquivoUrl: '', processo: '0802234-56.2026.5.09.0012', analise: null },
-    { id: 3, clienteId: 3, clienteNome: 'Odete Maria da Silva', clienteIniciais: 'OS', avatar: 'avatar-3', tipo: 'CNIS', data: '2026-06-07', status: 'Complemento', recebimento: 'WhatsApp', observacoes: '', arquivoNome: 'odete-cnis.pdf', arquivoUrl: '', processo: '0803234-56.2026.5.09.0012', analise: null },
-    { id: 4, clienteId: 4, clienteNome: 'Tiago Oliveira', clienteIniciais: 'TO', avatar: 'avatar-4', tipo: 'Declaração de Hipossuficiência', data: '2026-06-07', status: 'Pendente', recebimento: 'E-mail', observacoes: '', arquivoNome: 'tiago-hipossuficiencia.pdf', arquivoUrl: '', processo: '0804234-56.2026.5.09.0012', analise: null },
-    { id: 5, clienteId: 5, clienteNome: 'Amanda Castro', clienteIniciais: 'AC', avatar: 'avatar-1', tipo: 'RG', data: '2026-06-06', status: 'Concluído', recebimento: 'Portal', observacoes: '', arquivoNome: 'amanda-rg.jpg', arquivoUrl: '', processo: '0805234-56.2026.5.09.0012', analise: { pertinencia: 'Essencial', fase: 'Instrução', notas: 'Documento legível e compatível com o cadastro.', ultimaAtualizacao: '06 de maio 2026, 09:12' } },
-    { id: 6, clienteId: 6, clienteNome: 'Bruno Martins', clienteIniciais: 'BM', avatar: 'avatar-2', tipo: 'CPF', data: '2026-06-06', status: 'Análise', recebimento: 'Presencial', observacoes: '', arquivoNome: 'bruno-cpf.png', arquivoUrl: '', processo: '0806234-56.2026.5.09.0012', analise: null },
-    { id: 7, clienteId: 7, clienteNome: 'Camila Rocha', clienteIniciais: 'CR', avatar: 'avatar-3', tipo: 'Comprovante de Residência', data: '2026-06-05', status: 'Pendente', recebimento: 'E-mail', observacoes: '', arquivoNome: 'camila-residencia.pdf', arquivoUrl: '', processo: '0807234-56.2026.5.09.0012', analise: null },
-    { id: 8, clienteId: 8, clienteNome: 'Daniel Lima', clienteIniciais: 'DL', avatar: 'avatar-4', tipo: 'Contrato Social', data: '2026-06-05', status: 'Concluído', recebimento: 'Portal', observacoes: '', arquivoNome: 'daniel-contrato-social.pdf', arquivoUrl: '', processo: '0808234-56.2026.5.09.0012', analise: { pertinencia: 'Complementar', fase: 'Instrução', notas: 'Documento auxiliar para composição do dossiê.', ultimaAtualizacao: '06 de maio 2026, 09:12' } },
-    { id: 9, clienteId: 9, clienteNome: 'Eduarda Nunes', clienteIniciais: 'EN', avatar: 'avatar-1', tipo: 'Petição Inicial', data: '2026-06-04', status: 'Análise', recebimento: 'E-mail', observacoes: '', arquivoNome: 'eduarda-peticao.pdf', arquivoUrl: '', processo: '0809234-56.2026.5.09.0012', analise: null },
-    { id: 10, clienteId: 10, clienteNome: 'Felipe Gomes', clienteIniciais: 'FG', avatar: 'avatar-2', tipo: 'Laudo Médico', data: '2026-06-04', status: 'Complemento', recebimento: 'WhatsApp', observacoes: '', arquivoNome: 'felipe-laudo.pdf', arquivoUrl: '', processo: '0810234-56.2026.5.09.0012', analise: null },
-    { id: 11, clienteId: 11, clienteNome: 'Gabriela Teixeira', clienteIniciais: 'GT', avatar: 'avatar-3', tipo: 'CTPS', data: '2026-06-03', status: 'Pendente', recebimento: 'Portal', observacoes: '', arquivoNome: 'gabriela-ctps.pdf', arquivoUrl: '', processo: '0811234-56.2026.5.09.0012', analise: null },
-    { id: 12, clienteId: 12, clienteNome: 'Henrique Alves', clienteIniciais: 'HA', avatar: 'avatar-4', tipo: 'Holerite', data: '2026-06-03', status: 'Concluído', recebimento: 'E-mail', observacoes: '', arquivoNome: 'henrique-holerite.pdf', arquivoUrl: '', processo: '0812234-56.2026.5.09.0012', analise: { pertinencia: 'Essencial', fase: 'Instrução', notas: 'Comprovação suficiente para a etapa atual.', ultimaAtualizacao: '06 de maio 2026, 09:12' } },
-    { id: 13, clienteId: 13, clienteNome: 'Isabela Moraes', clienteIniciais: 'IM', avatar: 'avatar-1', tipo: 'Extrato Bancário', data: '2026-06-02', status: 'Análise', recebimento: 'Portal', observacoes: '', arquivoNome: 'isabela-extrato.pdf', arquivoUrl: '', processo: '0813234-56.2026.5.09.0012', analise: null },
-    { id: 14, clienteId: 14, clienteNome: 'José Ricardo', clienteIniciais: 'JR', avatar: 'avatar-2', tipo: 'Comprovante INSS', data: '2026-06-02', status: 'Pendente', recebimento: 'WhatsApp', observacoes: '', arquivoNome: 'jose-inss.pdf', arquivoUrl: '', processo: '0814234-56.2026.5.09.0012', analise: null },
-    { id: 15, clienteId: 15, clienteNome: 'Karen Dias', clienteIniciais: 'KD', avatar: 'avatar-3', tipo: 'Ata Notarial', data: '2026-06-01', status: 'Complemento', recebimento: 'Presencial', observacoes: '', arquivoNome: 'karen-ata-notarial.pdf', arquivoUrl: '', processo: '0815234-56.2026.5.09.0012', analise: null },
-    { id: 16, clienteId: 16, clienteNome: 'Lucas Prado', clienteIniciais: 'LP', avatar: 'avatar-4', tipo: 'Certidão de Nascimento', data: '2026-06-01', status: 'Concluído', recebimento: 'E-mail', observacoes: '', arquivoNome: 'lucas-nascimento.pdf', arquivoUrl: '', processo: '0816234-56.2026.5.09.0012', analise: { pertinencia: 'Essencial', fase: 'Instrução', notas: 'Documento principal conferido e validado.', ultimaAtualizacao: '06 de maio 2026, 09:12' } },
-    { id: 17, clienteId: 17, clienteNome: 'Marina Pires', clienteIniciais: 'MP', avatar: 'avatar-1', tipo: 'Certidão de Casamento', data: '2026-06-08', status: 'Pendente', recebimento: 'Portal', observacoes: '', arquivoNome: 'marina-casamento.pdf', arquivoUrl: '', processo: '0817234-56.2026.5.09.0012', analise: null },
-    { id: 18, clienteId: 18, clienteNome: 'Nathan Vieira', clienteIniciais: 'NV', avatar: 'avatar-2', tipo: 'Documentos Trabalhistas', data: '2026-06-07', status: 'Análise', recebimento: 'WhatsApp', observacoes: '', arquivoNome: 'nathan-trabalhistas.pdf', arquivoUrl: '', processo: '0818234-56.2026.5.09.0012', analise: null },
-    { id: 19, clienteId: 19, clienteNome: 'Olivia Santana', clienteIniciais: 'OS', avatar: 'avatar-3', tipo: 'Comprovante de Endereço', data: '2026-06-06', status: 'Pendente', recebimento: 'E-mail', observacoes: '', arquivoNome: 'olivia-endereco.pdf', arquivoUrl: '', processo: '0819234-56.2026.5.09.0012', analise: null },
-    { id: 20, clienteId: 20, clienteNome: 'Paulo Henrique', clienteIniciais: 'PH', avatar: 'avatar-4', tipo: 'Carteira de Trabalho', data: '2026-06-05', status: 'Concluído', recebimento: 'Portal', observacoes: '', arquivoNome: 'paulo-ctps.pdf', arquivoUrl: '', processo: '0820234-56.2026.5.09.0012', analise: { pertinencia: 'Complementar', fase: 'Instrução', notas: 'Utilizado para cruzamento de dados do vínculo.', ultimaAtualizacao: '06 de maio 2026, 09:12' } },
-    { id: 21, clienteId: 21, clienteNome: 'Queila Ramos', clienteIniciais: 'QR', avatar: 'avatar-1', tipo: 'Procuração Particular', data: '2026-06-04', status: 'Análise', recebimento: 'E-mail', observacoes: '', arquivoNome: 'queila-procuracao.pdf', arquivoUrl: '', processo: '0821234-56.2026.5.09.0012', analise: null },
-    { id: 22, clienteId: 22, clienteNome: 'Rafael Melo', clienteIniciais: 'RM', avatar: 'avatar-2', tipo: 'Petição Intermediária', data: '2026-06-03', status: 'Complemento', recebimento: 'WhatsApp', observacoes: '', arquivoNome: 'rafael-peticao.pdf', arquivoUrl: '', processo: '0822234-56.2026.5.09.0012', analise: null },
-    { id: 23, clienteId: 23, clienteNome: 'Sandra Luz', clienteIniciais: 'SL', avatar: 'avatar-3', tipo: 'Sentença', data: '2026-06-02', status: 'Concluído', recebimento: 'Portal', observacoes: '', arquivoNome: 'sandra-sentenca.pdf', arquivoUrl: '', processo: '0823234-56.2026.5.09.0012', analise: { pertinencia: 'Essencial', fase: 'Julgamento', notas: 'Sentença consolidada e apta para uso na etapa posterior.', ultimaAtualizacao: '06 de maio 2026, 09:12' } },
-    { id: 24, clienteId: 24, clienteNome: 'Tatiane Costa', clienteIniciais: 'TC', avatar: 'avatar-4', tipo: 'RG Atualizado', data: '2026-06-01', status: 'Pendente', recebimento: 'Presencial', observacoes: '', arquivoNome: 'tatiane-rg.pdf', arquivoUrl: '', processo: '0824234-56.2026.5.09.0012', analise: null }
-  ];
-}
+const DOCUMENTS_SEED = [
+  { clienteId: 1, clienteNome: 'Larissa Souza', clienteIniciais: 'LS', avatar: 'avatar-1', tipo: 'Carta Convite', data: '2026-06-08', status: 'Pendente', recebimento: 'E-mail', observacoes: '', arquivoNome: 'larissa-carta-convite.pdf', arquivoUrl: '', processo: '0801234-56.2026.5.09.0012', analise: null },
+  { clienteId: 2, clienteNome: 'João Fernando Pereira', clienteIniciais: 'JP', avatar: 'avatar-2', tipo: 'Procuração', data: '2026-06-08', status: 'Análise', recebimento: 'Portal', observacoes: '', arquivoNome: 'joao-procuracao.pdf', arquivoUrl: '', processo: '0802234-56.2026.5.09.0012', analise: null },
+  { clienteId: 3, clienteNome: 'Odete Maria da Silva', clienteIniciais: 'OS', avatar: 'avatar-3', tipo: 'CNIS', data: '2026-06-07', status: 'Complemento', recebimento: 'WhatsApp', observacoes: '', arquivoNome: 'odete-cnis.pdf', arquivoUrl: '', processo: '0803234-56.2026.5.09.0012', analise: null },
+  { clienteId: 4, clienteNome: 'Tiago Oliveira', clienteIniciais: 'TO', avatar: 'avatar-4', tipo: 'Declaração de Hipossuficiência', data: '2026-06-07', status: 'Pendente', recebimento: 'E-mail', observacoes: '', arquivoNome: 'tiago-hipossuficiencia.pdf', arquivoUrl: '', processo: '0804234-56.2026.5.09.0012', analise: null },
+  { clienteId: 5, clienteNome: 'Amanda Castro', clienteIniciais: 'AC', avatar: 'avatar-1', tipo: 'RG', data: '2026-06-06', status: 'Concluído', recebimento: 'Portal', observacoes: '', arquivoNome: 'amanda-rg.jpg', arquivoUrl: '', processo: '0805234-56.2026.5.09.0012', analise: { pertinencia: 'Essencial', fase: 'Instrução', notas: 'Documento legível e compatível com o cadastro.', ultimaAtualizacao: '06 de maio 2026, 09:12' } },
+  { clienteId: 6, clienteNome: 'Bruno Martins', clienteIniciais: 'BM', avatar: 'avatar-2', tipo: 'CPF', data: '2026-06-06', status: 'Análise', recebimento: 'Presencial', observacoes: '', arquivoNome: 'bruno-cpf.png', arquivoUrl: '', processo: '0806234-56.2026.5.09.0012', analise: null },
+  { clienteId: 7, clienteNome: 'Camila Rocha', clienteIniciais: 'CR', avatar: 'avatar-3', tipo: 'Comprovante de Residência', data: '2026-06-05', status: 'Pendente', recebimento: 'E-mail', observacoes: '', arquivoNome: 'camila-residencia.pdf', arquivoUrl: '', processo: '0807234-56.2026.5.09.0012', analise: null },
+  { clienteId: 8, clienteNome: 'Daniel Lima', clienteIniciais: 'DL', avatar: 'avatar-4', tipo: 'Contrato Social', data: '2026-06-05', status: 'Concluído', recebimento: 'Portal', observacoes: '', arquivoNome: 'daniel-contrato-social.pdf', arquivoUrl: '', processo: '0808234-56.2026.5.09.0012', analise: { pertinencia: 'Complementar', fase: 'Instrução', notas: 'Documento auxiliar para composição do dossiê.', ultimaAtualizacao: '06 de maio 2026, 09:12' } },
+  { clienteId: 9, clienteNome: 'Eduarda Nunes', clienteIniciais: 'EN', avatar: 'avatar-1', tipo: 'Petição Inicial', data: '2026-06-04', status: 'Análise', recebimento: 'E-mail', observacoes: '', arquivoNome: 'eduarda-peticao.pdf', arquivoUrl: '', processo: '0809234-56.2026.5.09.0012', analise: null },
+  { clienteId: 10, clienteNome: 'Felipe Gomes', clienteIniciais: 'FG', avatar: 'avatar-2', tipo: 'Laudo Médico', data: '2026-06-04', status: 'Complemento', recebimento: 'WhatsApp', observacoes: '', arquivoNome: 'felipe-laudo.pdf', arquivoUrl: '', processo: '0810234-56.2026.5.09.0012', analise: null },
+  { clienteId: 11, clienteNome: 'Gabriela Teixeira', clienteIniciais: 'GT', avatar: 'avatar-3', tipo: 'CTPS', data: '2026-06-03', status: 'Pendente', recebimento: 'Portal', observacoes: '', arquivoNome: 'gabriela-ctps.pdf', arquivoUrl: '', processo: '0811234-56.2026.5.09.0012', analise: null },
+  { clienteId: 12, clienteNome: 'Henrique Alves', clienteIniciais: 'HA', avatar: 'avatar-4', tipo: 'Holerite', data: '2026-06-03', status: 'Concluído', recebimento: 'E-mail', observacoes: '', arquivoNome: 'henrique-holerite.pdf', arquivoUrl: '', processo: '0812234-56.2026.5.09.0012', analise: { pertinencia: 'Essencial', fase: 'Instrução', notas: 'Comprovação suficiente para a etapa atual.', ultimaAtualizacao: '06 de maio 2026, 09:12' } },
+  { clienteId: 13, clienteNome: 'Isabela Moraes', clienteIniciais: 'IM', avatar: 'avatar-1', tipo: 'Extrato Bancário', data: '2026-06-02', status: 'Análise', recebimento: 'Portal', observacoes: '', arquivoNome: 'isabela-extrato.pdf', arquivoUrl: '', processo: '0813234-56.2026.5.09.0012', analise: null },
+  { clienteId: 14, clienteNome: 'José Ricardo', clienteIniciais: 'JR', avatar: 'avatar-2', tipo: 'Comprovante INSS', data: '2026-06-02', status: 'Pendente', recebimento: 'WhatsApp', observacoes: '', arquivoNome: 'jose-inss.pdf', arquivoUrl: '', processo: '0814234-56.2026.5.09.0012', analise: null },
+  { clienteId: 15, clienteNome: 'Karen Dias', clienteIniciais: 'KD', avatar: 'avatar-3', tipo: 'Ata Notarial', data: '2026-06-01', status: 'Complemento', recebimento: 'Presencial', observacoes: '', arquivoNome: 'karen-ata-notarial.pdf', arquivoUrl: '', processo: '0815234-56.2026.5.09.0012', analise: null },
+  { clienteId: 16, clienteNome: 'Lucas Prado', clienteIniciais: 'LP avatar: 'avatar-4', tipo: 'Certidão de Nascimento', data: '2026-06-01', status: 'Concluído', recebimento: 'E-mail', observacoes: '', arquivoNome: 'lucas-nascimento.pdf', arquivoUrl: '', processo: '0816234-56.2026.5.09.0012', analise: { pertinencia: 'Essencial', fase: 'Instrução', notas: 'Documento principal conferido e validado.', ultimaAtualizacao: '06 de maio 2026, 09:12' } },
+  { clienteId: 17, clienteNome: 'Marina Pires', clienteIniciais: 'MP', avatar: 'avatar-1', tipo: 'Certidão de Casamento', data: '2026-06-08', status: 'Pendente', recebimento: 'Portal', observacoes: '', arquivoNome: 'marina-casamento.pdf', arquivoUrl: '', processo: '0817234-56.2026.5.09.0012', analise: null },
+  { clienteId: 18, clienteNome: 'Nathan Vieira', clienteIniciais: 'NV', avatar: 'avatar-2', tipo: 'Documentos Trabalhistas', data: '2026-06-07', status: 'Análise', recebimento: 'WhatsApp', observacoes: '', arquivoNome: 'nathan-trabalhistas.pdf', arquivoUrl: '', processo: '0818234-56.2026.5.09.0012', analise: null },
+  { clienteId: 19, clienteNome: 'Olivia Santana', clienteIniciais: 'OS', avatar: 'avatar-3', tipo: 'Comprovante de Endereço', data: '2026-06-06', status: 'Pendente', recebimento: 'E-mail', observacoes: '', arquivoNome: 'olivia-endereco.pdf', arquivoUrl: '', processo: '0819234-56.2026.5.09.0012', analise: null },
+  { clienteId: 20, clienteNome: 'Paulo Henrique', clienteIniciais: 'PH', avatar: 'avatar-4', tipo: 'Carteira de Trabalho', data: '2026-06-05', status: 'Concluído', recebimento: 'Portal', observacoes: '', arquivoNome: 'paulo-ctps.pdf', arquivoUrl: '', processo: '0820234-56.2026.5.09.0012', analise: { pertinencia: 'Complementar', fase: 'Instrução', notas: 'Utilizado para cruzamento de dados do vínculo.', ultimaAtualizacao: '06 de maio 2026, 09:12' } },
+  { clienteId: 21, clienteNome: 'Queila Ramos', clienteIniciais: 'QR', avatar: 'avatar-1', tipo: 'Procuração Particular', data: '2026-06-04', status: 'Análise', recebimento: 'E-mail', observacoes: '', arquivoNome: 'queila-procuracao.pdf', arquivoUrl: '', processo: '0821234-56.2026.5.09.0012', analise: null },
+  { clienteId: 22, clienteNome: 'Rafael Melo', clienteIniciais: 'RM', avatar: 'avatar-2', tipo: 'Petição Intermediária', data: '2026-06-03', status: 'Complemento', recebimento: 'WhatsApp', observacoes: '', arquivoNome: 'rafael-peticao.pdf', arquivoUrl: '', processo: '0822234-56.2026.5.09.0012', analise: null },
+  { clienteId: 23, clienteNome: 'Sandra Luz', clienteIniciais: 'SL', avatar: 'avatar-3', tipo: 'Sentença', data: '2026-06-02', status: 'Concluído', recebimento: 'Portal', observacoes: '', arquivoNome: 'sandra-sentenca.pdf', arquivoUrl: '', processo: '0823234-56.2026.5.09.0012', analise: { pertinencia: 'Essencial', fase: 'Julgamento', notas: 'Sentença consolidada e apta para uso na etapa posterior.', ultimaAtualizacao: '06 de maio 2026, 09:12' } },
+  { clienteId: 24, clienteNome: 'Tatiane Costa', clienteIniciais: 'TC', avatar: 'avatar-4', tipo: 'RG Atualizado', data: '2026-06-01', status: 'Pendente', recebimento: 'Presencial', observacoes: '', arquivoNome: 'tatiane-rg.pdf', arquivoUrl: '', processo: '0824234-56.2026.5.09.0012', analise: null }
+];
 
+window.documentsStore = [];
+
+let documentosLoaded = false;
 let documentosSearchTerm = '';
 let documentosStatusFilters = ['Pendente'];
 let documentosTipoFilter = '';
@@ -55,17 +56,19 @@ let documentosAnalysisDraft = {
 };
 
 function getDocumentsClients() {
-  if (typeof dashboardClients !== 'undefined') return dashboardClients;
+  if (Array.isArray(window.dashboardClients)) return window.dashboardClients;
+  if (typeof dashboardClients !== 'undefined' && Array.isArray(dashboardClients)) return dashboardClients;
   return [];
 }
 
 function getDocumentsTiposDisponiveis() {
-  return [...new Set(window.documentsStore.map(d => d.tipo))].sort();
+  return [...new Set((window.documentsStore || []).map(d => d.tipo).filter(Boolean))].sort();
 }
 
 function formatDateBR(dateStr) {
   if (!dateStr) return '';
-  const [y, m, d] = dateStr.split('-');
+  const [y, m, d] = String(dateStr).split('-');
+  if (!y || !m || !d) return dateStr;
   return `${d}/${m}/${y}`;
 }
 
@@ -77,13 +80,169 @@ function getDocumentoStatusClass(status) {
   return 'status-analise';
 }
 
+function mapDbDocToUi(doc) {
+  return {
+    id: doc.id,
+    clienteId: doc.cliente_id,
+    clienteNome: doc.cliente_nome,
+    clienteIniciais: doc.cliente_iniciais || 'CL',
+    avatar: doc.avatar || 'avatar-1',
+    tipo: doc.tipo,
+    data: doc.data,
+    status: doc.status || 'Pendente',
+    recebimento: doc.recebimento || '',
+    observacoes: doc.observacoes || '',
+    arquivoNome: doc.arquivo_nome,
+    arquivoUrl: doc.arquivo_url || '',
+    processo: doc.processo || '',
+    analise: doc.analise || null
+  };
+}
+
+async function fetchDocumentsFromSupabase() {
+  const { data, error } = await window.supabaseClient
+    .from('documentos')
+    .select('*')
+    .order('data', { ascending: false });
+
+  if (error) {
+    console.error('Erro ao buscar documentos:', error);
+    throw error;
+  }
+
+  return (data || []).map(mapDbDocToUi);
+}
+
+async function seedDocumentsIfEmpty() {
+  const { count, error } = await window.supabaseClient
+    .from('documentos')
+    .select('*', { count: 'exact', head: true });
+
+  if (error) {
+    console.error('Erro ao verificar seed:', error);
+    return;
+  }
+
+  if ((count || 0) > 0) return;
+
+  const payload = DOCUMENTS_SEED.map(doc => ({
+    cliente_id: doc.clienteId,
+    cliente_nome: doc.clienteNome,
+    cliente_iniciais: doc.clienteIniciais,
+    avatar: doc.avatar,
+    tipo: doc.tipo,
+    data: doc.data,
+    status: doc.status,
+    recebimento: doc.recebimento,
+    observacoes: doc.observacoes,
+    arquivo_nome: doc.arquivoNome,
+    arquivo_url: doc.arquivoUrl,
+    processo: doc.processo,
+    analise: doc.analise
+  }));
+
+  const { error: insertError } = await window.supabaseClient
+    .from('documentos')
+    .insert(payload);
+
+  if (insertError) {
+    console.error('Erro ao inserir seed:', insertError);
+  }
+}
+
+async function refreshDocumentsStore() {
+  window.documentsStore = await fetchDocumentsFromSupabase();
+  documentosLoaded = true;
+}
+
+async function ensureDocumentsLoaded() {
+  if (!window.supabaseClient) {
+    console.error('Supabase não inicializado.');
+    return;
+  }
+
+  if (!documentosLoaded) {
+    await seedDocumentsIfEmpty();
+    await refreshDocumentsStore();
+  }
+}
+
+async function uploadDocumentFileToSupabase(file) {
+  const ext = file.name.split('.').pop();
+  const safeName = `${Date.now()}-${Math.random().toString(36).slice(2)}.${ext}`;
+  const path = `uploads/${safeName}`;
+
+  const { error: uploadError } = await window.supabaseClient
+    .storage
+    .from('documentos')
+    .upload(path, file);
+
+  if (uploadError) {
+    console.error('Erro no upload do arquivo:', uploadError);
+    throw uploadError;
+  }
+
+  const { data } = window.supabaseClient
+    .storage
+    .from('documentos')
+    .getPublicUrl(path);
+
+  return data.publicUrl;
+}
+
+async function insertDocumentToSupabase(doc) {
+  const { data, error } = await window.supabaseClient
+    .from('documentos')
+    .insert([doc])
+    .select()
+    .single();
+
+  if (error) {
+    console.error('Erro ao inserir documento:', error);
+    throw error;
+  }
+
+  return mapDbDocToUi(data);
+}
+
+async function deleteDocumentFromSupabase(docId) {
+  const { error } = await window.supabaseClient
+    .from('documentos')
+    .delete()
+    .eq('id', docId);
+
+  if (error) {
+    console.error('Erro ao excluir documento:', error);
+    throw error;
+  }
+}
+
+async function updateDocumentAnalysisInSupabase(docId, analise, status) {
+  const { data, error } = await window.supabaseClient
+    .from('documentos')
+    .update({
+      analise,
+      status
+    })
+    .eq('id', docId)
+    .select()
+    .single();
+
+  if (error) {
+    console.error('Erro ao atualizar análise:', error);
+    throw error;
+  }
+
+  return mapDbDocToUi(data);
+}
+
 function getFilteredDocuments() {
-  return window.documentsStore.filter(doc => {
+  return (window.documentsStore || []).filter(doc => {
     const matchesSearch =
       !documentosSearchTerm ||
-      doc.clienteNome.toLowerCase().includes(documentosSearchTerm.toLowerCase()) ||
-      doc.tipo.toLowerCase().includes(documentosSearchTerm.toLowerCase()) ||
-      doc.arquivoNome.toLowerCase().includes(documentosSearchTerm.toLowerCase()) ||
+      (doc.clienteNome || '').toLowerCase().includes(documentosSearchTerm.toLowerCase()) ||
+      (doc.tipo || '').toLowerCase().includes(documentosSearchTerm.toLowerCase()) ||
+      (doc.arquivoNome || '').toLowerCase().includes(documentosSearchTerm.toLowerCase()) ||
       (doc.processo || '').toLowerCase().includes(documentosSearchTerm.toLowerCase());
 
     const matchesStatus =
@@ -134,23 +293,39 @@ function clearDocumentFilters() {
 }
 
 function bindDocsNav() {
+  if (typeof attachGlobalNavigationEvents === 'function') {
+    attachGlobalNavigationEvents();
+    return;
+  }
+
   document.querySelectorAll('[data-nav="dashboard"]').forEach(el => {
-    el.addEventListener('click', () => renderDashboard());
+    el.addEventListener('click', () => {
+      if (typeof renderDashboard === 'function') renderDashboard();
+    });
   });
 
-  document.querySelectorAll('[data-nav="docs"]').forEach(el => {
-    el.addEventListener('click', () => renderDocuments());
+  document.querySelectorAll('[data-nav="documentos"]').forEach(el => {
+    el.addEventListener('click', () => {
+      renderDocuments();
+    });
   });
 
   document.querySelectorAll('[data-nav="clientes"]').forEach(el => {
     el.addEventListener('click', () => {
-      if (typeof renderClientsList === 'function') renderClientsList();
-      else alert('Página de clientes ainda não implementada.');
+      if (typeof renderClientesPage === 'function') renderClientesPage();
+    });
+  });
+
+  document.querySelectorAll('[data-nav="configuracoes"]').forEach(el => {
+    el.addEventListener('click', () => {
+      if (typeof renderConfiguracoesPage === 'function') renderConfiguracoesPage();
     });
   });
 
   document.querySelectorAll('[data-nav="sair"]').forEach(el => {
-    el.addEventListener('click', () => renderLogin());
+    el.addEventListener('click', () => {
+      if (typeof renderLogin === 'function') renderLogin();
+    });
   });
 }
 
@@ -216,8 +391,12 @@ function renderDocumentsPagination() {
   return html;
 }
 
-function renderDocuments() {
+async function renderDocuments() {
+  await ensureDocumentsLoaded();
+
   const app = document.getElementById('app');
+  if (!app) return;
+
   const filtered = getFilteredDocuments();
   const start = filtered.length ? ((documentosCurrentPage - 1) * DOCUMENTOS_ITEMS_PER_PAGE) + 1 : 0;
   const end = Math.min(documentosCurrentPage * DOCUMENTOS_ITEMS_PER_PAGE, filtered.length);
@@ -225,7 +404,7 @@ function renderDocuments() {
 
   app.innerHTML = `
     <div class="dashboard-page">
-      ${renderSidebar('docs')}
+      ${typeof renderSidebar === 'function' ? renderSidebar('documentos') : ''}
 
       <div class="main-shell">
         <header class="topbar">
@@ -468,10 +647,11 @@ function renderDocumentNew() {
   const clientes = getDocumentsClients();
   const tipos = getDocumentsTiposDisponiveis();
   const app = document.getElementById('app');
+  if (!app) return;
 
   app.innerHTML = `
     <div class="dashboard-page">
-      ${renderSidebar('docs')}
+      ${typeof renderSidebar === 'function' ? renderSidebar('documentos') : ''}
 
       <div class="main-shell">
         <header class="topbar">
@@ -496,8 +676,8 @@ function renderDocumentNew() {
                 <div class="page-title">Novo Cadastro de Documento</div>
                 <div class="page-subtitle">Preencha as informações abaixo para registrar um novo documento.</div>
               </div>
-              <div class="page-date">08 DE JUNHO, 2026</div>
-            </section>
+              <div class="page-date">08 DE JUNHO
+                          </section>
 
             <section class="cadastro-layout">
               <div class="cadastro-left">
@@ -602,8 +782,10 @@ function renderDocumentNew() {
       </div>
     </div>
   `;
+
   attachDocumentNewEvents();
 }
+
 function attachDocumentNewEvents() {
   const fileInput = document.getElementById('doc-arquivo');
   const fileName = document.getElementById('doc-arquivo-nome');
@@ -689,11 +871,6 @@ function attachDocumentNewEvents() {
   const cancelBtn = document.getElementById('btn-confirmar-cancelar');
   if (cancelBtn) {
     cancelBtn.addEventListener('click', () => {
-      documentoDraft.clienteNome = document.getElementById('doc-cliente-search').value.trim();
-      documentoDraft.tipo = document.getElementById('doc-tipo').value.trim();
-      documentoDraft.data = document.getElementById('doc-data').value;
-      documentoDraft.observacoes = document.getElementById('doc-observacoes').value.trim();
-      documentoDraft.statusInicial = document.getElementById('doc-status').value;
       renderDocumentCancelModal();
     });
   }
@@ -729,7 +906,7 @@ function renderDocumentSaveConfirmModal() {
   };
 }
 
-function saveDocumentDraft() {
+async function saveDocumentDraft() {
   const clientes = getDocumentsClients();
   const cliente = clientes.find(c => c.nome.toLowerCase() === documentoDraft.clienteNome.toLowerCase());
 
@@ -738,35 +915,43 @@ function saveDocumentDraft() {
     return;
   }
 
-  window.documentsStore.unshift({
-    id: Date.now(),
-    clienteId: cliente.id,
-    clienteNome: cliente.nome,
-    clienteIniciais: cliente.iniciais,
-    avatar: cliente.tipoAvatar,
-    tipo: documentoDraft.tipo,
-    data: documentoDraft.data,
-    status: documentoDraft.statusInicial || 'Pendente',
-    recebimento: documentoDraft.recebimento,
-    observacoes: documentoDraft.observacoes,
-    arquivoNome: documentoDraft.arquivo.name,
-    arquivoUrl: documentoDraft.arquivoUrl || '',
-    processo: `08${Math.floor(Math.random() * 9000 + 1000)}-56.2026.5.09.0012`,
-    analise: null
-  });
+  try {
+    const arquivoUrl = await uploadDocumentFileToSupabase(documentoDraft.arquivo);
 
-  documentoDraft = {
-    clienteNome: '',
-    tipo: '',
-    data: '',
-    recebimento: '',
-    observacoes: '',
-    arquivo: null,
-    arquivoUrl: '',
-    statusInicial: 'Pendente'
-  };
+    const novoDoc = await insertDocumentToSupabase({
+      cliente_id: cliente.id,
+      cliente_nome: cliente.nome,
+      cliente_iniciais: cliente.iniciais,
+      avatar: cliente.tipoAvatar || 'avatar-1',
+      tipo: documentoDraft.tipo,
+      data: documentoDraft.data,
+      status: documentoDraft.statusInicial || 'Pendente',
+      recebimento: documentoDraft.recebimento,
+      observacoes: documentoDraft.observacoes,
+      arquivo_nome: documentoDraft.arquivo.name,
+      arquivo_url: arquivoUrl,
+      processo: `08${Math.floor(Math.random() * 9000 + 1000)}-56.2026.5.09.0012`,
+      analise: null
+    });
 
-  renderDocumentSavedSuccess();
+    window.documentsStore.unshift(novoDoc);
+
+    documentoDraft = {
+      clienteNome: '',
+      tipo: '',
+      data: '',
+      recebimento: '',
+      observacoes: '',
+      arquivo: null,
+      arquivoUrl: '',
+      statusInicial: 'Pendente'
+    };
+
+    renderDocumentSavedSuccess();
+  } catch (error) {
+    console.error(error);
+    alert('Não foi possível salvar o documento no servidor.');
+  }
 }
 
 function renderDocumentSavedSuccess() {
@@ -839,7 +1024,6 @@ function renderDocumentAnalysis(docId) {
   if (!doc) return;
 
   const sameDoc = documentosCurrentAnalysisId === docId;
-
   documentosCurrentAnalysisId = docId;
 
   if (!sameDoc) {
@@ -852,9 +1036,11 @@ function renderDocumentAnalysis(docId) {
   }
 
   const app = document.getElementById('app');
+  if (!app) return;
+
   app.innerHTML = `
     <div class="dashboard-page">
-      ${renderSidebar('docs')}
+      ${typeof renderSidebar === 'function' ? renderSidebar('documentos') : ''}
 
       <div class="main-shell">
         <header class="topbar">
@@ -992,7 +1178,7 @@ function renderDocumentAnalysis(docId) {
                       <strong>Cadastro</strong>
                       <small>Secretaria</small>
                     </div>
-                    <span>${doc.analise?.ultimaAtualizacao || '06 de maio 2026, 09:12'}</span>
+                    <span>${doc.analise?.ultimaAtualizacao || 'Ainda não analisado'}</span>
                   </div>
                 </div>
               </section>
@@ -1015,7 +1201,7 @@ function attachDocumentAnalysisEvents() {
   const doc = window.documentsStore.find(d => d.id === documentosCurrentAnalysisId);
   if (!doc) return;
 
-    document.querySelectorAll('input[name="pertinencia"]').forEach(input => {
+  document.querySelectorAll('input[name="pertinencia"]').forEach(input => {
     input.addEventListener('change', () => {
       documentosAnalysisDraft.pertinencia = input.value;
       documentosAnalysisDraft.changed = true;
@@ -1080,6 +1266,7 @@ function attachDocumentAnalysisEvents() {
         const a = document.createElement('a');
         a.href = doc.arquivoUrl;
         a.download = doc.arquivoNome;
+        a.target = '_blank';
         a.click();
       } else {
         alert(`Arquivo: ${doc.arquivoNome}`);
@@ -1118,7 +1305,7 @@ function renderAnalysisSaveConfirmModal() {
   };
 }
 
-function saveDocumentAnalysis() {
+async function saveDocumentAnalysis() {
   const doc = window.documentsStore.find(d => d.id === documentosCurrentAnalysisId);
   if (!doc) return;
 
@@ -1127,19 +1314,31 @@ function saveDocumentAnalysis() {
     return;
   }
 
-  doc.analise = {
+  const analise = {
     pertinencia: documentosAnalysisDraft.pertinencia,
     fase: documentosAnalysisDraft.fase,
     notas: documentosAnalysisDraft.notas,
-    ultimaAtualizacao: '06 de maio 2026, 09:12'
+    ultimaAtualizacao: new Date().toLocaleString('pt-BR')
   };
 
-  if (doc.status !== 'Concluído') {
-    doc.status = 'Concluído';
-  }
+  try {
+    const updatedDoc = await updateDocumentAnalysisInSupabase(
+      documentosCurrentAnalysisId,
+      analise,
+      'Concluído'
+    );
 
-  documentosAnalysisDraft.changed = false;
-  renderAnalysisSavedSuccessModal();
+    const index = window.documentsStore.findIndex(d => d.id === documentosCurrentAnalysisId);
+    if (index !== -1) {
+      window.documentsStore[index] = updatedDoc;
+    }
+
+    documentosAnalysisDraft.changed = false;
+    renderAnalysisSavedSuccessModal();
+  } catch (error) {
+    console.error(error);
+    alert('Não foi possível salvar a análise.');
+  }
 }
 
 function renderAnalysisSavedSuccessModal() {
@@ -1228,12 +1427,15 @@ function renderDeleteConfirmModal(docId) {
   };
 }
 
-function deleteDocumentById(docId) {
-  const index = window.documentsStore.findIndex(d => d.id === docId);
-  if (index === -1) return;
-
-  window.documentsStore.splice(index, 1);
-  renderDeleteSuccessModal();
+async function deleteDocumentById(docId) {
+  try {
+    await deleteDocumentFromSupabase(docId);
+    window.documentsStore = window.documentsStore.filter(d => d.id !== docId);
+    renderDeleteSuccessModal();
+  } catch (error) {
+    console.error(error);
+    alert('Não foi possível excluir o documento.');
+  }
 }
 
 function renderDeleteSuccessModal() {
@@ -1256,3 +1458,9 @@ function renderDeleteSuccessModal() {
     renderDocuments();
   };
 }
+
+window.renderDocuments = renderDocuments;
+window.renderDocumentNew = renderDocumentNew;
+window.renderDocumentAnalysis = renderDocumentAnalysis;
+window.ensureDocumentsLoaded = ensureDocumentsLoaded;
+
