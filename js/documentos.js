@@ -387,9 +387,10 @@ async function renderDocuments() {
   if (!app) return;
 
   const filtered = getFilteredDocuments();
-  const start = filtered.length ? ((documentosCurrentPage - 1) *OS_ITEMS_PER_PAGE) + 1 : 0;
+  const start = filtered.length ? ((documentosCurrentPage - 1) * DOCUMENTOS_ITEMS_PER_PAGE) + 1 : 0;
   const end = Math.min(documentosCurrentPage * DOCUMENTOS_ITEMS_PER_PAGE, filtered.length);
   const tipos = getDocumentsTiposDisponiveis();
+
 
   app.innerHTML = `
     <div class="dashboard-page">
