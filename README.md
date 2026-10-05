@@ -1,4 +1,4 @@
-# ⚖️ JurisDoc — Gestão Documental para Escritórios de Advocacia
+# JurisDoc — Gestão Documental para Escritórios de Advocacia
 
 > Sistema web que organiza o fluxo de documentos de um escritório de advocacia: do recebimento à análise de pertinência, com controle de pendências, status e visão gerencial em tempo real.
 
@@ -6,12 +6,12 @@
 
 | Usuário de demonstração | |
 |---|---|
-| E-mail | `Lucas@jurisdoc.com.br` |
+| E-mail | `usuario@jurisdoc.com.br` |
 | Senha | `1234` |
 
 ---
 
-## 🧩 O problema
+##  O problema
 
 Escritórios de advocacia recebem documentos o tempo todo — procurações, contratos, certidões, laudos, comprovantes — por WhatsApp e presencialmente. No cenário estudado:
 
@@ -20,7 +20,7 @@ Escritórios de advocacia recebem documentos o tempo todo — procurações, con
 - não existe visão consolidada do que está pendente, incompleto ou ilegível;
 - o resultado é retrabalho, solicitações repetidas ao cliente e risco de perda de prazo.
 
-## 💡 A solução
+## A solução
 
 Um sistema **complementar ao ERP jurídico** — não um repositório de arquivos, mas uma ferramenta que modela os conceitos do próprio domínio:
 
@@ -54,7 +54,7 @@ Um sistema **complementar ao ERP jurídico** — não um repositório de arquivo
 
 ---
 
-## 🛠️ Como o projeto foi construído
+## Como o projeto foi construído
 
 O sistema foi desenvolvido seguindo um processo completo de engenharia de requisitos, partindo de usuários reais até o software funcionando.
 
@@ -97,13 +97,13 @@ Versão funcional em HTML, CSS e JavaScript, publicada via GitHub Pages, impleme
 
 ---
 
-## 🎨 Interação Humano-Computador
+## Interação Humano-Computador
 
 > _Em breve — personas, análise de tarefas e avaliação de usabilidade do sistema._
 
 ---
 
-## 📁 Estrutura
+## Estrutura
 
 ```
 sistema-juridico/
@@ -113,11 +113,11 @@ sistema-juridico/
 └── README.md
 ```
 
-## 🧰 Ferramentas
+## Ferramentas
 
 HTML · CSS · JavaScript · GitHub Pages · Figma · LaTeX · IEEE 830
 
-## 👩‍💻 Autora
+## Autora
 
 **Amanda da Silva Palacio** — Engenharia de Software, Universidade Estadual de Maringá
 [GitHub](https://github.com/amandapalacioo)
