@@ -1,4 +1,4 @@
-# ⚖️ JurisDoc — Sistema de Organização de Documentos Jurídicos
+# JurisDoc — Sistema de Organização de Documentos Jurídicos
 
 > Sistema web de apoio à gestão documental para escritórios de advocacia: cadastro, vinculação ao cliente, **classificação de pertinência**, controle de pendências e acompanhamento de status.
 
@@ -6,14 +6,14 @@ Projeto acadêmico desenvolvido no curso de **Engenharia de Software da Universi
 
 | Visão | Disciplina | Foco |
 |---|---|---|
-| 📋 **Engenharia de Requisitos** | Processo de Software e Engenharia de Requisitos | Levantamento com stakeholders, especificação formal (IEEE 830/SRS), casos de uso, rastreabilidade |
-| 🎨 **Interação Humano-Computador** | IHC | Usuários, tarefas, protótipo e avaliação de usabilidade *(em construção)* |
+| **Engenharia de Requisitos** | Processo de Software e Engenharia de Requisitos | Levantamento com stakeholders, especificação formal (IEEE 830/SRS), casos de uso, rastreabilidade |
+| **Interação Humano-Computador** | IHC | Usuários, tarefas, protótipo e avaliação de usabilidade *(em construção)* |
 
 🔗 **[Versão funcional](https://amandapalacioo.github.io/sistema-juridico/)**
 
 ---
 
-## 🧩 O problema
+## **O problema**
 
 Em um escritório de advocacia, documentos chegam o tempo todo — procurações, contratos, certidões, laudos, comprovantes, decisões judiciais. Sem um fluxo padronizado, o resultado é:
 
@@ -22,7 +22,7 @@ Em um escritório de advocacia, documentos chegam o tempo todo — procurações
 - classificação documental frágil (o que serve para o processo? o que falta?);
 - retrabalho causado por registros incompletos ou inconsistentes.
 
-## 💡 A solução
+## **A solução**
 
 Um sistema **complementar ao ERP jurídico** do escritório — não um simples repositório de arquivos, mas uma ferramenta que modela conceitos do próprio domínio jurídico:
 
@@ -32,7 +32,7 @@ Um sistema **complementar ao ERP jurídico** do escritório — não um simples 
 - **Dashboard** com o que exige atenção
 - **Controle de acesso por perfil**
 
-### Perfis de usuário
+### **Perfis de usuário**
 
 | Perfil | Papel no fluxo |
 |---|---|
@@ -44,7 +44,7 @@ Um sistema **complementar ao ERP jurídico** do escritório — não um simples 
 
 ---
 
-## 📋 Visão 1 — Engenharia de Requisitos
+## **Visão 1 — Engenharia de Requisitos**
 
 O projeto foi construído de forma **incremental em três entregas**. Cada etapa incorporou o feedback da anterior — o que torna o repositório também um registro de como a especificação amadureceu.
 
